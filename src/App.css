@@ -10,15 +10,13 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   background-color: #ffffff;
+  font-size: 14px;
 }
 .background {
   background: #f6f9fc;
   padding: 50px 0;
 }
-.container {
-  max-width: 90%;
-  margin: auto;
-}
+
 .d_flex {
   display: flex;
   justify-content: space-between;
@@ -53,9 +51,7 @@ button {
   outline: none;
   background-color: none;
 }
-.row {
-  width: 50%;
-}
+
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -102,14 +98,7 @@ button {
 }
 
 /*---------category----------*/
-.btn-primary {
-  background: #e94560;
-  padding: 13px 40px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 .top {
   margin-top: 80px;
 }
