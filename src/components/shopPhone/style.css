@@ -64,9 +64,12 @@
   font-weight: 500;
   cursor: pointer;
 }
-.product-details .price .view{
+/* .product-details .view{
   background: #0cc0df;
   color: #fff;
-  width: 210px;
+  width: 150px;
   cursor: pointer;
+} */
+.box-row {
+  width: 33.33%;
 }
