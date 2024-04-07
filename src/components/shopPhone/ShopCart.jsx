@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 const ShopCart = ({ shopItems, addToCart }) => {
-  const [count, setCount] = useState(0);
-  const increment = () => {
-    setCount(count + 1);
-  };
+  const history = useHistory();
 
+  const openDetail = (item) => {
+    history.push("/detail/" + item.id);
+  };
   return (
     <>
       {shopItems.map((item) => {
         return (
-          <div className="box" key={item.id}>
-            <div className="product mtop">
+          <div className="col-md-4" key={item.id}>
+            <div className="product mtop w-100">
               <div className="img">
                 <span className="discount">{item.discount}% Off</span>
-                <img src={item.cover} alt="" />
-                <div className="product-like">
-                  <label>{count}</label> <br />
-                  <i className="fa-regular fa-heart" onClick={increment}></i>
-                </div>
+                <img src={item.imageUrl} alt="" />
               </div>
               <div className="product-details">
                 <h3>{item.name}</h3>
@@ -29,12 +26,23 @@ const ShopCart = ({ shopItems, addToCart }) => {
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
                 </div>
-                <div className="price">
+                <div>
                   <h4>${item.price}.00 </h4>
-                  <button className={"view"}>Xem nhanh</button>
-                  <button onClick={() => addToCart(item)}>
-                    <i className="fa fa-plus"></i>
-                  </button>
+                  <div className="w-100 d-flex justify-content-between">
+                    <button
+                      onClick={() => openDetail(item)}
+                      type="button"
+                      className="btn btn-primary"
+                    >
+                      Xem nhanh
+                    </button>
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() => addToCart(item)}
+                    >
+                      <i className="fa fa-plus"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

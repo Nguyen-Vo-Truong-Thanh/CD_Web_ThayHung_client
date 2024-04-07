@@ -1,38 +1,45 @@
-import React from "react"
+import React from "react";
 
 const Catg = () => {
   const data = [
     {
-      cateImg: "./images/category/cat-1.png",
-      cateName: "Apple",
+      id: 1,
+      name: "Apple",
+      imageUrl: "./images/category/cat-1.png",
+      code: "apple",
     },
     {
-      cateImg: "./images/category/cat-2.png",
-      cateName: "Samasung",
+      id: 2,
+      name: "Samsung",
+      imageUrl: "./images/category/cat-2.png",
+      code: "samsung",
     },
     {
-      cateImg: "./images/category/cat-1.png",
-      cateName: "Oppo",
+      id: 3,
+      name: "Oppo",
+      imageUrl: "./images/category/cat-3.png",
+      code: "oppo",
     },
-  ]
+  ];
+
   return (
     <>
-      <div className='category'>
-        <div className='chead d_flex'>
+      <div className="category w-100">
+        <div className="chead d-flex">
           <h1>Brands </h1>
           <h1>Shops </h1>
         </div>
         {data.map((value, index) => {
           return (
-            <div className='box f_flex' key={index}>
-              <img src={value.cateImg} alt='' />
-              <span>{value.cateName}</span>
+            <div className="box f_flex" key={index}>
+              <img src={value.imageUrl} alt="" />
+              <span>{value.name}</span>
             </div>
-          )
+          );
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Catg
+export default Catg;
