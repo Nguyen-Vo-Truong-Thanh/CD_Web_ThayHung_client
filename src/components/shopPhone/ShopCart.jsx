@@ -27,7 +27,7 @@ const ShopCart = ({ shopItems, addToCart }) => {
                   <i className="fa fa-star"></i>
                 </div>
                 <div>
-                  <h4>${item.price}.00 </h4>
+                  <h4>{item.price.toLocaleString()} VNĐ </h4>
                   <div className="w-100 d-flex justify-content-between">
                     <button
                       onClick={() => openDetail(item)}

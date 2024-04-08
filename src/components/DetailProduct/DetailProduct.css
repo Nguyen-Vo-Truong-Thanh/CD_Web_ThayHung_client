@@ -1,0 +1,32 @@
+.col-md-5{
+    border: 1px solid grey;
+}
+.col-md-7 .title{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31px;
+    margin-bottom: 15px;
+}
+.col-md-7 h4{
+    color: #cb1c22;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+}
+.col-md-7 .des {
+    margin: 15px 0;
+}
+.col-md-7 i{
+    margin-right: 10px;
+}
+.col-md-7 .description {
+    font-size: 20px;
+    line-height: 28px;
+    color: #2c2d2f;
+}
+.col-md-7 .payment button{
+    margin-top: 20px;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 600;
+}

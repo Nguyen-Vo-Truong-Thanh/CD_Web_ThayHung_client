@@ -237,3 +237,9 @@ button {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 }
+/*-------slide------*/
+.left .btn-primary{
+  background-color: #e94560;
+  width: 140px;
+  height: 30px;
+}
