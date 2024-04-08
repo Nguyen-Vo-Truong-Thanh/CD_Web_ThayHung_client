@@ -1,33 +1,33 @@
-import React from "react"
-import Catg from "./Catg"
-import ShopCart from "./ShopCart"
-import "./style.css"
+import React from "react";
+import Catg from "./Catg";
+import ShopCart from "./ShopCart";
+import "./style.css";
 
 const ShopLaptop = ({ addToCart, shopItems }) => {
   return (
     <>
-      <section className='shop background'>
-        <div className='container d_flex'>
-          <Catg />
-
-          <div className='contentWidth'>
-            <div className='heading d_flex'>
-              <div className='heading-left row  f_flex'>
-                <h2>Laptop</h2>
-              </div>
-              <div className='heading-right row '>
-                <span>View all</span>
-                <i className='fa-solid fa-caret-right'></i>
-              </div>
+      <section className="shop background">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <Catg />
             </div>
-            <div className='product-content  grid1'>
-              <ShopCart addToCart={addToCart} shopItems={shopItems} />
+
+            <div className="col-md-9">
+              <div className="heading d_flex">
+                <div className="heading-left row  f_flex">
+                  <h2>Laptop</h2>
+                </div>
+              </div>
+              <div className="row">
+                <ShopCart addToCart={addToCart} shopItems={shopItems} />
+              </div>
             </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default ShopLaptop
+export default ShopLaptop;

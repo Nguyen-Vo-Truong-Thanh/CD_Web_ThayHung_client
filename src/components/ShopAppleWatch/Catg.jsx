@@ -10,15 +10,15 @@ const Catg = () => {
     },
     {
       id: 2,
-      name: "Dell",
+      name: "Samsung",
       imageUrl: "./images/category/cat-2.png",
-      code: "dell",
+      code: "samsung",
     },
     {
       id: 3,
-      name: "ASUS",
+      name: "Huawei",
       imageUrl: "./images/category/cat-3.png",
-      code: "asus",
+      code: "huawei",
     },
   ];
 
