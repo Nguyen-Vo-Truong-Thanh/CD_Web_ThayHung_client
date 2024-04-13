@@ -4,21 +4,21 @@ const Catg = () => {
   const data = [
     {
       id: 1,
-      name: "Apple",
+      name: "Logitech",
       imageUrl: "./images/category/cat-1.png",
-      code: "apple",
+      code: "logitech",
     },
     {
       id: 2,
-      name: "Dell",
+      name: "JBL",
       imageUrl: "./images/category/cat-2.png",
-      code: "dell",
+      code: "jbl",
     },
     {
       id: 3,
-      name: "ASUS",
+      name: "Apple",
       imageUrl: "./images/category/cat-3.png",
-      code: "asus",
+      code: "apple",
     },
   ];
 

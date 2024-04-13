@@ -43,5 +43,5 @@ const Data = {
       price: 100,
     },
   ],
-}
-export default Data
+};
+export default Data;

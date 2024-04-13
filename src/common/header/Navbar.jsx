@@ -2,8 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  // Toogle Menu
+  // Toggle Menu
   const [MobileMenu, setMobileMenu] = useState(false);
+
+  // Xử lý sự kiện khi click vào link
+  const handleClick = () => {
+    // Nếu đang ở giữa trang, chuyển đến đầu trang
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Đóng mobile menu (nếu đang mở)
+    setMobileMenu(false);
+  };
+
   return (
     <>
       <header className="header">
@@ -22,19 +31,25 @@ const Navbar = () => {
               }
               onClick={() => setMobileMenu(false)}
             >
-              {/*<ul className='link f_flex uppercase {MobileMenu ? "nav-links-MobileMenu" : "nav-links"} onClick={() => setMobileMenu(false)}'>*/}
               <li>
-                <Link to="/">TRANG CHỦ</Link>
+                <Link to="/" onClick={handleClick}>
+                  TRANG CHỦ
+                </Link>
               </li>
               <li>
-                <Link to="/shop">CỬA HÀNG</Link>
-              </li>
-
-              <li>
-                <Link to="/cart">CART</Link>
+                <Link to="/shop" onClick={handleClick}>
+                  CỬA HÀNG
+                </Link>
               </li>
               <li>
-                <Link to="/contact">CONTACT</Link>
+                <Link to="/cart" onClick={handleClick}>
+                  CART
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" onClick={handleClick}>
+                  CONTACT
+                </Link>
               </li>
             </ul>
 

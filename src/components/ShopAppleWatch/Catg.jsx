@@ -16,9 +16,9 @@ const Catg = () => {
     },
     {
       id: 3,
-      name: "Oppo",
+      name: "Huawei",
       imageUrl: "./images/category/cat-3.png",
-      code: "oppo",
+      code: "huawei",
     },
   ];
 

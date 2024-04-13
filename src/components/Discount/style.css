@@ -57,3 +57,19 @@
 .shop .product:hover {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
+.heading-right.row span
+{
+  color: #e94560;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* .product-details .view{
+  background: #0cc0df;
+  color: #fff;
+  width: 150px;
+  cursor: pointer;
+} */
+.box-row {
+  width: 33.33%;
+}

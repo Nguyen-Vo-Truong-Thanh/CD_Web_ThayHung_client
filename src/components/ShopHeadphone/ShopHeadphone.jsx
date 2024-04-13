@@ -2,7 +2,7 @@ import React from "react";
 import ShopCart from "./ShopCart";
 import "./style.css";
 
-const ShopPhone = ({ addToCart, shopItems }) => {
+const ShopHeadphone = ({ addToCart, shopItems }) => {
   return (
     <>
       <section className="shop background">
@@ -10,7 +10,7 @@ const ShopPhone = ({ addToCart, shopItems }) => {
           <div className="row">
             <div className="heading d_flex">
               <div className="heading-left row  f_flex">
-                <h2>Mobile Phones</h2>
+                <h2>Tai nghe</h2>
               </div>
             </div>
             <div className="row">
@@ -23,4 +23,4 @@ const ShopPhone = ({ addToCart, shopItems }) => {
   );
 };
 
-export default ShopPhone;
+export default ShopHeadphone;

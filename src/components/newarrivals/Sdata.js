@@ -5,7 +5,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-1.png",
       name: "Mapple Earphones",
       price: 18000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 1,
@@ -15,7 +15,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-2.png",
       name: "Mapple Earphones",
       price: 12000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 2,
@@ -25,7 +25,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-3.png",
       name: "Mapple Earphones",
       price: 13000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 3,
@@ -35,7 +35,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-4.png",
       name: "Mapple Earphones",
       price: 16000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 1,
@@ -45,7 +45,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-5.png",
       name: "Mapple Earphones",
       price: 18000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 3,
@@ -55,7 +55,7 @@ const Sdata = {
       imageUrl: "./images/shops/shops-6.png",
       name: "Mapple Earphones",
       price: 18000000,
-      discount: 25,
+      status: "new",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       categoryId: 2,
