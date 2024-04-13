@@ -6,6 +6,7 @@ import ShopPhone from "../components/shopPhone/ShopPhone";
 import ShopLaptop from "../components/ShopLaptop/ShopLaptop";
 import ShopAppleWatch from "../components/ShopAppleWatch/ShopAppleWatch";
 import ShopHeadphone from "../components/ShopHeadphone/ShopHeadphone";
+import Pagination from "../common/pagination/Pagination";
 
 const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
   return (
@@ -17,6 +18,7 @@ const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
       <ShopLaptop shopItems={shopItems} addToCart={addToCart} />
       <ShopAppleWatch shopItems={shopItems} addToCart={addToCart} />
       <ShopHeadphone shopItems={shopItems} addToCart={addToCart} />
+      <Pagination />
     </>
   );
 };

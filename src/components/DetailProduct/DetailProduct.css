@@ -30,3 +30,6 @@
     font-size: 18px;
     font-weight: 600;
 }
+.col-md-5 .payment p{
+    color: white;
+}
