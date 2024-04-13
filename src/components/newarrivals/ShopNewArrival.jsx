@@ -2,7 +2,7 @@ import React from "react";
 import ShopCart from "./ShopCart";
 import "./style.css";
 
-const ShopAppleWatch = ({ addToCart, shopItems }) => {
+const ShopPhone = ({ addToCart, shopItems }) => {
   return (
     <>
       <section className="shop background">
@@ -10,7 +10,7 @@ const ShopAppleWatch = ({ addToCart, shopItems }) => {
           <div className="row">
             <div className="heading d_flex">
               <div className="heading-left row  f_flex">
-                <h2>Đồng hồ thông minh</h2>
+                <h2>New Arrivals</h2>
               </div>
             </div>
             <div className="row">
@@ -23,4 +23,4 @@ const ShopAppleWatch = ({ addToCart, shopItems }) => {
   );
 };
 
-export default ShopAppleWatch;
+export default ShopPhone;

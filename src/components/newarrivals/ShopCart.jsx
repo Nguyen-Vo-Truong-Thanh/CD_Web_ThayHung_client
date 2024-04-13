@@ -15,6 +15,7 @@ const ShopCart = ({ shopItems, addToCart }) => {
             <div className="col-md-3" key={item.id}>
               <div className="product mtop w-100">
                 <div className="img">
+                  <span className="arrival">{item.status}New</span>
                   <img src={item.imageUrl} alt="" />
                 </div>
                 <div className="product-details">

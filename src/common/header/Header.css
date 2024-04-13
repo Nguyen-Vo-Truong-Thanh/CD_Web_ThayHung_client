@@ -11,6 +11,7 @@
   margin-right: 30px;
   font-size: 13px;
 }
+
 /*------head-----------*/
 /*------search-----------*/
 .search {
@@ -28,6 +29,7 @@
   border: 2px solid rgba(0, 0, 0, 0.1);
   /*padding: 10px;*/
   border-radius: 50px;
+  margin: 15px auto;
 }
 .search-box i {
   width: 5%;
@@ -51,7 +53,10 @@
   padding: 10px;
 }
 .cart {
-  position: relative;
+  position: absolute;
+
+  left: 90px;
+  top: 15px;
 }
 .search .cart span {
   position: absolute;
@@ -67,6 +72,7 @@
 }
 .search .f_flex {
   justify-content: end;
+  position: relative
 }
 .search{
   padding: 0;
@@ -127,6 +133,17 @@ header ul li a:hover {
   background-color: #fff;
   box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
+}
+.header.active{
+  height: 10vh;
+  position: fixed;
+  top: 10vh;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+
 }
 
 @media (max-width: 768px) {

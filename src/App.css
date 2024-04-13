@@ -51,6 +51,12 @@ button {
   outline: none;
   background-color: none;
 }
+.col-md-2 .icon.f_flex.width .fa.fa-user.icon-circle{
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
 
 .icon-circle {
   width: 50px;
@@ -60,6 +66,7 @@ button {
   margin-left: 20px;
   text-align: center;
   border-radius: 50%;
+ 
 }
 .boxShadow {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
@@ -76,7 +83,7 @@ button {
   height: 510px;
   padding: 15px 0;
   border-radius: 5px;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 .category img {
   width: 30px;
@@ -99,9 +106,6 @@ button {
 
 /*---------category----------*/
 
-.top {
-  margin-top: 80px;
-}
 .mtop {
   margin-top: 40px;
 }
@@ -109,7 +113,7 @@ button {
   color: #e94560;
   margin: 10px;
 }
-.discount {
+.discount, .arrival {
   position: absolute;
   top: 0;
   left: 0;
@@ -219,7 +223,7 @@ button {
 }
 .heading .heading-left h2 {
   font-size: 25px;
-  margin: 5px;
+  margin-left: 30px;
 }
 .heading .heading-right i,
 .heading .heading-right {

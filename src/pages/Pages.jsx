@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "../components/MainPage/Home";
-import NewArrivals from "../components/newarrivals/NewArrivals";
-import Discount from "../components/Discount/Discount";
+import ShopNewArrival from "../components/newarrivals/ShopNewArrival";
+import ShopDiscount from "../components/Discount/ShopDiscount";
 import ShopPhone from "../components/shopPhone/ShopPhone";
 import ShopLaptop from "../components/ShopLaptop/ShopLaptop";
 import ShopAppleWatch from "../components/ShopAppleWatch/ShopAppleWatch";
@@ -11,8 +11,8 @@ const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
   return (
     <>
       <Home CartItem={CartItem} />
-      <NewArrivals />
-      <Discount />
+      <ShopNewArrival shopItems={shopItems} addToCart={addToCart} />
+      <ShopDiscount shopItems={shopItems} addToCart={addToCart} />
       <ShopPhone shopItems={shopItems} addToCart={addToCart} />
       <ShopLaptop shopItems={shopItems} addToCart={addToCart} />
       <ShopAppleWatch shopItems={shopItems} addToCart={addToCart} />
