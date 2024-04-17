@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./DetailProduct.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const DetailProduct = () => {
+const DetailProduct = (addToCart) => {
   const shopItems = [
     {
       id: 1,
@@ -87,13 +88,16 @@ const DetailProduct = () => {
                   <span className="description">{item.description}</span>
                 </div>
                 <div className="w-100 d-flex justify-content-between">
-                  <button type="button" className="btn btn-primary">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => addToCart(item)}
+                  >
                     Thêm vào giỏ hàng
                   </button>
                 </div>
                 <div className="payment">
                   <button type="button" className="btn btn-danger">
-                    Thanh toán
+                    <Link to="/checkout">Thanh toán</Link>
                   </button>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const Categories = () => {
   const data = [
@@ -15,26 +15,25 @@ const Categories = () => {
       cateName: "Đồng hồ thông minh",
     },
     {
-      cateImg: "./images/category/cat3.png",
+      cateImg: "./images/category/cat4.png",
       cateName: "Tai nghe",
     },
-
-  ]
+  ];
 
   return (
     <>
-      <div className='category'>
+      <div className="category">
         {data.map((value, index) => {
           return (
-            <div className='box f_flex' key={index}>
-              <img src={value.cateImg} alt='' />
+            <div className="box f_flex" key={index}>
+              <img src={value.cateImg} alt="" />
               <span>{value.cateName}</span>
             </div>
-          )
+          );
         })}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;

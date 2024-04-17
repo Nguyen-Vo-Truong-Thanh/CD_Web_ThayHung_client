@@ -23,5 +23,5 @@ const Sdata = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convallis.",
     cover: "./images/SlideCard/slide-4.jpg",
   },
-]
-export default Sdata
+];
+export default Sdata;

@@ -3,12 +3,14 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./common/header/Header";
 import Pages from "./pages/Pages";
-import Data from "./components/Data";
 import Cart from "./common/Cart/Cart";
 import Footer from "./common/footer/Footer";
 import Sdata from "./components/shopPhone/Sdata";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Shop from "./pages/Shop";
+import CheckOut from "./pages/Checkout";
+import Contact from "./pages/Contact";
+import Account from "./pages/Account";
 
 function App() {
   /*
@@ -24,7 +26,6 @@ function App() {
   */
 
   //Step 1 :
-  const { productItems } = Data;
   const { shopItems } = Sdata;
 
   //Step 2 :
@@ -87,11 +88,7 @@ function App() {
         <Header CartItem={CartItem} />
         <Switch>
           <Route path="/" exact>
-            <Pages
-              productItems={productItems}
-              addToCart={addToCart}
-              shopItems={shopItems}
-            />
+            <Pages addToCart={addToCart} shopItems={shopItems} />
           </Route>
 
           <Route path="/cart" exact>
@@ -103,15 +100,20 @@ function App() {
           </Route>
 
           <Route path="/shop" exact>
-            <Shop
-              productItems={productItems}
-              addToCart={addToCart}
-              shopItems={shopItems}
-            />
+            <Shop addToCart={addToCart} shopItems={shopItems} />
+          </Route>
+          <Route path="/account" exact>
+            <Account  />
+          </Route>
+          <Route path="/checkout" exact>
+            <CheckOut />
+          </Route>
+          <Route path="/contact" exact>
+            <Contact />
           </Route>
 
           <Route path="/detail/:id" exact>
-            <DetailProduct />
+            <DetailProduct addToCart={addToCart} shopItems={shopItems} />
           </Route>
         </Switch>
         <Footer />
