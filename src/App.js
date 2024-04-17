@@ -8,6 +8,9 @@ import Footer from "./common/footer/Footer";
 import Sdata from "./components/shopPhone/Sdata";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Shop from "./pages/Shop";
+import CheckOut from "./pages/Checkout";
+import Contact from "./pages/Contact";
+import Account from "./pages/Account";
 
 function App() {
   /*
@@ -98,6 +101,15 @@ function App() {
 
           <Route path="/shop" exact>
             <Shop addToCart={addToCart} shopItems={shopItems} />
+          </Route>
+          <Route path="/account" exact>
+            <Account  />
+          </Route>
+          <Route path="/checkout" exact>
+            <CheckOut />
+          </Route>
+          <Route path="/contact" exact>
+            <Contact />
           </Route>
 
           <Route path="/detail/:id" exact>

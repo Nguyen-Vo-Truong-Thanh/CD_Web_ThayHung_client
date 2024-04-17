@@ -51,6 +51,8 @@
   opacity: 0.5;
   border-left: 2px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
+  text-align: center;
+  margin: 5px;
 }
 .cart {
   position: absolute;
@@ -82,6 +84,17 @@
   height: 80px;
 }
 
+@media (max-width: 768px)  {
+  .user-shop{
+    width: 100% !important;
+    height: 100%;
+    position: absolute !important;
+      top: 0;
+      left: 260px;
+  }
+  
+}
+
 /*------search-----------*/
 .catgrories {
   background-color: #f6f9fc;
@@ -106,6 +119,12 @@ header {
   height: 8vh;
   box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
 }
+header .container.d_flex {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
 header ul {
   line-height: 8vh;
 }
@@ -114,12 +133,12 @@ header ul li {
 }
 header ul li a {
   transition: 0.5s;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 700;
 }
-header ul li a:hover {
+/* header ul li a:hover {
   color: #ff014f;
-}
+} */
 
 .open {
   display: none;
@@ -137,7 +156,7 @@ header ul li a:hover {
 .header.active{
   height: 10vh;
   position: fixed;
-  top: 10vh;
+  top: 12vh;
   z-index: 1000;
   width: 100%;
   background-color: #fff;

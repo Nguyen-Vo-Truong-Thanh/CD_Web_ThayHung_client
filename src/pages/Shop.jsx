@@ -8,13 +8,110 @@ import "./style/Shop.css";
 import { Link } from "react-router-dom";
 
 const Shop = ({ productItems, addToCart, CartItem, shopItems }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [LstCategory, setLstCategory] = useState([
+    {
+      id: 1,
+      name: "Điện thoại",
+      imageUrl: "./images/category/cat1.jpg",
+      isChecked: false, //không có trong database
+      childs: [
+        {
+          id: 1,
+          name: "apple",
+          link: "/phone/apple",
+        },
+        {
+          id: 2,
+          name: "samsung",
+          link: "/phone/samsung",
+        },
+        {
+          id: 3,
+          name: "oppo",
+          link: "/phone/oppo",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Laptop",
+      imageUrl: "./images/category/cat2.png",
+      isChecked: false,
+      childs: [
+        {
+          id: 1,
+          name: "apple",
+          link: "/laptop/apple",
+        },
+        {
+          id: 2,
+          name: "dell",
+          link: "/laptop/dell",
+        },
+        {
+          id: 3,
+          name: "php",
+          link: "/laptop/php",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Đồng hồ thông minh",
+      imageUrl: "./images/category/cat3.png",
+      isChecked: false,
+      childs: [
+        {
+          id: 1,
+          name: "apple",
+          link: "/watch/apple",
+        },
+        {
+          id: 2,
+          name: "samsung",
+          link: "/watch/samsung",
+        },
+        {
+          id: 3,
+          name: "xiaomi",
+          link: "/watch/xiaomi",
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "Tai nghe",
+      imageUrl: "./images/category/cat4.png",
+      isChecked: false,
+      childs: [
+        {
+          id: 1,
+          name: "jbl",
+          link: "/headphone/jbl",
+        },
+        {
+          id: 2,
+          name: "marshall",
+          link: "/headphone/marshall",
+        },
+        {
+          id: 3,
+          name: "b&o",
+          link: "/headphone/b&o",
+        },
+      ],
+    },
+  ]);
 
-  const toggleCategory = (category) => {
-    if (selectedCategory === category) {
-      setSelectedCategory(null);
-    } else {
-      setSelectedCategory(category);
+  const toggleCategory = (item) => {
+    const index = LstCategory.findIndex((x) => x.id === item.id);
+    if (index >= 0) {
+      const updatedCategories = [...LstCategory];
+      updatedCategories[index] = {
+        ...updatedCategories[index],
+        isChecked: !updatedCategories[index].isChecked,
+      };
+      setLstCategory(updatedCategories);
     }
   };
 
@@ -25,96 +122,35 @@ const Shop = ({ productItems, addToCart, CartItem, shopItems }) => {
           <div className="row">
             <div className="col-md-2">
               <div className="shop-category">
-                <div
-                  className="box"
-                  onClick={() => toggleCategory("Điện thoại")}
-                >
-                  <div className="box-icon">
-                    <img src={"./images/category/cat1.jpg"} alt="" />
-                    <span>Điện thoại</span>
-                  </div>
-                  <i className="fa-solid fa-angle-right fa-fw"></i>
-                </div>
-                <div className="box" onClick={() => toggleCategory("Laptop")}>
-                  <div className="box-icon">
-                    <img src={"./images/category/cat2.png"} alt="" />
-                    <span>Laptop</span>
-                  </div>
-                  <i className="fa-solid fa-angle-right fa-fw"></i>
-                </div>
-                <div
-                  className="box"
-                  onClick={() => toggleCategory("Đồng hồ thông minh")}
-                >
-                  <div className="box-icon">
-                    <img src={"./images/category/cat3.png"} alt="" />
-                    <span>Đồng hồ thông minh</span>
-                  </div>
-                  <i className="fa-solid fa-angle-right fa-fw"></i>
-                </div>
-                <div className="box" onClick={() => toggleCategory("Tai nghe")}>
-                  <div className="box-icon">
-                    <img src={"./images/category/cat4.png"} alt="" />
-                    <span>Tai nghe</span>
-                  </div>
-                  <i className="fa-solid fa-angle-right fa-fw"></i>
-                </div>
-              </div>
-              <div className="phone-details">
-                {selectedCategory === "Điện thoại" && (
-                  <div className="box">
-                    <p>
-                      <Link to="/phone/apple">Apple</Link>
-                    </p>
-                    <p>
-                      <Link to="/phone/samsung">Samsung</Link>
-                    </p>
-                    <p>
-                      <Link to="/phone/oppo">Oppo</Link>
-                    </p>
-                  </div>
-                )}
-                {selectedCategory === "Laptop" && (
-                  <div className="box">
-                    <p>
-                      <Link to="/laptop/apple">Apple</Link>
-                    </p>
-                    <p>
-                      <Link to="/laptop/samsung">Dell</Link>
-                    </p>
-                    <p>
-                      <Link to="/laptop/oppo">PHP</Link>
-                    </p>
-                  </div>
-                )}
-                {selectedCategory === "Đồng hồ thông minh" && (
-                  <div className="box">
-                    <p>
-                      <Link to="/watch/apple">Apple</Link>
-                    </p>
-                    <p>
-                      <Link to="/watch/samsung">Samsung</Link>
-                    </p>
-                    <p>
-                      <Link to="/watch/oppo">Xiaomi</Link>
-                    </p>
-                  </div>
-                )}
-                {selectedCategory === "Tai nghe" && (
-                  <div className="box">
-                    <p>
-                      <Link to="/headphone/jbl">JBL</Link>
-                    </p>
-                    <p>
-                      <Link to="/headphone/marshall">Marshall</Link>
-                    </p>
-                    <p>
-                      <Link to="/headphone/b&o">B&O</Link>
-                    </p>
-                  </div>
-                )}
+                {LstCategory.map((item, index) => {
+                  return (
+                    <div
+                      className="box"
+                      key={item.id}
+                      onClick={() => toggleCategory(item)}
+                    >
+                      <div className="box-icon d-flex">
+                        <img src={item.imageUrl} alt="" />
+                        <span>{item.name}</span>
+                      </div>
+                      <i className="fa-solid fa-angle-right fa-fw mt-2"></i> 
+                      <div className="box-detail">
+                      {item.isChecked ? <div>
+                        {item.childs.map((x, i) => {
+                          return(
+                            <div className="box-detail-name" key={x.id}>
+                              <Link to={x.link}>{x.name}</Link>
+                            </div>
+                          )
+                        })}
+                      </div> : null} 
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
+
             <div className="col-md-10">
               <ShopPhone shopItems={shopItems} addToCart={addToCart} />
               <ShopLaptop shopItems={shopItems} addToCart={addToCart} />

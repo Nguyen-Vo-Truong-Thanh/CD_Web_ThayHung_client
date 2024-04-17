@@ -23,12 +23,16 @@ const Search = ({ CartItem }) => {
               <div className="search-box f_flex">
                 <i className="fa fa-search"></i>
                 <input type="text" placeholder="Search here..." />
-                <span>All Category</span>
+                <span>Search</span>
               </div>
             </div>
             <div className="col-md-2">
-              <div className="icon f_flex width">
-                <i className="fa fa-user icon-circle"></i>
+              <div className="icon f_flex width user-shop">
+                <div className="account">
+                  <Link to="/account">
+                  <i className="fa fa-user icon-circle"></i>
+                  </Link>
+                </div>
                 <div className="cart">
                   <Link to="/cart">
                     <i className="fa fa-shopping-bag icon-circle"></i>
