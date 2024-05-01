@@ -1,7 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0afc9e3-023f-417c-9309-c2e25218810c" name="Changes" comment="" />
+    <list default="true" id="0284d39e-b69c-4c7c-ad76-963347a88b31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/SlideCard/slide-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/SlideCard/slide-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/SlideCard/slide-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/SlideCard/slide-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrivals/arrivals6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/banner-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/banner-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/category/cat4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/discount/discount-9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/flash/flash-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/flash/flash-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/flash/flash-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/flash/flash-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/flash/flash-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/shops/shops-9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/top/category-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/top/category-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/top/category-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/axiosClient.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Cart/Cart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Cart/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/footer/Footer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/footer/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/header/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/header/Header.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/header/Navbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/header/Search.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/pagination/Pagination.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/pagination/Pagination.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailProduct/DetailProduct.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailProduct/DetailProduct.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Discount/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Discount/ShopDiscount.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Discount/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Categories.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Sdata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/SlideCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPage/Slider.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopAppleWatch/Catg.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopAppleWatch/ShopAppleWatch.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopAppleWatch/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopAppleWatch/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopHeadphone/Catg.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopHeadphone/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopHeadphone/ShopHeadphone.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopHeadphone/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopLaptop/Catg.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopLaptop/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopLaptop/ShopLaptop.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShopLaptop/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/assets/images/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/newarrivals/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/newarrivals/ShopNewArrival.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/newarrivals/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopPhone/Sdata.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopPhone/ShopCart.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopPhone/ShopPhone.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shopPhone/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Checkout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Contact.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Pages.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Shop.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/style/Account.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/style/Checkout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/style/Shop.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,29 +125,38 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2eqYOJj53MJ8XHrOwpN8F78wV2e" />
+  <component name="ProjectId" id="2frvj2lIESCkY224kaTzBckAvR3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/HocTap/ChuyenDeWeb/20130388_HuynhAnhTai"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e0afc9e3-023f-417c-9309-c2e25218810c" name="Changes" comment="" />
-      <created>1712633548904</created>
+      <changelist id="0284d39e-b69c-4c7c-ad76-963347a88b31" name="Changes" comment="" />
+      <created>1714572143139</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712633548904</updated>
-      <workItem from="1712633553122" duration="29000" />
+      <updated>1714572143139</updated>
+      <workItem from="1714572144408" duration="286000" />
+      <workItem from="1714572445620" duration="65000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
