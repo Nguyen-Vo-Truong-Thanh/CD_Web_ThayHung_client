@@ -1,12 +1,33 @@
-import React from "react";
+
 import { useHistory } from "react-router-dom";
-
-const ShopCart = ({ shopItems, addToCart }) => {
+import React, { useState, useEffect } from 'react';
+const ShopCart = ({ addToCart }) => {
+  const [shopItems, setShopItems] = useState([]);
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
-
+  const [error, setError] = useState(null);
   const openDetail = (item) => {
     history.push("/detail/" + item.id);
   };
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:8080/api/products/allProduct");
+      const data = await response.json();
+      setShopItems(data);
+
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      console.log("loi" +err.message)
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
     <>
       {shopItems &&

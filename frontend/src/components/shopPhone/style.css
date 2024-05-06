@@ -64,12 +64,18 @@
   font-weight: 500;
   cursor: pointer;
 }
-/* .product-details .view{
-  background: #0cc0df;
-  color: #fff;
-  width: 150px;
-  cursor: pointer;
-} */
+.product-details{
+  margin-top: 5px;
+}
+
+.product h3{
+  height: 61px;
+  font-weight: 600;
+}
+.product .img{
+  width: 280px;
+  height: 280px;
+}
 .box-row {
   width: 33.33%;
 }
