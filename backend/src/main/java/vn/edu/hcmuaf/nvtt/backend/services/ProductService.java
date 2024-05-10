@@ -21,4 +21,12 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findGetAll();
     }
+
+    public List<Product> getProductsByCategory(Long categoryId) {
+        return productRepository.findByProductCategory(categoryId);
+    }
+
+//    public List<Product> getProductByStatus (String status){
+//        return productRepository.findByProductStatus(status);
+//    }
 }

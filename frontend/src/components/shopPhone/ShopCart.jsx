@@ -9,20 +9,23 @@ const ShopCart = ({ addToCart }) => {
   const openDetail = (item) => {
     history.push("/detail/" + item.id);
   };
+
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/products/allProduct");
+      
+      const categoryId = 1; 
+      const response = await fetch(`http://localhost:8080/api/products/productsByCategory?categoryId=${categoryId}`);
       const data = await response.json();
       setShopItems(data);
-
       setLoading(false);
     } catch (err) {
       setError(err.message);
-      console.log("loi" +err.message)
+      console.log("Lỗi: " + err.message);
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     fetchProducts();
@@ -40,13 +43,6 @@ const ShopCart = ({ addToCart }) => {
                 </div>
                 <div className="product-details">
                   <h3>{item.name}</h3>
-                  <div className="rate">
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                  </div>
                   <div>
                     <h4>{item.price.toLocaleString()} VNĐ </h4>
                     <div className="w-100 d-flex justify-content-between">

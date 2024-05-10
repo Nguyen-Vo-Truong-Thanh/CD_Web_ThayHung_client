@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="gôp file be voi fe">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/Childs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/ProductCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ChildsModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ProductCategoryModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ProductModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ChildsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductCategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" afterDir="false" />
+    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load san pham">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/Sdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/Sdata.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/style.css" afterDir="false" />
     </list>
@@ -54,24 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
@@ -118,7 +111,11 @@
       <workItem from="1714698937256" duration="1015000" />
       <workItem from="1714700846331" duration="7940000" />
       <workItem from="1714977741045" duration="4369000" />
-      <workItem from="1714984139233" duration="588000" />
+      <workItem from="1714984139233" duration="1556000" />
+      <workItem from="1715001373538" duration="628000" />
+      <workItem from="1715002494040" duration="1447000" />
+      <workItem from="1715086113180" duration="6374000" />
+      <workItem from="1715346156680" duration="4930000" />
     </task>
     <task id="LOCAL-00001" summary="gôp file be voi fe">
       <created>1714622737604</created>
@@ -127,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714622737604</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="load san pham">
+      <created>1714984760913</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714984760914</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +150,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gôp file be voi fe" />
-    <option name="LAST_COMMIT_MESSAGE" value="gôp file be voi fe" />
+    <MESSAGE value="load san pham" />
+    <option name="LAST_COMMIT_MESSAGE" value="load san pham" />
   </component>
 </project>

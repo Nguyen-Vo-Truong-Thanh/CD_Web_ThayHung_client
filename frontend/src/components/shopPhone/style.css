@@ -71,6 +71,11 @@
 .product h3{
   height: 61px;
   font-weight: 600;
+  margin: 0;
+}
+.product h4{
+  color: red;
+  margin-bottom: 5px;
 }
 .product .img{
   width: 280px;
