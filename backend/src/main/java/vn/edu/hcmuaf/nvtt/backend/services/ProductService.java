@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ProductService {
+    @Autowired
 
     private final ProductRepository productRepository;
 
@@ -32,5 +33,9 @@ public class ProductService {
 
     public  List<Product> getProductsByDiscount(int discount){
         return productRepository.findByProductDiscount(discount);
+    }
+
+    public List<Product> searchProducts(String keyword) {
+        return productRepository.findByProductNameContainingIgnoreCase(keyword);
     }
 }
