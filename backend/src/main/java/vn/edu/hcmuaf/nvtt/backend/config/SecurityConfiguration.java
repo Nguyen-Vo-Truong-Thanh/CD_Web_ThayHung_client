@@ -21,28 +21,26 @@ import java.util.List;
 public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorizeRequests -> {
-                    authorizeRequests.requestMatchers("/auth/**").permitAll();
-                    authorizeRequests.requestMatchers("/users**").permitAll();
-                    authorizeRequests.requestMatchers("/users/**").permitAll();
-                    authorizeRequests.anyRequest().authenticated();
-                });
+        http
+                .csrf(AbstractHttpConfigurer::disable)  // Disable CSRF protection as before
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // Apply CORS configuration
+                .sessionManagement(sessionManagement ->
+                        sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  // Stateless session management
+                .authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests.anyRequest().permitAll());  // Permit all requests without authentication
 
         return http.build();
     }
 
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("*");
+        configuration.addAllowedOrigin("*");  // Allows all origins
         configuration.setAllowedMethods(List.of(
                 HttpMethod.GET.name(),
                 HttpMethod.POST.name(),
                 HttpMethod.PUT.name(),
-                HttpMethod.DELETE.name())
-        );
+                HttpMethod.DELETE.name()
+        ));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
@@ -50,3 +48,4 @@ public class SecurityConfiguration {
         return source;
     }
 }
+
