@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.nvtt.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 
@@ -21,5 +22,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.discount >= :discount")
     List<Product> findByProductDiscount(int discount);
+    @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(concat('%', :keyword, '%'))")
+    List<Product> findByProductNameContainingIgnoreCase(@Param("keyword") String keyword);
+
+
 }
 

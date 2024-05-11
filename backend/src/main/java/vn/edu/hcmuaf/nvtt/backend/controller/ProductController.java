@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-
+  @Autowired
     private final ProductService productService;
 
     @Autowired
@@ -49,6 +49,12 @@ public class ProductController {
         List<Product> productList = productService.getProductsByDiscount(discount);
         return ResponseEntity.ok(productList);
 
+    }
+
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam("keyword") String keyword) {
+        List<Product> productList = productService.searchProducts(keyword);
+        return productList;
     }
 
 }
