@@ -41,6 +41,9 @@
 .shop .contentWidth {
   margin-left: 30px;
 }
+.col-md-10{
+  flex-wrap: wrap;
+}
 
 .grid1 {
   display: grid;

@@ -37,11 +37,19 @@ public class ProductController {
         return ResponseEntity.ok(productList);
     }
 
-//    @GetMapping("/productByStatus")
-//    public ResponseEntity<?>getProductByStatus(@RequestParam("status") String status){
-//        List<Product> productList = productService.getProductByStatus(status);
-//        return ResponseEntity.ok(productList);
-//    }
+    @GetMapping("/productByStatus")
+    public ResponseEntity<?> getProductByStatus(@RequestParam("status") String status) {
+        List<Product> productList = productService.getProductByStatus(status);
+        return ResponseEntity.ok(productList);
+    }
+
+
+    @GetMapping("/productByDiscount")
+    public ResponseEntity<?> getProductByDiscount(@RequestParam("discount") int discount){
+        List<Product> productList = productService.getProductsByDiscount(discount);
+        return ResponseEntity.ok(productList);
+
+    }
 
 }
 

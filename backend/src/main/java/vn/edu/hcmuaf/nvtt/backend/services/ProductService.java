@@ -26,7 +26,11 @@ public class ProductService {
         return productRepository.findByProductCategory(categoryId);
     }
 
-//    public List<Product> getProductByStatus (String status){
-//        return productRepository.findByProductStatus(status);
-//    }
+    public List<Product> getProductByStatus (String status){
+        return productRepository.findByProductStatus(status);
+    }
+
+    public  List<Product> getProductsByDiscount(int discount){
+        return productRepository.findByProductDiscount(discount);
+    }
 }

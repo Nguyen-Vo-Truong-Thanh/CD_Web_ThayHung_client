@@ -44,13 +44,6 @@ const ShopCart = ({ addToCart }) => {
                 </div>
                 <div className="product-details">
                   <h3>{item.name}</h3>
-                  <div className="rate">
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                  </div>
                   <div>
                     <h4>{item.price.toLocaleString()} VNĐ </h4>
                     <div className="w-100 d-flex justify-content-between">
