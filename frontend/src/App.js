@@ -11,6 +11,9 @@ import Shop from "./pages/Shop";
 import CheckOut from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Account from "./pages/Account";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   /*
@@ -85,6 +88,15 @@ function App() {
   return (
     <>
       <Router>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/register" exact>
+          <Register />
+        </Route>
+        <Route path="/resetPassword" exact>
+          <ResetPassword />
+        </Route>
         <Header CartItem={CartItem} />
         <Switch>
           <Route path="/" exact>
@@ -103,7 +115,7 @@ function App() {
             <Shop addToCart={addToCart} shopItems={shopItems} />
           </Route>
           <Route path="/account" exact>
-            <Account  />
+            <Account />
           </Route>
           <Route path="/checkout" exact>
             <CheckOut />
@@ -111,7 +123,6 @@ function App() {
           <Route path="/contact" exact>
             <Contact />
           </Route>
-
           <Route path="/detail/:id" exact>
             <DetailProduct addToCart={addToCart} shopItems={shopItems} />
           </Route>
