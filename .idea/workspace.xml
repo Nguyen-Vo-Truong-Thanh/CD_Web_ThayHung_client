@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load san pham new và discount">
+    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load san pham theo category">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/HocTap/ChuyenDeWeb/eTTShop",
+    "last_opened_file_path": "D:/cd_web_client/CD_Web_ThayHung_client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
