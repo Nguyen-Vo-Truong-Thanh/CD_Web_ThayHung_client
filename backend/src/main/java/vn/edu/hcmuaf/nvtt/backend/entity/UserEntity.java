@@ -22,7 +22,6 @@ public class UserEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String username;
     String password;
     String phoneNumber;
     String email;
@@ -30,6 +29,10 @@ public class UserEntity implements UserDetails {
     @Builder.Default
     private boolean enabled = false;
 
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
