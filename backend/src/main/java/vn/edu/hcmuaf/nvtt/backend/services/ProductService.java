@@ -35,7 +35,15 @@ public class ProductService {
         return productRepository.findByProductDiscount(discount);
     }
 
-    public List<Product> searchProducts(String keyword) {
-        return productRepository.findByProductNameContainingIgnoreCase(keyword);
+    public List<Product> searchProducts(String keyword){
+        List<Product> products = productRepository.searchProducts(keyword);
+        return products;
     }
+
+    public List<Product> getProductByPage(int page) {
+        int pageSize = 9;
+        int startIndex = (page - 1) * pageSize;
+        return productRepository.findProductsByPage(startIndex, pageSize);
+    }
+
 }
