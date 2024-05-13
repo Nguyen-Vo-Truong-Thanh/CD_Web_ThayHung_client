@@ -4,24 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="frontend update">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/CustomExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/core/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/handler/HttpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/ForgotPasswordRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/ResetPasswordRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
