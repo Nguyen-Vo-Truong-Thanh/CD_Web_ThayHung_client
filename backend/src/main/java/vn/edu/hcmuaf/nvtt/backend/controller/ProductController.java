@@ -28,7 +28,6 @@ public class ProductController {
     public ResponseEntity<?> getAllProducts() {
         List<Product> productList = productService.getAllProducts();
         return ResponseEntity.ok(productList);
-
     }
 
     @GetMapping("/productsByCategory")
