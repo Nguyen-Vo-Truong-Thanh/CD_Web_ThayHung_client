@@ -56,5 +56,11 @@ public class ProductController {
         return productList;
     }
 
+    @GetMapping("/page/{page}")
+    public ResponseEntity<List<Product>> getProductByPage(@RequestParam("page") int page) {
+        List<Product> productList = productService.getProductByPage(page);
+        return ResponseEntity.ok(productList);
+    }
+
 }
 

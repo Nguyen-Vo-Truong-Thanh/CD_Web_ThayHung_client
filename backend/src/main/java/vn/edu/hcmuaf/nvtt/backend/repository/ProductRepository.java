@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 
 import java.util.List;
@@ -23,7 +25,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.discount >= :discount")
     List<Product> findByProductDiscount(int discount);
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(concat('%', :keyword, '%'))")
-    List<Product> findByProductNameContainingIgnoreCase(@Param("keyword") String keyword);
+    List<Product> searchProducts( String keyword);
+
+    @Query(value = "SELECT p FROM Product p LIMIT :startIndex, :pageSize", nativeQuery = true)
+    List<Product> findProductsByPage(@Param("startIndex") int startIndex, @Param("pageSize") int pageSize);
+
 
 
 }
