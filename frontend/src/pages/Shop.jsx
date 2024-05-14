@@ -60,9 +60,8 @@ const Shop = ({ productItems, addToCart, CartItem, shopItems }) => {
 
             <div className="col-md-10">
               <AllProduct shopItems={shopItems} addToCart={addToCart} />
-             
-              <Pagination />
             </div>
+            <Pagination />
           </div>
         </div>
       </div>

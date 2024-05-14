@@ -18,7 +18,6 @@ const Pages = ({ productItems, addToCart, CartItem, shopItems }) => {
       <ShopLaptop shopItems={shopItems} addToCart={addToCart} />
       <ShopAppleWatch shopItems={shopItems} addToCart={addToCart} />
       <ShopHeadphone shopItems={shopItems} addToCart={addToCart} />
-      <Pagination />
     </>
   );
 };

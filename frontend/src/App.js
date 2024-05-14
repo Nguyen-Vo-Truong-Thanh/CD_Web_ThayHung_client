@@ -14,6 +14,8 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
+import SearchResult from "./pages/SearchResults";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   /*
@@ -120,12 +122,18 @@ function App() {
           <Route path="/checkout" exact>
             <CheckOut />
           </Route>
-          <Route path="/contact" exact>
-            <Contact />
+          <Route path="/searchResult" exact>
+            <SearchResult />
+          </Route>
+          <Route path="/" exact>
+            <Pages addToCart={addToCart} shopItems={shopItems} />
           </Route>
           <Route path="/detail/:id" exact>
             <DetailProduct addToCart={addToCart} shopItems={shopItems} />
           </Route>
+          <Route path="/search-results" exact>
+          <SearchResults addToCart={addToCart} />
+        </Route>  
         </Switch>
         <Footer />
       </Router>

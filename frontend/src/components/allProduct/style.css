@@ -50,14 +50,14 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
-.shop .product img {
+.shop, .search-results .product img {
   width: 100%;
   height: 100%;
 }
-.shop .product {
+.shop, .search-results .product {
   transition: 0.5s;
 }
-.shop .product:hover {
+.shop, .search-results .product:hover {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
 .heading-right.row span
