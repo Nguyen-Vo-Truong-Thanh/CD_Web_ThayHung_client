@@ -1,22 +1,28 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import vn.edu.hcmuaf.nvtt.backend.payload.LoginRequest;
-import vn.edu.hcmuaf.nvtt.backend.payload.LoginResponse;
+import vn.edu.hcmuaf.nvtt.backend.core.UserNotFoundException;
+import vn.edu.hcmuaf.nvtt.backend.mapper.AuthMapper;
+import vn.edu.hcmuaf.nvtt.backend.payload.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserRepository userRepository;
+    private final AuthMapper authmapper;
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        UserEntity userEntity = userRepository.findByUsername(username);
+        UserEntity userEntity = userRepository.findByEmail(username);
         return new User(userEntity.getUsername(),userEntity.getPassword(),userEntity.getAuthorities());
     }
 
@@ -27,8 +33,29 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public LoginResponse login(LoginRequest loginRequest) {
-        LoginResponse.builder().phoneNumber("324").email("asd").passWord("ayh").build();
-        return null;
+    public LoginResponse login(LoginRequest loginRequest) throws UserNotFoundException {
+        UserEntity userEntity = userRepository.findByEmailAndPassword(loginRequest.getUsername(),loginRequest.getPassword())
+                .orElseThrow(()-> new UserNotFoundException("not found user"));
+        LoginResponse loginResponse = authmapper.userToLoginResponse(userEntity);
+        return loginResponse;
+    }
+
+    @Override
+    public RegisterResponse register(RegisterRequest registerRequest) {
+        UserEntity userEntity = authmapper.registerRequestToUser(registerRequest);
+        userRepository.save(userEntity);
+        RegisterResponse response = authmapper.userToRegisterResponse(userEntity);
+        return response;
+    }
+
+    @Override
+    public void forgotPassword(String email) throws Exception {
+
+    }
+
+    @Override
+    public void resetPassword(ResetPasswordRequest request) {
+
     }
 }
+
