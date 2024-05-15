@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, useLocation, Redirect  } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./common/header/Header";
 import Pages from "./pages/Pages";
 import Cart from "./common/Cart/Cart";
@@ -14,36 +14,15 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
+import SearchResults from "./pages/SearchResults";
+import ProductList from "./common/pagination/ProductList ";
 
 function App() {
-  /*
-  step1 :  const { productItems } = Data 
-  lai pass garne using props
-  
-  Step 2 : item lai cart ma halne using useState
-  ==> CartItem lai pass garre using props from  <Cart CartItem={CartItem} /> ani import garrxa in cartItem ma
- 
-  Step 3 :  chai flashCard ma xa button ma
-
-  Step 4 :  addToCart lai chai pass garne using props in pages and cart components
-  */
-
-  //Step 1 :
   const { shopItems } = Sdata;
-
-  //Step 2 :
   const [CartItem, setCartItem] = useState([]);
 
-  //Step 4 :
   const addToCart = (product) => {
-    // if hamro product alredy cart xa bhane  find garna help garxa
     const productExit = CartItem.find((item) => item.id === product.id);
-    // if productExit chai alredy exit in cart then will run fun() => setCartItem
-    // ani inside => setCartItem will run => map() ani yo map() chai each cart ma
-    // gayara check garxa if item.id ra product.id chai match bhayo bhane
-    // productExit product chai display garxa
-    // ani increase  exits product QTY by 1
-    // if item and product doesnt match then will add new items
     if (productExit) {
       setCartItem(
         CartItem.map((item) =>
@@ -53,28 +32,15 @@ function App() {
         )
       );
     } else {
-      // but if the product doesnt exit in the cart that mean if card is empty
-      // then new product is added in cart  and its qty is initalize to 1
       setCartItem([...CartItem, { ...product, qty: 1 }]);
     }
   };
 
-  // Stpe: 6
   const decreaseQty = (product) => {
-    // if hamro product alredy cart xa bhane  find garna help garxa
     const productExit = CartItem.find((item) => item.id === product.id);
-
-    // if product is exit and its qty is 1 then we will run a fun  setCartItem
-    // inside  setCartItem we will run filter to check if item.id is match to product.id
-    // if the item.id is doesnt match to product.id then that items are display in cart
-    // else
     if (productExit.qty === 1) {
       setCartItem(CartItem.filter((item) => item.id !== product.id));
     } else {
-      // if product is exit and qty  of that produt is not equal to 1
-      // then will run function call setCartItem
-      // inside setCartItem we will run map method
-      // this map() will check if item.id match to produt.id  then we have to desc the qty of product by 1
       setCartItem(
         CartItem.map((item) =>
           item.id === product.id
@@ -86,49 +52,59 @@ function App() {
   };
 
   return (
+    <Router>
+      <MainApp CartItem={CartItem} shopItems={shopItems} addToCart={addToCart} decreaseQty={decreaseQty} />
+    </Router>
+  );
+}
+
+function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
+  const location = useLocation();
+
+  const noHeaderFooterPaths = ["/login", "/register", "/resetpassword"];
+
+  const showHeaderFooter = !noHeaderFooterPaths.includes(location.pathname);
+
+  return (
     <>
-      <Router>
+      {showHeaderFooter && <Header CartItem={CartItem} />}
+      <Switch>
         <Route path="/login" exact>
           <Login />
         </Route>
         <Route path="/register" exact>
           <Register />
         </Route>
-        <Route path="/resetPassword" exact>
+        <Route path="/resetpassword" exact>
           <ResetPassword />
         </Route>
-        <Header CartItem={CartItem} />
-        <Switch>
-          <Route path="/" exact>
-            <Pages addToCart={addToCart} shopItems={shopItems} />
-          </Route>
-
-          <Route path="/cart" exact>
-            <Cart
-              CartItem={CartItem}
-              addToCart={addToCart}
-              decreaseQty={decreaseQty}
-            />
-          </Route>
-
-          <Route path="/shop" exact>
-            <Shop addToCart={addToCart} shopItems={shopItems} />
-          </Route>
-          <Route path="/account" exact>
-            <Account />
-          </Route>
-          <Route path="/checkout" exact>
-            <CheckOut />
-          </Route>
-          <Route path="/contact" exact>
-            <Contact />
-          </Route>
-          <Route path="/detail/:id" exact>
-            <DetailProduct addToCart={addToCart} shopItems={shopItems} />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+        <Route path="/" exact>
+          <Pages addToCart={addToCart} shopItems={shopItems} />
+        </Route>
+        <Route path="/cart" exact>
+          <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+        </Route>
+        <Route path="/shop" exact>
+          <Shop addToCart={addToCart} shopItems={shopItems} />
+        </Route>
+        <Route path="/account" exact>
+          <Account />
+        </Route>
+        <Route path="/checkout" exact>
+          <CheckOut />
+        </Route>
+        <Route path="/searchResult" exact>
+          <SearchResults />
+        </Route>
+        <Route path="/detail/:id" exact>
+          <DetailProduct addToCart={addToCart} shopItems={shopItems} />
+        </Route>
+        <Route path="/search-results" exact>
+          <SearchResults addToCart={addToCart} />
+        </Route>
+        <Route path="/shop/page/:page" component={ProductList} />
+      </Switch>
+      {showHeaderFooter && <Footer />}
     </>
   );
 }

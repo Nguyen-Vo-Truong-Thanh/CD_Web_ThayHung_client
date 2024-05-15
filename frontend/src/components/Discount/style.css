@@ -73,3 +73,7 @@
 .box-row {
   width: 33.33%;
 }
+del {
+  color: #777; 
+  text-decoration: line-through; 
+}
