@@ -35,13 +35,23 @@ const ShopCart = ({ addToCart }) => {
             <div className="col-md-3" key={item.id}>
               <div className="product mtop w-100">
                 <div className="img">
-                  <span className="arrival">{item.discount} %OFF</span>
+                  {item.discount && <span className="arrival">{item.discount}% OFF</span>}
                   <img src={item.imageUrl} alt="" />
                 </div>
                 <div className="product-details">
                   <h3>{item.name}</h3>
                   <div>
-                    <h4>{item.price.toLocaleString()} VNĐ </h4>
+                    {item.discount ? ( 
+                      <>
+                        <h4>
+                          <del>{item.price.toLocaleString()} VNĐ</del> 
+                          {" "}
+                          {(item.price * (100 - item.discount) / 100).toLocaleString()} VNĐ 
+                        </h4>
+                      </>
+                    ) : (
+                      <h4>{item.price.toLocaleString()} VNĐ </h4> 
+                    )}
                     <div className="w-100 d-flex justify-content-between">
                       <button
                         onClick={() => openDetail(item)}
@@ -65,6 +75,7 @@ const ShopCart = ({ addToCart }) => {
         })}
     </>
   );
+  
 };
 
 export default ShopCart;

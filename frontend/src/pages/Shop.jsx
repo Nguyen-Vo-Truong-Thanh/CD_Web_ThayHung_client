@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AllProduct from "../components/allProduct/AllProduct";
-import Pagination from "../common/pagination/Pagination";
 import "./style/Shop.css";
 import { Link } from "react-router-dom";
 
@@ -31,8 +30,6 @@ const Shop = ({ productItems, addToCart, CartItem, shopItems }) => {
     },
   ]);
 
-
-
   return (
     <>
       <div className="shop">
@@ -57,11 +54,10 @@ const Shop = ({ productItems, addToCart, CartItem, shopItems }) => {
                 })}
               </div>
             </div>
-
             <div className="col-md-10">
               <AllProduct shopItems={shopItems} addToCart={addToCart} />
             </div>
-            <Pagination />
+
           </div>
         </div>
       </div>

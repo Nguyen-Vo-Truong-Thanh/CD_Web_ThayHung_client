@@ -1,6 +1,9 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductRepository;
@@ -40,10 +43,9 @@ public class ProductService {
         return products;
     }
 
-    public List<Product> getProductByPage(int page) {
-        int pageSize = 9;
-        int startIndex = (page - 1) * pageSize;
-        return productRepository.findProductsByPage(startIndex, pageSize);
+    public Page<Product> getProductByPage(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return productRepository.findAllProducts(pageable);
     }
 
 }

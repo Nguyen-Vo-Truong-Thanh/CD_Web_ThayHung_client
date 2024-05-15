@@ -1,7 +1,34 @@
 import { useHistory, useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import './Pagination.css';
 
-const ShopCart = ({ addToCart }) => {
+
+const ProductList = ({ addToCart }) => {
+  const [LstCategory, setLstCategory] = useState([
+    {
+      id: 1,
+      name: "Điện thoại",
+      imageUrl: "./images/category/cat1.jpg",
+      
+    },
+    {
+      id: 2,
+      name: "Laptop",
+      imageUrl: "./images/category/cat2.png",
+    },
+    {
+      id: 3,
+      name: "Đồng hồ thông minh",
+      imageUrl: "./images/category/cat3.png",
+      
+    },
+    {
+      id: 4,
+      name: "Tai nghe",
+      imageUrl: "./images/category/cat4.png",
+      
+    },
+  ]);
   const { page } = useParams(); // Lấy số trang từ URL
   const currentPage = parseInt(page, 10) || 1; // Nếu không có trang nào được chỉ định, mặc định là trang 1
   const [shopItems, setShopItems] = useState([]);
@@ -53,7 +80,30 @@ const ShopCart = ({ addToCart }) => {
 
   return (
     <>
-      {loading ? (
+      <div className="shop">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-2">
+              <div className="shop-category">
+                {LstCategory.map((item, index) => {
+                  return (
+                    <div
+                      className="box"
+                      key={item.id}
+                    
+                    >
+                      <div className="box-icon d-flex">
+                        <img src={item.imageUrl} alt="" />
+                        <span>{item.name}</span>
+                      </div>
+                    </div>
+                    
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-md-10 d-flex">
+            {loading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>{error}</p>
@@ -104,8 +154,13 @@ const ShopCart = ({ addToCart }) => {
           </li>
         </ul>
       </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </>
   );
 };
 
-export default ShopCart;
+export default ProductList;

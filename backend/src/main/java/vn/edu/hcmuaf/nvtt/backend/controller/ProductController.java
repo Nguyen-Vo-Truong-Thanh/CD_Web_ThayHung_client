@@ -2,11 +2,9 @@ package vn.edu.hcmuaf.nvtt.backend.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.services.ProductService;
 
@@ -56,11 +54,12 @@ public class ProductController {
         return productList;
     }
 
-    @GetMapping("/page/{page}")
-    public ResponseEntity<List<Product>> getProductByPage(@RequestParam("page") int page) {
-        List<Product> productList = productService.getProductByPage(page);
-        return ResponseEntity.ok(productList);
+    @GetMapping("/page")
+    public ResponseEntity<Page<Product>> getProductByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        Page<Product> productPage = productService.getProductByPage(page, size);
+        return ResponseEntity.ok(productPage);
     }
+
 
 }
 

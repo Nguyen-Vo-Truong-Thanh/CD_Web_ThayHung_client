@@ -20,6 +20,7 @@ const Search = ({ CartItem }) => {
     event.preventDefault();
     if (searchTerm.trim() !== "") {
       history.push(`/search-results?keyword=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm("");
     }
   };
 
