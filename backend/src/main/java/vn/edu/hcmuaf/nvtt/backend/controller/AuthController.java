@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.nvtt.demo.controller;
+package vn.edu.hcmuaf.nvtt.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -7,9 +7,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.hcmuaf.nvtt.demo.handler.HttpResponse;
-import vn.edu.hcmuaf.nvtt.demo.payload.*;
-import vn.edu.hcmuaf.nvtt.demo.services.UserService;
+import vn.edu.hcmuaf.nvtt.backend.handler.HttpResponse;
+import vn.edu.hcmuaf.nvtt.backend.payload.*;
+import vn.edu.hcmuaf.nvtt.backend.services.UserService;
 
 
 

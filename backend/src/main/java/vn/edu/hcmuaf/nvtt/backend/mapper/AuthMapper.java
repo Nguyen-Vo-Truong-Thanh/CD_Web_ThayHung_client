@@ -1,10 +1,10 @@
-package vn.edu.hcmuaf.nvtt.demo.mapper;
+package vn.edu.hcmuaf.nvtt.backend.mapper;
 
 import org.mapstruct.Mapper;
-import vn.edu.hcmuaf.nvtt.demo.entity.UserEntity;
-import vn.edu.hcmuaf.nvtt.demo.payload.LoginResponse;
-import vn.edu.hcmuaf.nvtt.demo.payload.RegisterRequest;
-import vn.edu.hcmuaf.nvtt.demo.payload.RegisterResponse;
+import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
+import vn.edu.hcmuaf.nvtt.backend.payload.LoginResponse;
+import vn.edu.hcmuaf.nvtt.backend.payload.RegisterRequest;
+import vn.edu.hcmuaf.nvtt.backend.payload.RegisterResponse;
 
 @Mapper(componentModel = "spring")
 public interface AuthMapper {

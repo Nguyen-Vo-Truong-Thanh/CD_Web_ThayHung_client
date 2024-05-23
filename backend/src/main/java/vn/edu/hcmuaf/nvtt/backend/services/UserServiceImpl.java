@@ -1,16 +1,15 @@
-package vn.edu.hcmuaf.nvtt.demo.services;
+package vn.edu.hcmuaf.nvtt.backend.services;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import vn.edu.hcmuaf.nvtt.demo.core.UserNotFoundException;
-import vn.edu.hcmuaf.nvtt.demo.mapper.AuthMapper;
-import vn.edu.hcmuaf.nvtt.demo.payload.*;
-import vn.edu.hcmuaf.nvtt.demo.entity.UserEntity;
-import vn.edu.hcmuaf.nvtt.demo.repository.UserRepository;
+import vn.edu.hcmuaf.nvtt.backend.core.UserNotFoundException;
+import vn.edu.hcmuaf.nvtt.backend.mapper.AuthMapper;
+import vn.edu.hcmuaf.nvtt.backend.payload.*;
+import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
+import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -54,7 +53,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void resetPassword(PasswordResetRequest request) {
+    public void resetPassword(ResetPasswordRequest request) {
 
     }
+
+
 }
