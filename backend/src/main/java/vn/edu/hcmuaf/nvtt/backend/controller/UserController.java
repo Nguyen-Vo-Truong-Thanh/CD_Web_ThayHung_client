@@ -6,26 +6,26 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.services.EmailService;
 import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
-import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 
 import java.util.Map;
 
 @RestController
-@RequestMapping({"/users"})
+@RequestMapping("/users")
 public class UserController {
+
     @Autowired
     private UserServiceImpl userService;
+
     @Autowired
     private EmailService emailService;
 
-
-
-    @GetMapping({"/{id}"})
+    @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
-        UserEntity entity = this.userService.findById(id);
+        UserEntity entity = userService.findById(id);
         return ResponseEntity.ok(entity);
     }
-    @PostMapping("forgetPassword")
+
+    @PostMapping("/forgetPassword")
     public ResponseEntity<?> forgetPassword(@RequestBody Map<String, String> credentials) {
         if (credentials == null || !credentials.containsKey("email")) {
             return ResponseEntity.badRequest().body("Missing email field");
@@ -35,18 +35,12 @@ public class UserController {
         if (email == null || email.isEmpty()) {
             return ResponseEntity.badRequest().body("Email is empty");
         }
+
         boolean result = userService.checkEmail(email);
         if (result) {
             emailService.sendOtpEmail(email, "uuuuap"); // code tự tạo mật khẩu ngẫu nhiên tự cde nha
-            return ResponseEntity.ok(result);
-        } else {
-            return ResponseEntity.ok(result);
         }
 
-
+        return ResponseEntity.ok(result);
     }
-
-
-
-
 }

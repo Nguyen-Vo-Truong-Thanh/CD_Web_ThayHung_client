@@ -15,7 +15,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
-import ProductList from "./common/pagination/ProductList ";
+import ProductList from "./common/pagination/ProductList "; 
+import ShopLaptop from "./components/ShopLaptop/ShopLaptop";
+import ShopPhone from "./components/shopPhone/ShopPhone";
+import ShopHeadphone from "./components/ShopHeadphone/ShopHeadphone";
+import ShopAppleWatch from "./components/ShopAppleWatch/ShopAppleWatch";
 
 function App() {
   const { shopItems } = Sdata;
@@ -92,6 +96,18 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
         </Route>
         <Route path="/checkout" exact>
           <CheckOut />
+        </Route>
+        <Route path="/shop/phones" exact>
+          <ShopPhone />
+        </Route>
+        <Route path="/shop/laptops" exact>
+          <ShopLaptop />
+        </Route>
+        <Route path="/shop/smart-watches" exact>
+          <ShopAppleWatch />
+        </Route>
+        <Route path="/shop/headphones" exact>
+          <ShopHeadphone />
         </Route>
         <Route path="/searchResult" exact>
           <SearchResults />
