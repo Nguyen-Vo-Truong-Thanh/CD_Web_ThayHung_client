@@ -217,3 +217,23 @@ header ul li a {
   background-color: white;
   border: 1px solid gray;
 }
+
+.suggestions {
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  width: 44%;
+  background: white;
+  margin: 0 97px;
+  z-index: 9999;
+}
+.suggestion-item {
+  padding: 10px 10px 30px 150px;
+  cursor: pointer;
+  display: block;
+}
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+

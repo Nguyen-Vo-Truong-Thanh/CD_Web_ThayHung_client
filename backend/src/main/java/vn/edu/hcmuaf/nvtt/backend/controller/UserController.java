@@ -7,28 +7,26 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.services.EmailService;
 import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
-import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 
 import java.util.Map;
 
 @RestController
-@RequestMapping({"/users"})
-@RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+
 public class UserController {
+
     @Autowired
     private UserServiceImpl userService;
+
     @Autowired
     private EmailService emailService;
 
-
-
-    @GetMapping({"/{id}"})
+    @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
-        UserEntity entity = this.userService.findById(id);
+        UserEntity entity = userService.findById(id);
         return ResponseEntity.ok(entity);
     }
-    @PostMapping("forgetPassword")
+
+    @PostMapping("/forgetPassword")
     public ResponseEntity<?> forgetPassword(@RequestBody Map<String, String> credentials) {
         if (credentials == null || !credentials.containsKey("email")) {
             return ResponseEntity.badRequest().body("Missing email field");
@@ -42,14 +40,5 @@ public class UserController {
         boolean result = userService.checkEmail(email);
         if (result) {
 
-
-            return ResponseEntity.ok("Email sent successfully");
-        } else {
-            return ResponseEntity.badRequest().body("Email not found");
-        }
     }
-
-
-
-
 }
