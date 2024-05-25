@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/users")
+
 public class UserController {
 
     @Autowired
@@ -38,9 +39,6 @@ public class UserController {
 
         boolean result = userService.checkEmail(email);
         if (result) {
-            emailService.sendOtpEmail(email, "uuuuap"); // code tự tạo mật khẩu ngẫu nhiên tự cde nha
-        }
 
-        return ResponseEntity.ok(result);
     }
 }

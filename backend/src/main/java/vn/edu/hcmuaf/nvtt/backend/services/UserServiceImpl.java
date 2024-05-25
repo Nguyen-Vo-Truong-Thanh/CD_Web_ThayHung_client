@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,8 +18,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private final UserRepository userRepository;
-    private final AuthMapper authMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -43,14 +44,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public RegisterResponse register(RegisterRequest registerRequest) {
-        UserEntity userEntity = authMapper.registerRequestToUser(registerRequest);
-        userRepository.save(userEntity);
-        return authMapper.userToRegisterResponse(userEntity);
-    }
 
+    }
     @Override
     public void forgotPassword(String email) throws Exception {
-        // Implementation for forgotPassword method
+
     }
 
     @Override

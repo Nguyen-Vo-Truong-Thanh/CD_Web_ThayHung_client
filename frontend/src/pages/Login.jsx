@@ -1,59 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 import "./style/Login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 function Login() {
+    const [username, setUsername] = useState(''); // Changed from email to username
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const history = useHistory();
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+
+        const loginRequest = { username, password }; // Changed from email to username
+        console.log(loginRequest);
+        try {
+            const response = await fetch('http://localhost:8080/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginRequest)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Login successful:', data);
+                history.push('/Account');
+
+            } else {
+                const errorData = await response.json();
+                setError(errorData.message || 'Login failed');
+            }
+        } catch (error) {
+            setError('An error occurred. Please try again.');
+            console.error('Error during login:', error);
+        }
+    };
 
     return (
-        <div class="limiter">
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <form class="login100-form validate-form">
-                        <span class="login100-form-title p-b-26">
+        <div className="limiter">
+            <div className="container-login100">
+                <div className="wrap-login100">
+                    <form className="login100-form validate-form" onSubmit={handleLogin}>
+                        <span className="login100-form-title p-b-26">
                             Đăng nhập
                         </span>
-                        <span class="login100-form-title p-b-48">
-                            <i class="zmdi zmdi-font"></i>
+                        <span className="login100-form-title p-b-48">
+                            <i className="zmdi zmdi-font"></i>
                         </span>
 
-                        <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                            <input class="input100" type="text" name="email" />
-                            <span class="focus-input100" data-placeholder="Email"></span>
+                        <div className="wrap-input100 validate-input" data-validate="Valid username is required">
+                            <input
+                                className="input100"
+                                type="text"
+                                name="username" // Changed from email to username
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)} // Changed from setEmail to setUsername
+                            />
+                            <span className="focus-input100" data-placeholder="Username"></span>
                         </div>
 
-                        <div class="wrap-input100 validate-input" data-validate="Enter password">
-                            <span class="btn-show-pass">
-                                <i class="zmdi zmdi-eye"></i>
+                        <div className="wrap-input100 validate-input" data-validate="Enter password">
+                            <span className="btn-show-pass">
+                                <i className="zmdi zmdi-eye"></i>
                             </span>
-                            <input class="input100" type="password" name="pass" />
-                            <span class="focus-input100" data-placeholder="Password"></span>
+                            <input
+                                className="input100"
+                                type="password"
+                                name="pass"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <span className="focus-input100" data-placeholder="Password"></span>
                         </div>
 
-                        <div class="container-login100-form-btn">
-                            <div class="wrap-login100-form-btn">
-                                <div class="login100-form-bgbtn"></div>
-                                <button class="login100-form-btn">
+                        {error && <div className="error-message">{error}</div>}
+
+                        <div className="container-login100-form-btn">
+                            <div className="wrap-login100-form-btn">
+                                <div className="login100-form-bgbtn"></div>
+                                <button className="login100-form-btn" type="submit" >
+
                                     Login
+
                                 </button>
                             </div>
                         </div>
 
-                        <div class="text-center p-t-115">
-                            <span class="txt1">
+                        <div className="text-center p-t-115">
+                            <span className="txt1">
                                 Don’t have an account?
                             </span>
-                            <Link class="txt2" to="/register">
+                            <Link className="txt2" to="/register">
                                 Sign Up
                             </Link>
                         </div>
-                        <div class="text-center p-t-115">
-                            <Link class="txt2" to="/register">
-                                Sign Up
-                            </Link>
-                        </div>
-                        <div class="text-center p-t-115">
-                            <Link class="txt2" to="/resetpassword">
+                        <div className="text-center p-t-115">
+                            <Link className="txt2" to="/resetpassword">
                                 Reset password
                             </Link>
                         </div>

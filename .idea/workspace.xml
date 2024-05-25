@@ -4,21 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_processor_1_5_5_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/TechnologyShopApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/TechnologyShopApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="truongthanh" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,25 +61,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <![CDATA[
-    {
-      "keyToString": {
-        "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-        "WebServerToolWindowFactoryState": "false",
-        "last_opened_file_path": "D:/cdweb_gki/CD_Web_ThayHung_client",
-        "node.js.detected.package.eslint": "true",
-        "node.js.selected.package.eslint": "(autodetect)",
-        "node.js.selected.package.tslint": "(autodetect)",
-        "nodejs_package_manager_path": "npm",
-        "project.structure.last.edited": "SDKs",
-        "project.structure.proportion": "0.0",
-        "project.structure.side.proportion": "0.2",
-        "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a"
-      }
-    }
-    ]]>
-  </component>
+
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services" />
@@ -93,7 +77,7 @@
       <recent name="vn.edu.hcmuaf.nvtt.backend.services" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TechnologyShopApplication">
+  <component name="RunManager" selected="Spring Boot.TechnologyShopApplication">
     <configuration name="TechnologyShopApplication" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -123,27 +107,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714621989266</updated>
-      <workItem from="1714621994177" duration="314707" />
-    </task>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extendedState="6" />
-    <layout>
-      <state id="Run" active="true" />
-      <state id="Version Control">
-        <layout active="true" />
-      </state>
-      <state id="Project" />
-      <state id="Debug" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="120" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_LATEST_REVISION_BEFORE_PROJECT_UPDATE" value="true" />
-    <option name="CHECK_LATEST_REVISION_BEFORE_PROJECT_COMMIT" value="true" />
+
   </component>
   <component name="org.jetbrains.idea.maven.project.MavenProjectsManager" settingsPath="$USER_HOME$/.m2/settings.xml" />
 </project>
