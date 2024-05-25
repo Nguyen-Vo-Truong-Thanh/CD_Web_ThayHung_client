@@ -15,7 +15,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
-import ProductList from "./common/pagination/ProductList ";
+import ProductList from "./common/pagination/ProductList "; 
 import ShopLaptop from "./components/ShopLaptop/ShopLaptop";
 import ShopPhone from "./components/shopPhone/ShopPhone";
 import ShopHeadphone from "./components/ShopHeadphone/ShopHeadphone";

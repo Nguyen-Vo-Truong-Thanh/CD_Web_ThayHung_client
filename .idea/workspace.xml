@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +127,9 @@
       <workItem from="1715959921427" duration="1274000" />
       <workItem from="1716047229186" duration="318000" />
       <workItem from="1716475020136" duration="1393000" />
-      <workItem from="1716477599747" duration="2042000" />
+      <workItem from="1716477599747" duration="2347000" />
+      <workItem from="1716563259659" duration="685000" />
+      <workItem from="1716599423778" duration="940000" />
     </task>
     <task id="LOCAL-00001" summary="gộp file BE với FE">
       <created>1714622737604</created>
