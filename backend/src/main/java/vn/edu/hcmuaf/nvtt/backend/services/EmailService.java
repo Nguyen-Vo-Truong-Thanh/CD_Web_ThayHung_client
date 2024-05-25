@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.nvtt.backend.services;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -13,12 +14,14 @@ public class EmailService {
     @Autowired
     private JavaMailSender  javaMailSender;
 
+    public String generateRandomPassword() {
 
+        return RandomStringUtils.randomAlphanumeric(8);
+    }
 
-    public void sendOtpEmail(String to, String password) {
+    public void sendOtpEmail(String to, String newPassword) {
         String subject = "Lấy mật khẩu";
-        String body = "Mật khẩu mới của bạn là: " + password;
-
+        String body = "Mật khẩu mới của bạn là: " + newPassword;
         sendEmail(to, subject, body);
     }
 

@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,10 +18,19 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
+    @Autowired
     private final UserRepository userRepository;
+    @Autowired
     private final AuthMapper authmapper;
+    @Autowired
+    private EmailService emailService;
 
-
+    @Autowired
+    public UserServiceImpl(EmailService emailService, UserRepository userRepository, AuthMapper authmapper) {
+        this.emailService = emailService;
+        this.userRepository =userRepository;
+        this.authmapper = authmapper;
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         UserEntity userEntity = userRepository.findByEmail(username);
@@ -43,25 +53,34 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public RegisterResponse register(RegisterRequest registerRequest) {
+        System.out.println("RegisterRequest: " + registerRequest);
+
         UserEntity userEntity = authmapper.registerRequestToUser(registerRequest);
+        System.out.println("UserEntity before saving: " + userEntity);
+
         userRepository.save(userEntity);
+
         RegisterResponse response = authmapper.userToRegisterResponse(userEntity);
+        System.out.println("RegisterResponse: " + response);
+
         return response;
     }
-
     @Override
     public void forgotPassword(String email) throws Exception {
 
     }
-    public boolean checkEmail(String email ){
+    public boolean checkEmail(String email) {
         Optional<UserEntity> userEntity = userRepository.findEmail(email);
-        if(userEntity.isPresent()){
+        if (userEntity.isPresent()) {
+            UserEntity user = userEntity.get();
+            String newPassword = emailService.generateRandomPassword();
+            user.setPassword(newPassword);
+            userRepository.save(user);
+            emailService.sendOtpEmail(email, newPassword);
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-
     }
 
     @Override

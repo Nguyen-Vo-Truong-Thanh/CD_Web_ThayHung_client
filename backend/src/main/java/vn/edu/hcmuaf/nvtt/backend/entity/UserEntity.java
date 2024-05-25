@@ -22,12 +22,23 @@ public class UserEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String password;
-    String phoneNumber;
-    String email;
-    String address;
+    @Column(nullable = false, length = 255)
+    private String password;
+
+    @Column(name = "phone_number", length = 20)
+    private String phoneNumber;
+
+    @Column(nullable = false, length = 255)
+    private String email;
+
+    @Column(length = 255)
+    private String address;
+
+    @Column(name = "full_name", length = 255)
+    private String fullName;
+
     @Builder.Default
-    private boolean enabled = false;
+    private boolean enabled = true;
 
     @Override
     public String getUsername() {
@@ -41,21 +52,21 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean isEnabled() { //dang duoc su dung k
+    public boolean isEnabled() {
         return enabled;
     }
 }

@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping({"/users"})
+@RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
@@ -35,15 +38,15 @@ public class UserController {
         if (email == null || email.isEmpty()) {
             return ResponseEntity.badRequest().body("Email is empty");
         }
+
         boolean result = userService.checkEmail(email);
         if (result) {
-            emailService.sendOtpEmail(email, "uuuuap"); // code tự tạo mật khẩu ngẫu nhiên tự cde nha
-            return ResponseEntity.ok(result);
+
+
+            return ResponseEntity.ok("Email sent successfully");
         } else {
-            return ResponseEntity.ok(result);
+            return ResponseEntity.badRequest().body("Email not found");
         }
-
-
     }
 
 
