@@ -9,6 +9,16 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_processor_1_5_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/TechnologyShopApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/TechnologyShopApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,19 +59,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <![CDATA[
+    {
+      "keyToString": {
+        "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+        "WebServerToolWindowFactoryState": "false",
+        "last_opened_file_path": "D:/cdweb_gki/CD_Web_ThayHung_client",
+        "node.js.detected.package.eslint": "true",
+        "node.js.selected.package.eslint": "(autodetect)",
+        "node.js.selected.package.tslint": "(autodetect)",
+        "nodejs_package_manager_path": "npm",
+        "project.structure.last.edited": "SDKs",
+        "project.structure.proportion": "0.0",
+        "project.structure.side.proportion": "0.2",
+        "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a"
+      }
+    }
+    ]]>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services" />
@@ -72,6 +88,9 @@
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\mapper" />
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vn.edu.hcmuaf.nvtt.backend.services" />
     </key>
   </component>
   <component name="RunManager" selected="Application.TechnologyShopApplication">
@@ -104,120 +123,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714621989266</updated>
-      <workItem from="1714621994177" duration="295000" />
-      <workItem from="1714622308038" duration="669000" />
-      <workItem from="1714622992481" duration="37000" />
-      <workItem from="1714623369704" duration="616000" />
-      <workItem from="1714624012756" duration="957000" />
-      <workItem from="1714654921310" duration="2248000" />
-      <workItem from="1714698937256" duration="1015000" />
-      <workItem from="1714700846331" duration="7940000" />
-      <workItem from="1714977741045" duration="4369000" />
-      <workItem from="1714984139233" duration="1556000" />
-      <workItem from="1715001373538" duration="628000" />
-      <workItem from="1715002494040" duration="1447000" />
-      <workItem from="1715086113180" duration="6374000" />
-      <workItem from="1715346156680" duration="10521000" />
-      <workItem from="1715389110637" duration="7133000" />
-      <workItem from="1715566616618" duration="413000" />
-      <workItem from="1715606015525" duration="2132000" />
-      <workItem from="1715647370477" duration="1105000" />
-      <workItem from="1715566616618" duration="5067000" />
-      <workItem from="1715863874102" duration="6038000" />
-      <workItem from="1715959921427" duration="1274000" />
-      <workItem from="1716047229186" duration="318000" />
-      <workItem from="1716475020136" duration="1393000" />
-      <workItem from="1716477599747" duration="2347000" />
-      <workItem from="1716563259659" duration="685000" />
-      <workItem from="1716599423778" duration="940000" />
+      <workItem from="1714621994177" duration="314707" />
     </task>
-    <task id="LOCAL-00001" summary="gộp file BE với FE">
-      <created>1714622737604</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1714622737604</updated>
-    </task>
-    <task id="LOCAL-00002" summary="load sản phẩm">
-      <created>1714984760913</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1714984760914</updated>
-    </task>
-    <task id="LOCAL-00003" summary="load sản phẩm theo category">
-      <created>1715353592373</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1715353592373</updated>
-    </task>
-    <task id="LOCAL-00004" summary="load sản phẩm mới và giảm giá">
-      <created>1715391974975</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1715391974975</updated>
-    </task>
-    <task id="LOCAL-00005" summary="frontend">
-      <created>1715495532531</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1715495532531</updated>
-    </task>
-    <task id="LOCAL-00006" summary="frontend update">
-      <created>1715496470437</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1715496470437</updated>
-    </task>
-    <task id="LOCAL-00007" summary="frontend update">
-      <created>1715564505204</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1715564505204</updated>
-    </task>
-    <task id="LOCAL-00008" summary="frontend update">
-      <created>1715566146861</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1715566146861</updated>
-    </task>
-    <task id="LOCAL-00009" summary="frontend update">
-      <created>1715567053883</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715567053883</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
-    <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1366" height="728" extendedState="6" />
+    <layout>
+      <state id="Run" active="true" />
+      <state id="Version Control">
+        <layout active="true" />
+      </state>
+      <state id="Project" />
+      <state id="Debug" />
+    </layout>
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="120" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gộp file BE với FE" />
-    <MESSAGE value="load sản phẩm" />
-    <MESSAGE value="load sản phẩm theo category" />
-    <MESSAGE value="load sản phẩm mới và giảm giá" />
-    <MESSAGE value="frontend" />
-    <MESSAGE value="frontend update" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend update" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_LATEST_REVISION_BEFORE_PROJECT_UPDATE" value="true" />
+    <option name="CHECK_LATEST_REVISION_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
+  <component name="org.jetbrains.idea.maven.project.MavenProjectsManager" settingsPath="$USER_HOME$/.m2/settings.xml" />
 </project>

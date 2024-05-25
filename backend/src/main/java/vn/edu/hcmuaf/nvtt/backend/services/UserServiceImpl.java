@@ -11,51 +11,55 @@ import vn.edu.hcmuaf.nvtt.backend.payload.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final AuthMapper authmapper;
-
+    private final AuthMapper authMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity = userRepository.findByEmail(username);
-        return new User(userEntity.getUsername(),userEntity.getPassword(),userEntity.getAuthorities());
+        if (userEntity == null) {
+            throw new UsernameNotFoundException("User not found with email: " + username);
+        }
+        return new User(userEntity.getEmail(), userEntity.getPassword(), userEntity.getAuthorities());
     }
 
-    public UserEntity findById(Long id){
-        return userRepository.findById(id).orElseThrow(()->{
-            throw  new IllegalArgumentException("Not found by id "+id);
-        });
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + id));
     }
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) throws UserNotFoundException {
-        UserEntity userEntity = userRepository.findByEmailAndPassword(loginRequest.getUsername(),loginRequest.getPassword())
-                .orElseThrow(()-> new UserNotFoundException("not found user"));
-        LoginResponse loginResponse = authmapper.userToLoginResponse(userEntity);
-        return loginResponse;
+        UserEntity userEntity = userRepository.findByEmailAndPassword(loginRequest.getUsername(), loginRequest.getPassword())
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
+        return authMapper.userToLoginResponse(userEntity);
     }
 
     @Override
     public RegisterResponse register(RegisterRequest registerRequest) {
-        UserEntity userEntity = authmapper.registerRequestToUser(registerRequest);
+        UserEntity userEntity = authMapper.registerRequestToUser(registerRequest);
         userRepository.save(userEntity);
-        RegisterResponse response = authmapper.userToRegisterResponse(userEntity);
-        return response;
+        return authMapper.userToRegisterResponse(userEntity);
     }
 
     @Override
     public void forgotPassword(String email) throws Exception {
-
+        // Implementation for forgotPassword method
     }
 
     @Override
     public void resetPassword(ResetPasswordRequest request) {
-
+        // Implementation for resetPassword method
     }
 
-
+    @Override
+    public boolean checkEmail(String email) {
+        return userRepository.findEmail(email).isPresent();
+    }
 }
