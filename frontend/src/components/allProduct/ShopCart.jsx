@@ -23,9 +23,12 @@ const ShopCart = ({ addToCart }) => {
         console.error("Network response was not ok", response.status, response.statusText);
         throw new Error("Network response was not ok");
       }
+
       const data = await response.json();
+
       setShopItems(data.content);
       setTotalPages(data.totalPages); // Cập nhật tổng số trang từ phản hồi
+      
       setLoading(false);
     } catch (err) {
       setError(err.message);

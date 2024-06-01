@@ -1,46 +1,48 @@
-import React from "react";
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
+import { useHistory } from "react-router-dom";
 
 const Categories = () => {
-  const data = [
-    {
-      id: 1,
-      name: "Điện thoại",
-      imageUrl: "./images/category/cat1.jpg",
-      link: "/shop/phones",
-    },
-    {
-      id: 2,
-      name: "Laptop",
-      imageUrl: "./images/category/cat2.png",
-      link: "/shop/laptops",
-    },
-    {
-      id: 3,
-      name: "Đồng hồ thông minh",
-      imageUrl: "./images/category/cat3.png",
-      link: "/shop/smart-watches",
-    },
-    {
-      id: 4,
-      name: "Tai nghe",
-      imageUrl: "./images/category/cat4.png",
-      link: "/shop/headphones",
-    },
-  ];
+  const [lstData, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
+  const openDetail = (item) => {
+    history.push("/product-category/" + item.id);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => { 
+    try {
+      setLoading(true);
+      let data = [];  
+
+      const response = await fetch(`http://localhost:8080/api/product-category/getAll`); 
+      data = await response.json();
+
+      setData((data && data.length > 0) ? data : []);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
       <Badge.Ribbon text="Danh mục">
         <div className="p-2 code-h-category">
-          {data.map((value, index) => {
+          {lstData.map((value) => {
             return (
-              <Link to={value.link} key={index}>
+              <div onClick={() => openDetail(value)} key={value.id}>
                 <div className="p-2 code-hover-category">
                   <span className="code-box-title">{value.name}</span>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

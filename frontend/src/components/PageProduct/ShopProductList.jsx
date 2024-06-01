@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // Sử dụng thư viện ngzoro antd
 import { Button, message, Card, Image, Badge  } from 'antd';
 
-const ShopProductList = ({ category }) => {  debugger
+const ShopProductList = ({ category }) => {  
 
   const [lstData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
