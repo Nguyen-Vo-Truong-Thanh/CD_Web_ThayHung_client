@@ -14,6 +14,8 @@ import vn.edu.hcmuaf.nvtt.backend.mapper.AuthMapper;
 import vn.edu.hcmuaf.nvtt.backend.payload.*;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -85,7 +87,6 @@ public class UserServiceImpl implements UserService {
     public void resetPassword(ResetPasswordRequest request) {
         // Implementation for resetPassword method
     }
-
 
     public boolean checkEmail(String email) {
         return userRepository.findEmail(email).isPresent();
