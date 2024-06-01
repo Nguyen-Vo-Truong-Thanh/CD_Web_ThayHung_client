@@ -5,7 +5,6 @@ import Header from "./common/header/Header";
 import Pages from "./pages/Pages";
 import Cart from "./common/Cart/Cart";
 import Footer from "./common/footer/Footer";
-import Sdata from "./components/shopPhone/Sdata";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Shop from "./pages/Shop";
 import CheckOut from "./pages/Checkout";
@@ -16,14 +15,9 @@ import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
 import ProductList from "./common/pagination/ProductList "; 
-import ShopLaptop from "./components/ShopLaptop/ShopLaptop";
-import ShopPhone from "./components/shopPhone/ShopPhone";
-import ShopHeadphone from "./components/ShopHeadphone/ShopHeadphone";
-import ShopAppleWatch from "./components/ShopAppleWatch/ShopAppleWatch";
 import Logout from "./pages/Logout";
 
 function App() {
-  const { shopItems } = Sdata;
   const [CartItem, setCartItem] = useState([]);
 
   const addToCart = (product) => {
@@ -58,7 +52,7 @@ function App() {
 
   return (
     <Router>
-      <MainApp CartItem={CartItem} shopItems={shopItems} addToCart={addToCart} decreaseQty={decreaseQty} />
+      <MainApp CartItem={CartItem}  addToCart={addToCart} decreaseQty={decreaseQty} />
     </Router>
   );
 }
@@ -100,18 +94,6 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
         </Route>
         <Route path="/checkout" exact>
           <CheckOut />
-        </Route>
-        <Route path="/shop/phones" exact>
-          <ShopPhone />
-        </Route>
-        <Route path="/shop/laptops" exact>
-          <ShopLaptop />
-        </Route>
-        <Route path="/shop/smart-watches" exact>
-          <ShopAppleWatch />
-        </Route>
-        <Route path="/shop/headphones" exact>
-          <ShopHeadphone />
         </Route>
         <Route path="/searchResult" exact>
           <SearchResults />
