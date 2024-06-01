@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 import "./style/Login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
-    const [username, setUsername] = useState(''); // Changed from email to username
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [fullName, setFullName] = useState(''); // State mới để lưu trữ fullName
     const history = useHistory();
 
     const handleLogin = async (event) => {
         event.preventDefault();
-
-        const loginRequest = { username, password }; // Changed from email to username
+    
+        const loginRequest = { username, password };
         console.log(loginRequest);
         try {
             const response = await fetch('http://localhost:8080/auth/login', {
@@ -23,12 +23,22 @@ function Login() {
                 },
                 body: JSON.stringify(loginRequest)
             });
-
+    
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                history.push('/Account');
-
+                sessionStorage.setItem('email', data.data.email);
+                sessionStorage.setItem('fullName', data.data.fullName); 
+                sessionStorage.setItem('phone_number', data.data.phoneNumber); 
+                
+                setFullName(data.data.fullName); // Thiết lập fullName trong state
+                if (data.data && data.data.enabled === 1) {
+                    history.push('/');
+                } else if (data.data && data.data.enabled === 2) {
+                    history.push('/admin');
+                } else {
+                    setError('Invalid user access');
+                }
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Login failed');
@@ -38,6 +48,7 @@ function Login() {
             console.error('Error during login:', error);
         }
     };
+    
 
     return (
         <div className="limiter">
@@ -55,9 +66,9 @@ function Login() {
                             <input
                                 className="input100"
                                 type="text"
-                                name="username" // Changed from email to username
+                                name="username"
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value)} // Changed from setEmail to setUsername
+                                onChange={(e) => setUsername(e.target.value)}
                             />
                             <span className="focus-input100" data-placeholder="Username"></span>
                         </div>
@@ -82,7 +93,6 @@ function Login() {
                             <div className="wrap-login100-form-btn">
                                 <div className="login100-form-bgbtn"></div>
                                 <button className="login100-form-btn" type="submit" >
-
                                     Login
 
                                 </button>
@@ -102,6 +112,7 @@ function Login() {
                                 Reset password
                             </Link>
                         </div>
+
                     </form>
                 </div>
             </div>

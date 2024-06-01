@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.nvtt.backend.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.payload.LoginResponse;
 import vn.edu.hcmuaf.nvtt.backend.payload.RegisterRequest;
@@ -10,10 +9,11 @@ import vn.edu.hcmuaf.nvtt.backend.payload.RegisterResponse;
 
 @Mapper(componentModel = "spring")
 public interface AuthMapper {
-    AuthMapper INSTANCE = Mappers.getMapper(AuthMapper.class);
-
     @Mapping(source = "fullName", target = "fullName")
-    @Mapping(source = "phone", target = "phoneNumber")
+    @Mapping(source = "phoneNumber", target = "phoneNumber")
+    @Mapping(source = "password", target = "password")
+    @Mapping(source = "email", target = "email")
+    @Mapping(source = "address", target = "address")
     UserEntity registerRequestToUser(RegisterRequest registerRequest);
 
     default RegisterResponse userToRegisterResponse(UserEntity userEntity) {
@@ -21,12 +21,11 @@ public interface AuthMapper {
         response.setFullName(userEntity.getFullName());
         response.setEmail(userEntity.getEmail());
         response.setPassword(userEntity.getPassword());
-        response.setPhone(userEntity.getPhoneNumber());
+        response.setPhoneNumber(userEntity.getPhoneNumber());
+        response.setAddress(userEntity.getAddress());
         return response;
     }
+
     LoginResponse userToLoginResponse(UserEntity userEntity);
-
-
-
 
 }

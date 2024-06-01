@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
+import { Button, Card, Image } from 'antd';
 
 const SearchResults = ({ addToCart }) => {
   const location = useLocation();
@@ -50,33 +51,22 @@ const SearchResults = ({ addToCart }) => {
             <p>{error}</p>
           ) : (
             shopItems.map(item => (
-              <div className="col-md-3" key={item.id}>
-                <div className="product mtop w-100">
-                  <div className="img">
-                    <img src={item.imageUrl} alt="" />
+              <div className="col-md-3 mb-4 mt-3" key={item.id}>
+                <Card className="w-100 h-100">
+                  <div className="w-100 h-img-cart d-flex justify-content-center">
+                    <Image className="w-100 h-100" src={item.imageUrl} alt={item.name} />
                   </div>
-                  <div className="product-details">
-                    <h3>{item.name}</h3>
-                    <div>
-                      <h4>{item.price.toLocaleString()} VNĐ</h4>
-                      <div className="w-100 d-flex justify-content-between">
-                        <button
-                          onClick={() => openDetail(item)}
-                          type="button"
-                          className="btn btn-primary"
-                        >
-                          Xem nhanh
-                        </button>
-                        <button
-                          className="btn btn-outline-primary"
-                          onClick={() => addToCart(item)}
-                        >
-                          <i className="fa fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
+                  <div className="w-100 mt-4">
+                    <p className="code-box-title">{item.name}</p>
                   </div>
-                </div>
+                  <div className="w-100">
+                    <p className="code-box-price">{item.price.toLocaleString()} VNĐ</p>
+                  </div>
+                  <div className="w-100 d-flex justify-content-between">
+                    <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
+                    <Button onClick={() => addToCart(item)}>Mua</Button>
+                  </div>
+                </Card>
               </div>
             ))
           )}

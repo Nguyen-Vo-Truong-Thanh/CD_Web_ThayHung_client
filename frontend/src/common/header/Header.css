@@ -1,4 +1,4 @@
-/*------head-----------*/
+------head-----------
 .head {
   background-color: #0f3460;
   padding: 10px 0;
@@ -89,10 +89,9 @@
     width: 100% !important;
     height: 100%;
     position: absolute !important;
-      top: 0;
-      left: 260px;
+    top: 0;
+    left: 260px;
   }
-  
 }
 
 /*------search-----------*/
@@ -116,7 +115,6 @@
   margin-left: 10px;
 }
 header {
-  height: 8vh;
   box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
 }
 header .container.d_flex {
@@ -125,9 +123,6 @@ header .container.d_flex {
   width: 100%;
 }
 
-header ul {
-  line-height: 8vh;
-}
 header ul li {
   margin-left: 30px;
 }
@@ -135,6 +130,7 @@ header ul li a {
   transition: 0.5s;
   font-size: 16px;
   font-weight: 700;
+  margin-top: 5px;
 }
 /* header ul li a:hover {
   color: #ff014f;
@@ -177,17 +173,17 @@ header ul li a {
     width: 100%;
     transition: all 0.5s ease-in-out;
     text-transform: uppercase;
-    line-height: 70px;
+    padding: 16px 0;
   }
   header .link {
     display: none;
   }
-  .close,
+  
   .open {
     position: absolute;
-    top: 35px;
+    top: 20px;
     right: 20px;
-    color: #ff014f;
+    color: #1677ff;
     display: block;
     font-size: 25px;
     z-index: 999;
@@ -195,15 +191,7 @@ header ul li a {
   .close {
     right: 45%;
   }
-  .close.home-btn {
-    background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    color: #ff014f;
-    border-radius: 50%;
-    padding: 0;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
+ 
 }
 .navlink ul li a{
   font-weight: 600;
@@ -236,4 +224,12 @@ header ul li a {
 .suggestion-item:hover {
   background-color: #f0f0f0;
 }
-
+Link {
+  text-decoration: none;
+}
+.fullname {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 10px;
+  text-decoration: none;
+}

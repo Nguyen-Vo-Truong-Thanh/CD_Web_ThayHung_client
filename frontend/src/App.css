@@ -4,14 +4,21 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  font-size: 14px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
 }
+
 .background {
   background: #f6f9fc;
   padding: 50px 0;
@@ -49,7 +56,6 @@ input,
 button {
   border: none;
   outline: none;
-  background-color: none;
 }
 .col-md-2 .icon.f_flex.width .fa.fa-user.icon-circle{
   position: absolute;
@@ -72,10 +78,6 @@ button {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }
 
-/*---------category----------*/
-.contentWidth {
-  width: 77%;
-}
 .category {
   box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
   background-color: #fff;
@@ -195,7 +197,6 @@ button {
   line-height: 60px;
   background: #0f3460;
   border-radius: 50%;
-  transform: 0.5s;
   z-index: 5;
 }
 .control-btn .prev {
@@ -246,4 +247,123 @@ button {
   background-color: #e94560;
   width: 140px;
   height: 30px;
+}
+
+/* Trang sản phẩm giỏ hàng  */
+
+.ant-ribbon-wrapper {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px
+}
+
+.h-img-cart {
+  height: 200px;
+}
+
+.code-box-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.88);
+  line-height: 24px;
+  height: 64px;
+}
+
+.code-box-price {
+  font-weight: 600;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.88);
+  line-height: 24px;
+}
+
+.code-h-category {
+  height: 300px;
+}
+
+.bg-slide {
+  height: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 12px 20px;
+  background: #edf2f8;
+  opacity: 0.8;
+  width: 100%;
+}
+
+.bg-image {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-image img {
+  height: 300px;
+}
+
+.code-hover-category:hover {
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.nav-logo {
+  height: 60px;
+}
+
+.code-icon-cart {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 100%;
+}
+
+.search-box  {
+  overflow: hidden;
+}
+.code-btn-search {
+  padding: 0 20px;
+}
+
+@media only screen and (max-width: 575px) {
+  .code-icon-cart {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links-MobileMenu {
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 99;
+    background: #e0eaf7;
+    top: 0;
+  }
+
+  .close.home-btn{
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #1677ff;
+    border-radius: 50%;
+  }
+
+  button.toggle {
+    position: absolute;
+    top: 10px;
+    z-index: 999;
+    right: 20px;
+    background: none;
+  }
 }

@@ -67,8 +67,8 @@ function Resetpassword() {
 
 
                         <div className="text-center p-t-115">
-                            <Link className="txt2" to="/register">
-                                Sign Up
+                            <Link className="txt2" to="/login">
+                                Sign in
                             </Link>
                         </div>
                     </form>

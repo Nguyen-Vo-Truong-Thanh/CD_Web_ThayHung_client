@@ -1,26 +1,60 @@
-import React from "react";
 import ShopCart from "./ShopCart";
 import "./style.css";
+import React, { useState, useEffect } from 'react';
 
-const ShopPhone = ({ addToCart, shopItems }) => {
+// Sử dụng thư viện ngzoro antd
+import { Card } from 'antd';
+
+const ShopNewArrival = () => {
+
+  const [lstData, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Gọi api danh sách category 
+  const loadData = async () => {
+    try {
+      setLoading(true);
+
+      // const response = await fetch(`http://localhost:8080/api/products/category`);
+      // const data = await response.json();
+
+      const data = [      
+        {
+          "id": 2,
+          "name": "Discount",
+          "createdAt": "2024-05-06T07:30:16.000+00:00"
+        },
+      ];
+
+      setData((data && data.length > 0) ? data : []);
+      setLoading(false);
+
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
-      <section className="shop background">
-        <div className="container">
-          <div className="row">
-            <div className="heading d_flex">
-              <div className="heading-left row  f_flex">
-                <h2>Discount</h2>
-              </div>
+      {lstData && lstData.map((category) => {
+        return(
+          <>
+            <div className="container mb-4" key={category.id}>
+              <Card className="w-100" title={category.name}>
+                <div className="row">
+                  <ShopCart category={category}/>
+                </div>
+              </Card>
             </div>
-            <div className="row">
-              <ShopCart addToCart={addToCart} shopItems={shopItems} />
-            </div>
-          </div>
-        </div>
-      </section>
+          </>
+        )
+      })}
     </>
   );
 };
 
-export default ShopPhone;
+export default ShopNewArrival;

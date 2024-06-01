@@ -37,8 +37,8 @@ public class UserEntity implements UserDetails {
     @Column(name = "full_name", length = 255)
     private String fullName;
 
-    @Builder.Default
-    private boolean enabled = true;
+    @Column
+    private int enabled; // Sửa kiểu dữ liệu của trường enabled thành int
 
     @Override
     public String getUsername() {
@@ -67,6 +67,6 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
+        return enabled == 1;
     }
 }

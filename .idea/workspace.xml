@@ -4,23 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
+    <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_jakarta_mail_2_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_processor_1_5_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_3_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Logout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/style/Logout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_2_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/ApplicationConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/pagination/ProductList .jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/pagination/ProductList .jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Discount/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Discount/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Discount/ShopDiscount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Discount/ShopDiscount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Categories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Sdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Sdata.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/SlideCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/SlideCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopAppleWatch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopAppleWatch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopHeadphone.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopHeadphone.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopLaptop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopLaptop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/AllProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/AllProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopNewArrival.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopNewArrival.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopPhone.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopPhone.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/style/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/style/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/style/Shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/style/Shop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +87,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="truongthanh" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,9 +110,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
+      <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\controller" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model" />
@@ -74,10 +138,11 @@
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="vn.edu.hcmuaf.nvtt.backend.services" />
+      <recent name="vn.edu.hcmuaf.nvtt.backend.repository" />
+      <recent name="vn.edu.hcmuaf.nvtt.backend.mapper" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TechnologyShopApplication">
+  <component name="RunManager" selected="Application.TechnologyShopApplication">
     <configuration name="TechnologyShopApplication" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="22" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -107,7 +172,136 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714621989266</updated>
-
+      <workItem from="1714621994177" duration="295000" />
+      <workItem from="1714622308038" duration="669000" />
+      <workItem from="1714622992481" duration="37000" />
+      <workItem from="1714623369704" duration="616000" />
+      <workItem from="1714624012756" duration="957000" />
+      <workItem from="1714654921310" duration="2248000" />
+      <workItem from="1714698937256" duration="1015000" />
+      <workItem from="1714700846331" duration="7940000" />
+      <workItem from="1714977741045" duration="4369000" />
+      <workItem from="1714984139233" duration="1556000" />
+      <workItem from="1715001373538" duration="628000" />
+      <workItem from="1715002494040" duration="1447000" />
+      <workItem from="1715086113180" duration="6374000" />
+      <workItem from="1715346156680" duration="10521000" />
+      <workItem from="1715389110637" duration="7133000" />
+      <workItem from="1715566616618" duration="413000" />
+      <workItem from="1715606015525" duration="2132000" />
+      <workItem from="1715647370477" duration="1105000" />
+      <workItem from="1715566616618" duration="5067000" />
+      <workItem from="1715863874102" duration="6038000" />
+      <workItem from="1715959921427" duration="1274000" />
+      <workItem from="1716047229186" duration="318000" />
+      <workItem from="1716475020136" duration="1393000" />
+      <workItem from="1716477599747" duration="2347000" />
+      <workItem from="1716563259659" duration="685000" />
+      <workItem from="1716599423778" duration="985000" />
+      <workItem from="1716646535682" duration="360000" />
+      <workItem from="1716825821866" duration="39000" />
+      <workItem from="1716826566695" duration="191000" />
+      <workItem from="1716826861671" duration="13000" />
+      <workItem from="1716855707764" duration="991000" />
+      <workItem from="1716859051710" duration="130000" />
+      <workItem from="1716883653917" duration="826000" />
+      <workItem from="1716886111251" duration="1344000" />
+      <workItem from="1717046674539" duration="6279000" />
+      <workItem from="1717060826358" duration="2096000" />
+      <workItem from="1717066956253" duration="459000" />
+      <workItem from="1717067486195" duration="19000" />
+      <workItem from="1717116859275" duration="16595000" />
+      <workItem from="1717152184757" duration="1023000" />
+      <workItem from="1717173900726" duration="164000" />
+      <workItem from="1717206448624" duration="471000" />
+    </task>
+    <task id="LOCAL-00001" summary="gộp file BE với FE">
+      <created>1714622737604</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714622737604</updated>
+    </task>
+    <task id="LOCAL-00002" summary="load sản phẩm">
+      <created>1714984760913</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714984760914</updated>
+    </task>
+    <task id="LOCAL-00003" summary="load sản phẩm theo category">
+      <created>1715353592373</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715353592373</updated>
+    </task>
+    <task id="LOCAL-00004" summary="load sản phẩm mới và giảm giá">
+      <created>1715391974975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715391974975</updated>
+    </task>
+    <task id="LOCAL-00005" summary="frontend">
+      <created>1715495532531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715495532531</updated>
+    </task>
+    <task id="LOCAL-00006" summary="frontend update">
+      <created>1715496470437</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715496470437</updated>
+    </task>
+    <task id="LOCAL-00007" summary="frontend update">
+      <created>1715564505204</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715564505204</updated>
+    </task>
+    <task id="LOCAL-00008" summary="frontend update">
+      <created>1715566146861</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715566146861</updated>
+    </task>
+    <task id="LOCAL-00009" summary="frontend update">
+      <created>1715567053883</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715567053883</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
   </component>
-  <component name="org.jetbrains.idea.maven.project.MavenProjectsManager" settingsPath="$USER_HOME$/.m2/settings.xml" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gộp file BE với FE" />
+    <MESSAGE value="load sản phẩm" />
+    <MESSAGE value="load sản phẩm theo category" />
+    <MESSAGE value="load sản phẩm mới và giảm giá" />
+    <MESSAGE value="frontend" />
+    <MESSAGE value="frontend update" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend update" />
+  </component>
 </project>

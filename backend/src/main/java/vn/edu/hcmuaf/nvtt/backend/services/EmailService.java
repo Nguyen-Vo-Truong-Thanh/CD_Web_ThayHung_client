@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     @Autowired
-    private JavaMailSender  javaMailSender;
+    private JavaMailSender javaMailSender;
 
     public String generateRandomPassword() {
 

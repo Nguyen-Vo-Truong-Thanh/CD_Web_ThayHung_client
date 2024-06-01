@@ -1,37 +1,50 @@
 import React from "react";
+import { Badge } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
   const data = [
     {
-      cateImg: "./images/category/cat1.jpg",
-      cateName: "Điện thoại",
+      id: 1,
+      name: "Điện thoại",
+      imageUrl: "./images/category/cat1.jpg",
+      link: "/shop/phones",
     },
     {
-      cateImg: "./images/category/cat2.png",
-      cateName: "Lap top",
+      id: 2,
+      name: "Laptop",
+      imageUrl: "./images/category/cat2.png",
+      link: "/shop/laptops",
     },
     {
-      cateImg: "./images/category/cat3.png",
-      cateName: "Đồng hồ thông minh",
+      id: 3,
+      name: "Đồng hồ thông minh",
+      imageUrl: "./images/category/cat3.png",
+      link: "/shop/smart-watches",
     },
     {
-      cateImg: "./images/category/cat4.png",
-      cateName: "Tai nghe",
+      id: 4,
+      name: "Tai nghe",
+      imageUrl: "./images/category/cat4.png",
+      link: "/shop/headphones",
     },
   ];
 
   return (
     <>
-      <div className="category">
-        {data.map((value, index) => {
-          return (
-            <div className="box f_flex" key={index}>
-              <img src={value.cateImg} alt="" />
-              <span>{value.cateName}</span>
-            </div>
-          );
-        })}
-      </div>
+      <Badge.Ribbon text="Danh mục">
+        <div className="p-2 code-h-category">
+          {data.map((value, index) => {
+            return (
+              <Link to={value.link} key={index}>
+                <div className="p-2 code-hover-category">
+                  <span className="code-box-title">{value.name}</span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </Badge.Ribbon>
     </>
   );
 };

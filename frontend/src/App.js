@@ -20,6 +20,7 @@ import ShopLaptop from "./components/ShopLaptop/ShopLaptop";
 import ShopPhone from "./components/shopPhone/ShopPhone";
 import ShopHeadphone from "./components/ShopHeadphone/ShopHeadphone";
 import ShopAppleWatch from "./components/ShopAppleWatch/ShopAppleWatch";
+import Logout from "./pages/Logout";
 
 function App() {
   const { shopItems } = Sdata;
@@ -81,6 +82,9 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
         </Route>
         <Route path="/resetpassword" exact>
           <ResetPassword />
+        </Route>
+        <Route path="/logout" exact>
+          <Logout />
         </Route>
         <Route path="/" exact>
           <Pages addToCart={addToCart} shopItems={shopItems} />
