@@ -1,5 +1,4 @@
 package vn.edu.hcmuaf.nvtt.backend.entity;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -14,10 +13,7 @@ public class ProductCategory {
     @Column(name = "name")
     private String name;
 
-
-
     public ProductCategory() {
-
     }
 
     public Long getId() {

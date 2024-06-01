@@ -25,6 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.discount >= :discount")
     List<Product> findByProductDiscount(int discount);
+
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(concat('%', :keyword, '%'))")
     List<Product> searchProducts( String keyword);
 
