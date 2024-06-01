@@ -1,24 +1,21 @@
 import React from "react";
 import ShopCart from "./ShopCart";
 import "./style.css";
+import { Card, Spin } from 'antd';
 
-const AllProduct = ({ addToCart, shopItems }) => {
+const AllProduct = () => {
   return (
     <>
-      <section className="shop background">
+      <Card >
         <div className="container">
           <div className="row">
-            <div className="heading d_flex">
-              <div className="heading-left row  f_flex">
-                <h2>Sản phẩm của chúng tôi</h2>
-              </div>
-            </div>
+            <h4 className="mb-4">Sản phẩm của chúng tôi</h4>
             <div className="row">
-              <ShopCart addToCart={addToCart} shopItems={shopItems} />
+              <ShopCart />
             </div>
           </div>
         </div>
-      </section>
+      </Card>
     </>
   );
 };

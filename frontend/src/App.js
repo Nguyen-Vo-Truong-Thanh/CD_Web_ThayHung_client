@@ -16,6 +16,7 @@ import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
 import ProductList from "./common/pagination/ProductList "; 
 import Logout from "./pages/Logout";
+import ProductCategory from "./components/allProduct/ProductCategory";
 
 function App() {
   const [CartItem, setCartItem] = useState([]);
@@ -103,6 +104,9 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
         </Route>
         <Route path="/search-results" exact>
           <SearchResults addToCart={addToCart} />
+        </Route>
+        <Route path="/product-category/:id" exact>
+          <ProductCategory />
         </Route>
         <Route path="/shop/page/:page" component={ProductList} />
       </Switch>
