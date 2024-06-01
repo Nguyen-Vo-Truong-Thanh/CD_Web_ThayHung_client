@@ -24,4 +24,5 @@ const Sdata = [
     cover: "./images/SlideCard/slide-4.jpg",
   },
 ];
+
 export default Sdata;

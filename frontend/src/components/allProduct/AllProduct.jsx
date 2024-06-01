@@ -2,7 +2,7 @@ import React from "react";
 import ShopCart from "./ShopCart";
 import "./style.css";
 
-const ShopPhone = ({ addToCart, shopItems }) => {
+const AllProduct = ({ addToCart, shopItems }) => {
   return (
     <>
       <section className="shop background">
@@ -23,4 +23,4 @@ const ShopPhone = ({ addToCart, shopItems }) => {
   );
 };
 
-export default ShopPhone;
+export default AllProduct;

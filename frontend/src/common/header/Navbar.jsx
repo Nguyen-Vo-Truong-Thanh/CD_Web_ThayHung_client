@@ -18,12 +18,8 @@ const Navbar = () => {
       <header className="header">
         <div className="container d_flex">
           <div className="navlink">
-            <ul
-              className={
-                MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize"
-              }
-              onClick={() => setMobileMenu(false)}
-            >
+            <ul className={ MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize m-0"}
+              onClick={() => setMobileMenu(false)} >
               <li>
                 <Link to="/" onClick={handleClick}>
                   TRANG CHỦ
@@ -46,10 +42,7 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <button
-              className="toggle"
-              onClick={() => setMobileMenu(!MobileMenu)}
-            >
+            <button className="toggle" onClick={() => setMobileMenu(!MobileMenu)}>
               {MobileMenu ? (
                 <i className="fas fa-times close home-btn"></i>
               ) : (

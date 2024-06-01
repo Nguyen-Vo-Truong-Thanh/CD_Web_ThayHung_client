@@ -19,7 +19,7 @@ html {
 a {
     font-family: Poppins-Regular;
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.7;   
     color: #666666;
     margin: 0px;
     transition: all 0.4s;
@@ -48,14 +48,6 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0px;
-}
-
-p {
-    font-family: Poppins-Regular;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
     margin: 0px;
 }
 
@@ -160,6 +152,9 @@ button:hover {
 iframe {
     border: none !important;
 }
+.error-message{
+    color: red;
+}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -169,6 +164,7 @@ iframe {
     font-size: 13px;
     color: #666666;
     line-height: 1.5;
+    
 }
 
 .txt2 {
@@ -176,6 +172,7 @@ iframe {
     font-size: 13px;
     color: #333333;
     line-height: 1.5;
+    cursor: pointer;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -230,6 +227,7 @@ iframe {
     color: #333333;
     line-height: 1.2;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .login100-form-title i {
@@ -512,4 +510,13 @@ iframe {
         visibility: visible;
         opacity: 1;
     }
+}
+/* Add padding to the top of the input container */
+.wrap-input100 {
+    padding-top: 20px; /* Adjust the value as needed */
+}
+
+/* Adjust the position of the label */
+.focus-input100::after {
+    top: 0px; /* Adjust the value to align the label properly */
 }

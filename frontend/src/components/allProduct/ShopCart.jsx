@@ -1,5 +1,6 @@
 import { useHistory, useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import { Button, Card, Image } from 'antd';
 
 const ShopCart = ({ addToCart }) => {
   const { page } = useParams(); // Lấy số trang từ URL
@@ -34,7 +35,13 @@ const ShopCart = ({ addToCart }) => {
   };
 
   useEffect(() => {
-    fetchProducts(currentPage);
+    let isMounted = true;
+    fetchProducts(currentPage).then(() => {
+      if (isMounted) setLoading(false);
+    }).catch((err) => {
+      if (isMounted) setError(err.message);
+    });
+    return () => { isMounted = false; }; // Cleanup function to avoid memory leaks
   }, [currentPage]);
 
   const renderPageNumbers = () => {
@@ -58,36 +65,27 @@ const ShopCart = ({ addToCart }) => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        shopItems.map((item) => (
-          <div className="col-md-4" key={item.id}>
-            <div className="product mt w-100">
-              <div className="img">
-                <img src={item.imageUrl} alt="" />
-              </div>
-              <div className="product-details">
-                <h3>{item.name}</h3>
-                <div>
-                  <h4>{item.price.toLocaleString()} VNĐ </h4>
-                  <div className="w-100 d-flex justify-content-between">
-                    <button
-                      onClick={() => openDetail(item)}
-                      type="button"
-                      className="btn btn-primary"
-                    >
-                      Xem nhanh
-                    </button>
-                    <button
-                      className="btn btn-outline-primary"
-                      onClick={() => addToCart(item)}
-                    >
-                      <i className="fa fa-plus"></i>
-                    </button>
-                  </div>
+        <div className="row">
+          {shopItems.map((item) => (
+            <div className="col-md-4 mb-4" key={item.id}>
+              <Card className="w-100 h-100">
+                <div className="w-100 h-img-cart d-flex justify-content-center">
+                  <Image className="w-100 h-100" src={item.imageUrl} alt={item.name} />
                 </div>
-              </div>
+                <div className="w-100 mt-4">
+                  <p className="code-box-title">{item.name}</p>
+                </div>
+                <div className="w-100">
+                  <p className="code-box-price">{item.price.toLocaleString()} VNĐ</p>
+                </div>
+                <div className="w-100 d-flex justify-content-between">
+                  <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
+                  <Button onClick={() => addToCart(item)}>Mua</Button>
+                </div>
+              </Card>
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       )}
       <nav aria-label="Page navigation example" className="mb-3">
         <ul className="pagination">

@@ -5,11 +5,23 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import './Header.css';
 import axios from "axios";
 
-const Search = ({ CartItem }) => {
+const Search = ({ CartItem, updateFullName }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [shopItems, setShopItems] = useState([]);
+  const [fullName, setFullName] = useState('');
   const history = useHistory();
+
+  useEffect(() => {
+    const storedFullName = sessionStorage.getItem('fullName');
+    if (storedFullName) {
+      setFullName(storedFullName);
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('fullName', fullName);
+  }, [fullName]);
 
   useEffect(() => {
     const fetchSearchResults = async () => {
@@ -46,45 +58,41 @@ const Search = ({ CartItem }) => {
     }
   };
 
-  
-
   const handleSuggestionClick = (suggestion) => {
     setSearchTerm(suggestion);
     history.push(`/search-results?keyword=${encodeURIComponent(suggestion)}`);
     setSearchTerm("");
   };
 
+  // Xóa fullName khi người dùng đăng xuất
+  const handleLogout = () => {
+    sessionStorage.removeItem('fullName');
+    setFullName('');
+    updateFullName(''); // Cập nhật fullName trong component cha (App)
+  };
+
   return (
     <>
-      <section className="search">
+      <section className="header-nav">
         <div className="container">
-          <div className="row">
+          <div className="row position-relative">
             <div className="col-md-2">
               <div className="logo width">
-                <img src={logo} alt="" />
+                <img src={logo} className="nav-logo"/>
               </div>
             </div>
             <div className="col-md-8">
-              <form >
+              <form>
                 <div className="search-box f_flex">
                   <i className="fa fa-search"></i>
-                  <input
-                    name="keyword"
-                    type="text"
-                    placeholder="Search here..."
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                  />
-                  <button className="me-3" type="submit">Search</button>
+                  <input name="keyword" type="text" placeholder="Search here..."
+                    value={searchTerm} onChange={handleInputChange}/>
+                  <button className="code-btn-search" type="submit">Search</button>
                 </div>
                 {suggestions.length > 0 && (
                   <div className="suggestions">
                     {suggestions.map((suggestion, index) => (
-                      <div
-                        key={index}
-                        className="suggestion-item"
-                        onClick={() => handleSuggestionClick(suggestion)}
-                      >
+                      <div key={index} className="suggestion-item" onClick={() => handleSuggestionClick(suggestion)}>
                         {suggestion}
                       </div>
                     ))}
@@ -93,18 +101,20 @@ const Search = ({ CartItem }) => {
               </form>
             </div>
             <div className="col-md-2">
-              <div className="icon f_flex width user-shop">
-                <div className="account">
+              <div className="code-icon-cart">
+                {fullName ? (
+                  <Link to ="/account">
+                    <span className="fullname">{fullName}</span>
+                  </Link>
+                ) : (
                   <Link to="/account">
                     <i className="fa fa-user icon-circle"></i>
                   </Link>
-                </div>
-                <div className="cart">
-                  <Link to="/cart">
-                    <i className="fa fa-shopping-bag icon-circle"></i>
-                    <span>{CartItem.length === 0 ? "" : CartItem.length}</span>
-                  </Link>
-                </div>
+                )}
+                <Link to="/cart">
+                  <i className="fa fa-shopping-bag icon-circle"></i>
+                  <span>{CartItem.length === 0 ? "" : CartItem.length}</span>
+                </Link>
               </div>
             </div>
           </div>

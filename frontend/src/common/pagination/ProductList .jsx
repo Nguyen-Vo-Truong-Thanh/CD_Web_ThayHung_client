@@ -1,34 +1,10 @@
-import { useHistory, useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import './Pagination.css';
-
+import AllProduct from '../../components/allProduct/AllProduct';
+import Categories from '../../components/MainPage/Categories';
 
 const ProductList = ({ addToCart }) => {
-  const [LstCategory, setLstCategory] = useState([
-    {
-      id: 1,
-      name: "Điện thoại",
-      imageUrl: "./images/category/cat1.jpg",
-      
-    },
-    {
-      id: 2,
-      name: "Laptop",
-      imageUrl: "./images/category/cat2.png",
-    },
-    {
-      id: 3,
-      name: "Đồng hồ thông minh",
-      imageUrl: "./images/category/cat3.png",
-      
-    },
-    {
-      id: 4,
-      name: "Tai nghe",
-      imageUrl: "./images/category/cat4.png",
-      
-    },
-  ]);
   const { page } = useParams(); // Lấy số trang từ URL
   const currentPage = parseInt(page, 10) || 1; // Nếu không có trang nào được chỉ định, mặc định là trang 1
   const [shopItems, setShopItems] = useState([]);
@@ -79,87 +55,26 @@ const ProductList = ({ addToCart }) => {
   };
 
   return (
-    <>
-      <div className="shop">
+    <div className="shop">
+      <div className="w-100 h-100 pt-4 pb-4">
         <div className="container">
-          <div className="row">
-            <div className="col-md-2">
-              <div className="shop-category">
-                {LstCategory.map((item, index) => {
-                  return (
-                    <div
-                      className="box"
-                      key={item.id}
-                    
-                    >
-                      <div className="box-icon d-flex">
-                        <img src={item.imageUrl} alt="" />
-                        <span>{item.name}</span>
-                      </div>
-                    </div>
-                    
-                  );
-                })}
-              </div>
+          <div className="row justify-content-between">
+            <div className="col-md-3 d-none d-sm-block">
+              <Categories />
             </div>
-            <div className="col-md-10 d-flex">
-            {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        shopItems.map((item) => (
-          <div className="col-md-4" key={item.id}>
-            <div className="product mt w-100">
-              <div className="img">
-                <img src={item.imageUrl} alt="" />
-              </div>
-              <div className="product-details">
-                <h3>{item.name}</h3>
-                <div>
-                  <h4>{item.price.toLocaleString()} VNĐ </h4>
-                  <div className="w-100 d-flex justify-content-between">
-                    <button
-                      onClick={() => openDetail(item)}
-                      type="button"
-                      className="btn btn-primary"
-                    >
-                      Xem nhanh
-                    </button>
-                    <button
-                      className="btn btn-outline-primary"
-                      onClick={() => addToCart(item)}
-                    >
-                      <i className="fa fa-plus"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))
-      )}
-      <nav aria-label="Page navigation example" className="mb-3">
-        <ul className="pagination">
-          <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-            <Link to={`/shop/page/${currentPage - 1}`} className="page-link">
-              Previous
-            </Link>
-          </li>
-          {renderPageNumbers()}
-          <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-            <Link to={`/shop/page/${currentPage + 1}`} className="page-link">
-              Next
-            </Link>
-          </li>
-        </ul>
-      </nav>
+            <div className="col-md-9 col-sm-12">
+              {loading ? (
+                <p>Loading...</p>
+              ) : error ? (
+                <p>{error}</p>
+              ) : (
+                <AllProduct shopItems={shopItems} addToCart={addToCart} />
+              )}
             </div>
           </div>
         </div>
       </div>
-
-    </>
+    </div>
   );
 };
 

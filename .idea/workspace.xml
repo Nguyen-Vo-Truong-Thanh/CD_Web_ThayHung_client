@@ -5,10 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_angus_jakarta_mail_2_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_processor_1_5_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_3_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_6_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Logout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/style/Logout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_2_4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/ApplicationConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/mapper/AuthMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/payload/RegisterResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Navbar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/header/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/pagination/ProductList .jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/pagination/ProductList .jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Discount/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Discount/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Discount/ShopDiscount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Discount/ShopDiscount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Categories.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/Sdata.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/Sdata.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MainPage/SlideCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MainPage/SlideCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopAppleWatch.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopAppleWatch.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopAppleWatch/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopHeadphone.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopHeadphone/ShopHeadphone.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopLaptop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ShopLaptop/ShopLaptop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/AllProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/AllProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopNewArrival.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopNewArrival.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/newarrivals/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopPhone.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/shopPhone/ShopPhone.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ResetPassword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/style/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/style/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/style/Shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/style/Shop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +113,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -64,6 +126,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
+      <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\controller" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository" />
       <recent name="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model" />
@@ -72,6 +136,10 @@
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\mapper" />
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vn.edu.hcmuaf.nvtt.backend.repository" />
+      <recent name="vn.edu.hcmuaf.nvtt.backend.mapper" />
     </key>
   </component>
   <component name="RunManager" selected="Application.TechnologyShopApplication">
@@ -129,7 +197,23 @@
       <workItem from="1716475020136" duration="1393000" />
       <workItem from="1716477599747" duration="2347000" />
       <workItem from="1716563259659" duration="685000" />
-      <workItem from="1716599423778" duration="940000" />
+      <workItem from="1716599423778" duration="985000" />
+      <workItem from="1716646535682" duration="360000" />
+      <workItem from="1716825821866" duration="39000" />
+      <workItem from="1716826566695" duration="191000" />
+      <workItem from="1716826861671" duration="13000" />
+      <workItem from="1716855707764" duration="991000" />
+      <workItem from="1716859051710" duration="130000" />
+      <workItem from="1716883653917" duration="826000" />
+      <workItem from="1716886111251" duration="1344000" />
+      <workItem from="1717046674539" duration="6279000" />
+      <workItem from="1717060826358" duration="2096000" />
+      <workItem from="1717066956253" duration="459000" />
+      <workItem from="1717067486195" duration="19000" />
+      <workItem from="1717116859275" duration="16595000" />
+      <workItem from="1717152184757" duration="1023000" />
+      <workItem from="1717173900726" duration="164000" />
+      <workItem from="1717206448624" duration="471000" />
     </task>
     <task id="LOCAL-00001" summary="gộp file BE với FE">
       <created>1714622737604</created>

@@ -7,7 +7,9 @@ import lombok.Data;
 @Builder
 public class LoginResponse {
     private String email;
-    private String password;
+    private String fullName;
     private String phoneNumber;
+    private int enabled;
+
 
 }
