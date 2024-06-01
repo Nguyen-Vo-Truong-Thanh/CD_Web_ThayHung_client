@@ -1,10 +1,16 @@
 package vn.edu.hcmuaf.nvtt.backend.model;
 
-public class ProductCategoryModel {
+public class ProductCategoryDto {
     private Long id;
     private String name;
 
-    public ProductCategoryModel() {
+    // Constructors, getters, and setters
+
+    public ProductCategoryDto() {}
+
+    public ProductCategoryDto(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {

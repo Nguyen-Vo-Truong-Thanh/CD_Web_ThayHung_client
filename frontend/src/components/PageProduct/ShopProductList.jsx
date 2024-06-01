@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // Sử dụng thư viện ngzoro antd
 import { Button, message, Card, Image, Badge  } from 'antd';
 
-const ShopCart = ({ category }) => { 
+const ShopProductList = ({ category }) => {  debugger
 
   const [lstData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,12 +25,16 @@ const ShopCart = ({ category }) => {
   const loadData = async () => {
     try {
       setLoading(true);
+      let data = null;
 
-      // Chỗ này sử dụng category => đầu vào api 
-      const response = await fetch(`http://localhost:8080/api/products/productByStatus?status=new`);
-      const data = await response.json();
-      
-      
+      if(category && category.id === 1000) {
+        const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`);
+        data = await response.json();
+      } else {
+        // Chỗ này sử dụng category => đầu vào api 
+        const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${category.id}`);
+        data = await response.json();
+      }
 
       setData((data && data.length > 0) ? data : []);
       setLoading(false);
@@ -46,7 +50,7 @@ const ShopCart = ({ category }) => {
         return (
           <>
             <div className="col-md-3 mb-4" key={item.id}>
-              <Badge.Ribbon text="New" className="code-box-card">
+              <Badge.Ribbon text={item.status ? item.status : (item.discount > 0 ? item.discount + "%" : '')} className="code-box-card">
                 <Card className="w-100 h-100">
                   
                   <div className="w-100 h-img-cart d-flex justify-content-center">
@@ -75,4 +79,4 @@ const ShopCart = ({ category }) => {
   )
 }
 
-export default ShopCart;
+export default ShopProductList;

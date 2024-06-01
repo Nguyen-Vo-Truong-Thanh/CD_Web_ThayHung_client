@@ -28,7 +28,7 @@ public class ProductController {
         return ResponseEntity.ok(productList);
     }
 
-    @GetMapping("/productsByCategory")
+    @GetMapping("/productByCategory")
     public ResponseEntity<?> getProductsByCategory(@RequestParam("categoryId") Long categoryId) {
         List<Product> productList = productService.getProductsByCategory(categoryId);
         return ResponseEntity.ok(productList);
@@ -58,6 +58,24 @@ public class ProductController {
     public ResponseEntity<Page<Product>> getProductByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
         Page<Product> productPage = productService.getProductByPage(page, size);
         return ResponseEntity.ok(productPage);
+    }
+
+    @GetMapping("/byCategory")
+    public ResponseEntity<?> getByCategory(@RequestParam("id") Long id) {
+        List<Product> data = productService.getProductsByCategory(id);
+        return ResponseEntity.ok(data);
+    }
+
+    @GetMapping("/byStatus")
+    public ResponseEntity<?> getByStatus(@RequestParam("status") String status) {
+        List<Product> data = productService.getProductByStatus(status);
+        return ResponseEntity.ok(data);
+    }
+
+    @GetMapping("/byDiscount")
+    public ResponseEntity<?> getByDiscount(@RequestParam("discount") String discount) {
+        List<Product> data = productService.getProductsByDiscount(Integer.parseInt(discount));
+        return ResponseEntity.ok(data);
     }
 
 
