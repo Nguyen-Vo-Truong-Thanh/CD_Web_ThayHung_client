@@ -77,6 +77,22 @@ public class ProductController {
         List<Product> data = productService.getProductsByDiscount(Integer.parseInt(discount));
         return ResponseEntity.ok(data);
     }
+    @PostMapping("/add")
+    public Product addProduct(@RequestBody Product product) {
+        return productService.addProduct(product);
+    }
+    @DeleteMapping("/id/{id}")
+    public void deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+    }
+    @DeleteMapping("/name/{name}")
+    public void deleteProductByName(@PathVariable String name) {
+        productService.deleteProductByName(name);
+    }
+    @PutMapping("/update/{id}")
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product newProductData) {
+        return productService.updateProduct(id, newProductData);
+    }
 
 
 }
