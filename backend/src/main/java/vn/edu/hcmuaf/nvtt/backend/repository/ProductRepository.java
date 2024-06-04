@@ -33,4 +33,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.id = :id")
     Product findProductById(@Param("id") Long id);
+    void deleteByName(String name);
+    Product findByName(String name);
 }
