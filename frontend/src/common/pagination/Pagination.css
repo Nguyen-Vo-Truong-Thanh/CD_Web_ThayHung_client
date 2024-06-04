@@ -129,7 +129,7 @@ src/components/Pagination.css
   margin: 0;
 }
 .product h4{
-  color: red;
+  color: rgba(0, 0, 0, 0.88);
   margin-bottom: 5px;
 }
 .product .img{
@@ -198,5 +198,6 @@ src/components/Pagination.css
 }
 
 .pagination{
-  margin: 30px 260px;
+ display: flex;
+ justify-content: center;
 }

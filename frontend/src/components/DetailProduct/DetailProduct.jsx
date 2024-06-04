@@ -1,104 +1,88 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Button, message, Image } from 'antd';
 import "./DetailProduct.css";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const DetailProduct = (addToCart) => {
-  const shopItems = [
-    {
-      id: 1,
-      imageUrl: "../images/shops/shops-1.png",
-      name: "Mapple Earphones",
-      price: 18000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 1,
-    },
-    {
-      id: 2,
-      imageUrl: "../images/shops/shops-2.png",
-      name: "Mapple Earphones",
-      price: 12000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 2,
-    },
-    {
-      id: 3,
-      imageUrl: "../images/shops/shops-3.png",
-      name: "Mapple Earphones",
-      price: 13000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 3,
-    },
-    {
-      id: 4,
-      imageUrl: "../images/shops/shops-4.png",
-      name: "Mapple Earphones",
-      price: 16000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 1,
-    },
-    {
-      id: 5,
-      imageUrl: "../images/shops/shops-5.png",
-      name: "Mapple Earphones",
-      price: 18000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 3,
-    },
-    {
-      id: 6,
-      imageUrl: "../images/shops/shops-6.png",
-      name: "Mapple Earphones",
-      price: 18000000,
-      discount: 25,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-      categoryId: 2,
-    },
-  ];
+const DetailProduct = ({ addToCart }) => {
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
 
   const { id } = useParams();
-  const item = shopItems.find((item) => item.id === parseInt(id));
+
+  useEffect(() => {
+    loadProduct();
+  }, [id]);
+
+  const loadProduct = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`http://localhost:8080/api/products/product/${id}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch product data");
+      }
+      const data = await response.json();
+      setProduct(data);
+      setLoading(false);
+    } catch (error) {
+      messageApi.error("Error loading product data");
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+  const calculateDiscountedPrice = (price, discount) => {
+    return price - (price * discount / 100);
+  };
 
   return (
     <>
+      {contextHolder}
       <div className="product mtop w-100">
         <div className="container">
           <div className="row">
             <div className="col-md-5">
-              <img src={item.imageUrl} alt="" />
+              <Image src={product.imageUrl} alt={product.name} />
             </div>
             <div className="col-md-7">
               <div className="product-details"></div>
-              <h3 className="title">{item.name}</h3>
+              <h3 className="title">{product.name}</h3>
               <div>
-                <h4>{item.price.toLocaleString()} VNĐ </h4>
+                {product.discount > 0 ? (
+                  <div>
+                    <h4 style={{ textDecoration: 'line-through', color: 'gray' }}>
+                      {product.price.toLocaleString()} VNĐ
+                    </h4>
+                    <h4>
+                      {calculateDiscountedPrice(product.price, product.discount).toLocaleString()} VNĐ
+                    </h4>
+                  </div>
+                ) : (
+                  <h4>{product.price.toLocaleString()} VNĐ</h4>
+                )}
                 <div className="des">
-                  <i class="fa-solid fa-circle"></i>
-                  <span className="description">{item.description}</span>
+                  <i className="fa-solid fa-circle"></i>
+                  <span className="description">{product.description}</span>
                 </div>
                 <div className="w-100 d-flex justify-content-between">
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => addToCart(item)}
+                  <Button
+                    className="ant-btn css-dev-only-do-not-override-17seli4 ant-btn-default"
+                    onClick={() => addToCart(product)}
                   >
-                    Thêm vào giỏ hàng
-                  </button>
+                    Mua
+                  </Button>
                 </div>
-                <div className="payment">
-                  <button type="button" className="btn btn-danger">
+                <div className="btn btn-danger mt-3">
+                  <Button type="danger">
                     <Link to="/checkout">Thanh toán</Link>
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

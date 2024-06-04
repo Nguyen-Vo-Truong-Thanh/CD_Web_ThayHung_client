@@ -9,8 +9,8 @@ const ShopProductNew = () => {
   const [messageApi] = message.useMessage();
   const history = useHistory();
 
-  const openDetail = (item) => {
-    history.push("/detail/" + item.id);
+  const openDetail = (id) => {
+    history.push(`/detail/${id}`);
   };
 
   const addToCart = (item) => { 
@@ -63,7 +63,7 @@ const ShopProductNew = () => {
                   <p className="code-box-price">{item.price.toLocaleString()} VNĐ</p>
                 </div>
                 <div className="w-100 d-flex justify-content-between">
-                  <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
+                <Button onClick={() => openDetail(item.id)} type="primary">Chi tiết</Button>
                   <Button onClick={() => addToCart(item)}>Mua</Button>
                 </div>
               </Card>

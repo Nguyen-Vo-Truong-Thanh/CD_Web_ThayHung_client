@@ -1,27 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-
-// Sử dụng thư viện ngzoro antd
-import { Button, message, Card, Image, Badge } from 'antd';
+import { Button, Card, Image, Badge } from "antd";
+import { message } from 'antd';
 
 const ShopProductList = ({ category }) => {  
 
   const [lstData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [messageApi] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const history = useHistory();
-  const openDetail = (item) => {
-    history.push("/detail/" + item.id);
+
+  const openDetail = (id) => {
+    history.push(`/detail/${id}`);
   };
 
   const addToCart = (item) => { 
     // Thêm logic để thêm sản phẩm vào giỏ hàng
-  }
+  };
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [category]);
 
   const loadData = async () => {
     try {
@@ -32,7 +32,6 @@ const ShopProductList = ({ category }) => {
         const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`);
         data = await response.json();
       } else {
-        // Chỗ này sử dụng category => đầu vào api 
         const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${category.id}`);
         data = await response.json();
       }
@@ -42,15 +41,21 @@ const ShopProductList = ({ category }) => {
 
     } catch (error) {
       setLoading(false);
+      messageApi.error("Error loading products");
     }
+  };
+
+  const calculateDiscountedPrice = (price, discount) => {
+    return price - (price * discount / 100);
   };
 
   return (
     <>
+      {contextHolder}
       {lstData && lstData.map((item) => {
         return (
           <div className="col-md-3 mb-4" key={item.id}>
-            <Badge.Ribbon text={item.status ? item.status : (item.discount > 0 ? item.discount + "%" : '')} className="code-box-card">
+            <Badge.Ribbon text={item.status === 'new' ? 'New' : (item.discount > 0 ? item.discount + "%" : '')} className="code-box-card">
               <Card className="w-100 h-100">
                 <div className="w-100 h-img-cart d-flex justify-content-center">
                   <Image className="w-100 h-100" src={item.imageUrl} />
@@ -59,10 +64,21 @@ const ShopProductList = ({ category }) => {
                   <p className="code-box-title">{item.name}</p>
                 </div>
                 <div className="w-100">
-                  <p className="code-box-price">{item.price.toLocaleString()} VNĐ</p>
+                  {item.discount > 0 ? (
+                    <div>
+                      <p className="code-box-price" style={{ textDecoration: 'line-through', color: 'gray', marginBottom: 5 }}>
+                        {item.price.toLocaleString()} VNĐ
+                      </p>
+                      <p className="code-box-price" style={{ fontWeight: 'bold' }}>
+                        {calculateDiscountedPrice(item.price, item.discount).toLocaleString()} VNĐ
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="code-box-price">{item.price.toLocaleString()} VNĐ</p>
+                  )}
                 </div>
                 <div className="w-100 d-flex justify-content-between">
-                  <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
+                  <Button onClick={() => openDetail(item.id)} type="primary">Chi tiết</Button>
                   <Button onClick={() => addToCart(item)}>Mua</Button>
                 </div>
               </Card>

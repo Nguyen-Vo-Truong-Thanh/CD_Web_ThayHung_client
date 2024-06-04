@@ -5,20 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductCategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ProductCategoryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductCategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/ProductCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ProductCategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/model/ProductCategoryModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/axiosClient.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopCart.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/ShopNewArrival.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/newarrivals/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Pages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/pagination/Pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/pagination/Pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductDiscount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductDiscount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductNew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductNew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ProductCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ProductCategory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +162,12 @@
       <workItem from="1717116859275" duration="16595000" />
       <workItem from="1717152184757" duration="1023000" />
       <workItem from="1717173900726" duration="164000" />
-      <workItem from="1717206448624" duration="9102000" />
+      <workItem from="1717206448624" duration="9804000" />
+      <workItem from="1717224298167" duration="84000" />
+      <workItem from="1717224447463" duration="30000" />
+      <workItem from="1717403523863" duration="761000" />
+      <workItem from="1717463715639" duration="843000" />
+      <workItem from="1717501814942" duration="4184000" />
     </task>
     <task id="LOCAL-00001" summary="gộp file BE với FE">
       <created>1714622737604</created>
@@ -276,15 +281,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java</url>
-          <line>75</line>
-          <properties class="vn.edu.hcmuaf.nvtt.backend.controller.ProductController" method="getByDiscount">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
