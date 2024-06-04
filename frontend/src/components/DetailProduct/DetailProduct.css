@@ -30,10 +30,6 @@
     width: 90%;
     font-size: 18px;
     font-weight: 600;
+    color: #0d6efd;
 }
-.col-md-7 .payment .btn-danger a{
-    color: white;
-}
-.col-md-5 .payment p{
-    color: white;
-}
+

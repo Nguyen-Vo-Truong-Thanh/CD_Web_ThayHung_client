@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-  @Autowired
+    @Autowired
     private final ProductService productService;
 
     @Autowired
@@ -22,30 +21,9 @@ public class ProductController {
     }
 
     @GetMapping("/allProduct")
-
     public ResponseEntity<?> getAllProducts() {
         List<Product> productList = productService.getAllProducts();
         return ResponseEntity.ok(productList);
-    }
-
-    @GetMapping("/productByCategory")
-    public ResponseEntity<?> getProductsByCategory(@RequestParam("categoryId") Long categoryId) {
-        List<Product> productList = productService.getProductsByCategory(categoryId);
-        return ResponseEntity.ok(productList);
-    }
-
-    @GetMapping("/productByStatus")
-    public ResponseEntity<?> getProductByStatus(@RequestParam("status") String status) {
-        List<Product> productList = productService.getProductByStatus(status);
-        return ResponseEntity.ok(productList);
-    }
-
-
-    @GetMapping("/productByDiscount")
-    public ResponseEntity<?> getProductByDiscount(@RequestParam("discount") int discount){
-        List<Product> productList = productService.getProductsByDiscount(discount);
-        return ResponseEntity.ok(productList);
-
     }
 
     @GetMapping("/search")
@@ -94,6 +72,13 @@ public class ProductController {
         return productService.updateProduct(id, newProductData);
     }
 
-
+    @GetMapping("/product/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable("id") Long id) {
+        Product product = productService.getProductById(id);
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.status(404).body("Product not found");
+        }
+    }
 }
-

@@ -9,12 +9,11 @@ import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-
 import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    @Query("SELECT P  FROM Product P ")
+    @Query("SELECT P FROM Product P")
     public List<Product> findGetAll();
 
     @Query("SELECT p FROM Product p WHERE p.category.id = :categoryId")
@@ -27,14 +26,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByProductDiscount(int discount);
 
     @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE LOWER(concat('%', :keyword, '%'))")
-    List<Product> searchProducts( String keyword);
+    List<Product> searchProducts(String keyword);
 
     @Query("SELECT p FROM Product p")
     Page<Product> findAllProducts(Pageable pageable);
 
-    void deleteByName(String name);
-    Product findByName(String name);
-
-
+    @Query("SELECT p FROM Product p WHERE p.id = :id")
+    Product findProductById(@Param("id") Long id);
 }
-

@@ -14,14 +14,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
     @Autowired
-
     private final ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
 
     public List<Product> getAllProducts() {
         return productRepository.findGetAll();
@@ -31,15 +29,15 @@ public class ProductService {
         return productRepository.findByProductCategory(categoryId);
     }
 
-    public List<Product> getProductByStatus (String status){
+    public List<Product> getProductByStatus(String status) {
         return productRepository.findByProductStatus(status);
     }
 
-    public  List<Product> getProductsByDiscount(int discount){
+    public List<Product> getProductsByDiscount(int discount) {
         return productRepository.findByProductDiscount(discount);
     }
 
-    public List<Product> searchProducts(String keyword){
+    public List<Product> searchProducts(String keyword) {
         List<Product> products = productRepository.searchProducts(keyword);
         return products;
     }
@@ -84,4 +82,7 @@ public class ProductService {
         }
     }
 
+    public Product getProductById(Long id) {
+        return productRepository.findProductById(id);
+    }
 }

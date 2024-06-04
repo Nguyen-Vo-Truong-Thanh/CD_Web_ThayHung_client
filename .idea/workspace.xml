@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8085b908-2042-40ba-8b4c-dcf93e25659d" name="Changes" comment="load sản phẩm mới và giảm giá">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/entity/AddProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/common/pagination/Pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/common/pagination/Pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DetailProduct/DetailProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductDiscount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductDiscount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductNew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PageProduct/ShopProductNew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ProductCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ProductCategory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/allProduct/ShopCart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SearchResults.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,20 +59,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/web_2_6/CD_Web_ThayHung_client",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "b43fdd98b1fd705ae4c3a10cf25aad8a"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/HocTap/ChuyenDeWeb/CD_Web_ThayHung_client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b43fdd98b1fd705ae4c3a10cf25aad8a&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\HocTap\ChuyenDeWeb\CD_Web_ThayHung_client\backend\src\main\java\vn\edu\hcmuaf\nvtt\backend\services" />
@@ -153,8 +162,12 @@
       <workItem from="1717116859275" duration="16595000" />
       <workItem from="1717152184757" duration="1023000" />
       <workItem from="1717173900726" duration="164000" />
-      <workItem from="1717206448624" duration="9102000" />
-      <workItem from="1717430879017" duration="4685000" />
+      <workItem from="1717206448624" duration="9804000" />
+      <workItem from="1717224298167" duration="84000" />
+      <workItem from="1717224447463" duration="30000" />
+      <workItem from="1717403523863" duration="761000" />
+      <workItem from="1717463715639" duration="843000" />
+      <workItem from="1717501814942" duration="4184000" />
     </task>
     <task id="LOCAL-00001" summary="gộp file BE với FE">
       <created>1714622737604</created>
@@ -268,15 +281,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/vn/edu/hcmuaf/nvtt/backend/controller/ProductController.java</url>
-          <line>75</line>
-          <properties class="vn.edu.hcmuaf.nvtt.backend.controller.ProductController" method="getByDiscount">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

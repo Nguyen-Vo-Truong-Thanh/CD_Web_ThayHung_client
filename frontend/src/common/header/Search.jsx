@@ -113,7 +113,7 @@ const Search = ({ CartItem, updateFullName }) => {
                 )}
                 <Link to="/cart">
                   <i className="fa fa-shopping-bag icon-circle"></i>
-                  <span>{CartItem.length === 0 ? "" : CartItem.length}</span>
+                  <span style={{ position: 'absolute', top: '5px', right: '15px', color: 'red', fontWeight: 500 }}>{CartItem.length === 0 ? "" : CartItem.length}</span>
                 </Link>
               </div>
             </div>
