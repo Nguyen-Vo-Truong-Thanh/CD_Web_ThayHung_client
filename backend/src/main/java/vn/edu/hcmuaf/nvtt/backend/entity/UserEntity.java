@@ -6,9 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users")
@@ -20,7 +22,7 @@ public class UserEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(nullable = false, length = 255)
     private String password;
@@ -38,7 +40,11 @@ public class UserEntity implements UserDetails {
     private String fullName;
 
     @Column
-    private int enabled; // Sửa kiểu dữ liệu của trường enabled thành int
+    private int enabled;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", nullable = false)
+    private UserRole role;
 
     @Override
     public String getUsername() {
@@ -47,9 +53,16 @@ public class UserEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
     }
 
+    public boolean isClient() {
+        return UserRole.CLIENT.equals(role.getRoleName());
+    }
+
+    public boolean isAdmin() {
+        return UserRole.ADMIN.equals(role.getRoleName());
+    }
     @Override
     public boolean isAccountNonExpired() {
         return true;
