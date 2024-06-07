@@ -12,7 +12,7 @@ function Login() {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-    
+
         const loginRequest = { username, password };
         console.log(loginRequest);
         try {
@@ -23,21 +23,40 @@ function Login() {
                 },
                 body: JSON.stringify(loginRequest)
             });
-    
+
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
                 sessionStorage.setItem('email', data.data.email);
-                sessionStorage.setItem('fullName', data.data.fullName); 
-                sessionStorage.setItem('phone_number', data.data.phoneNumber); 
-                
+                sessionStorage.setItem('fullName', data.data.fullName);
+                sessionStorage.setItem('phone_number', data.data.phoneNumber);
+
                 setFullName(data.data.fullName); // Thiết lập fullName trong state
-                if (data.data && data.data.enabled === 1) {
-                    history.push('/');
-                } else if (data.data && data.data.enabled === 2) {
-                    history.push('/admin');
+
+                // Gọi API để kiểm tra vai trò người dùng
+                const roleResponse = await fetch('/getRole', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: data.data.email })
+                });
+
+                if (roleResponse.ok) {
+                    const roleData = await roleResponse.json();
+                    console.log('Role data:', roleData);
+
+                    // Điều hướng dựa trên vai trò người dùng
+                    if (roleData === 1) {
+                        history.push('/');
+                    } else if (roleData === 2) {
+                        history.push('/account');
+                    } else {
+                        setError('Invalid user access');
+                    }
                 } else {
-                    setError('Invalid user access');
+                    const roleErrorData = await roleResponse.json();
+                    setError(roleErrorData.message || 'Failed to fetch role');
                 }
             } else {
                 const errorData = await response.json();
@@ -48,7 +67,6 @@ function Login() {
             console.error('Error during login:', error);
         }
     };
-    
 
     return (
         <div className="limiter">
@@ -94,7 +112,6 @@ function Login() {
                                 <div className="login100-form-bgbtn"></div>
                                 <button className="login100-form-btn" type="submit" >
                                     Login
-
                                 </button>
                             </div>
                         </div>

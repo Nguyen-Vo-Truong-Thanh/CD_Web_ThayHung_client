@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
+import vn.edu.hcmuaf.nvtt.backend.payload.LoginRequest;
+import vn.edu.hcmuaf.nvtt.backend.payload.LoginResponse;
 import vn.edu.hcmuaf.nvtt.backend.services.EmailService;
 import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 
@@ -43,5 +45,9 @@ public class UserController {
         }else {
             return ResponseEntity.badRequest().body("Email not found");
         }
+    }
+    @PostMapping("/getRole")
+    public Long getUserRole(@RequestBody LoginResponse request) {
+        return userService.getRole(request.getEmail());
     }
 }

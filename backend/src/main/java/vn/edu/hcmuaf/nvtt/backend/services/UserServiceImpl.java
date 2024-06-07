@@ -77,6 +77,19 @@ public class UserServiceImpl implements UserService {
         return response;
     }
 
+    public Long getRole(String email) {
+        Long role = 0L;
+        Optional<UserEntity> users = userRepository.findByRole(email);
+        {
+            if (users.isPresent()) {
+                role = users.get().getRole().getId();
+            } else {
+                return role;
+            }
+        }
+        return role;
+    }
+
 
     @Override
     public void forgotPassword(String email) throws Exception {
