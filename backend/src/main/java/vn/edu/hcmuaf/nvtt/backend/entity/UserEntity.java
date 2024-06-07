@@ -42,6 +42,22 @@ public class UserEntity implements UserDetails {
     @Column
     private int enabled;
 
+    @PrePersist
+    protected void onCreate() {
+        if (this.role == null) {
+            this.role = new UserRole();
+            this.role.setId(1L); // Thiết lập giá trị mặc định cho role_id là 1
+        }
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private UserRole role;

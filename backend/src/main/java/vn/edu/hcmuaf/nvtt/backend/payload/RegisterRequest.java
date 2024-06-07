@@ -1,7 +1,9 @@
 package vn.edu.hcmuaf.nvtt.backend.payload;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import vn.edu.hcmuaf.nvtt.backend.entity.UserRole;
 
 @Data
 public class RegisterRequest {
@@ -10,8 +12,10 @@ public class RegisterRequest {
     private String email;
     private String phoneNumber;
     private String password;
-    private String username;
     private String address;
+
+
+
     public String getFullName() {
         return fullName;
     }
@@ -44,14 +48,6 @@ public class RegisterRequest {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -59,4 +55,5 @@ public class RegisterRequest {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }

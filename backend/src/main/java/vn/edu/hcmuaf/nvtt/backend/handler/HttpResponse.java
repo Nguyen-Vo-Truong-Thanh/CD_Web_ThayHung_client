@@ -41,4 +41,5 @@ public class HttpResponse {
     public static HttpResponse fail(int statusCode, String message) {
         return builder().success(false).statusCode(statusCode).message(message).build();
     }
+
 }

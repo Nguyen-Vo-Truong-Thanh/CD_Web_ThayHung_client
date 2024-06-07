@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.nvtt.backend.core.UserNotFoundException;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
+import vn.edu.hcmuaf.nvtt.backend.entity.UserRole;
 import vn.edu.hcmuaf.nvtt.backend.mapper.AuthMapper;
 import vn.edu.hcmuaf.nvtt.backend.payload.*;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
+import vn.edu.hcmuaf.nvtt.backend.repository.UserRoleRepository;
 
 import java.util.Optional;
 
@@ -21,6 +24,10 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private final AuthMapper authMapper;
+    private final UserRoleRepository userRoleRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @Autowired
     private final UserRepository userRepository;
@@ -52,30 +59,44 @@ public class UserServiceImpl implements UserService {
 
         logger.info("Registering user with email: {}", registerRequest.getEmail());
 
+        // Kiểm tra nếu email đã tồn tại trong cơ sở dữ liệu
         if (userRepository.findByEmail(registerRequest.getEmail()) != null) {
             throw new IllegalArgumentException("Email already in use");
         }
 
+        // Tạo mới UserEntity
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(registerRequest.getEmail());
-        userEntity.setPassword(registerRequest.getPassword()); // Consider hashing the password
+        userEntity.setPassword(registerRequest.getPassword());
         userEntity.setFullName(registerRequest.getFullName());
         userEntity.setPhoneNumber(registerRequest.getPhoneNumber());
         userEntity.setAddress(registerRequest.getAddress());
-
+        userEntity.setEnabled(1);
+//        UserRole defaultRole = userRepository.findById(1l).orElseThrow(() -> new IllegalArgumentException("Default role not found"));
+//        userEntity.setRole(defaultRole);
+//        userEntity.setRole(null);
+//        UserRole userRole;
+//        if (registerRequest.getRole() != null) {
+//            userRole = userRoleRepository.findByRoleName(registerRequest.getRole())
+//                    .orElseThrow(() -> new IllegalArgumentException("Role not found"));
+//        } else {
+//            userRole = userRoleRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("Default role not found"));
+//        }
+//        userEntity.setRole(userRole);
 
         logger.info("Saving user to database...");
         UserEntity savedUser = userRepository.save(userEntity);
         logger.info("User saved with id: {}", savedUser.getId());
 
+        // Tạo đối tượng phản hồi
         RegisterResponse response = new RegisterResponse();
         response.setEmail(savedUser.getEmail());
         response.setFullName(savedUser.getFullName());
         response.setPhoneNumber(savedUser.getPhoneNumber());
 
-
         return response;
     }
+
 
     public Long getRole(String email) {
         Long role = 0L;
