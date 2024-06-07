@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserRole;
+import vn.edu.hcmuaf.nvtt.backend.payload.RegisterRequest;
 
 import java.util.Optional;
 
@@ -17,5 +18,6 @@ public interface UserRepository extends JpaRepository<UserEntity,Long> {
         Optional<UserEntity> findEmail(@Param("email") String email);
         @Query("select u from UserEntity u  where u.email = :email")
         Optional<UserEntity> findByRole(@Param("email") String email);
+//        void findByid(RegisterRequest role);
 }
 

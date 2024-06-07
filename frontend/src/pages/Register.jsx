@@ -34,7 +34,8 @@ function Register() {
             password,
             fullName,
             phoneNumber,
-            address
+            address,
+            role: 1
         };
 
         try {
@@ -52,7 +53,7 @@ function Register() {
                 history.push('/login');
             } else {
                 const errorData = await response.json();
-                if (errorData.message === 'Email already exists') {
+                if (errorData.message === 'Email already in use') {
                     setError('Email đã tồn tại');
                 } else {
                     setError(errorData.message || 'Đăng ký thất bại!');

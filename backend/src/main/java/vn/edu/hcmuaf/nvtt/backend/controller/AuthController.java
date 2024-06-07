@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,10 @@ public class AuthController extends CustomExceptionHandler{
         RegisterResponse registerResponse =service.register(registerRequest);
         return ResponseEntity.ok().body(HttpResponse.success(registerResponse," Register successfully"));
     }
-
+    @GetMapping("/hello")
+    @Operation(summary = "Get hello message")
+    public String hello() {
+        return "Hello, World!";
+    }
 
 }
