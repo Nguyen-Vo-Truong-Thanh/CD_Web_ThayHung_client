@@ -232,4 +232,6 @@ Link {
   font-weight: 600;
   margin-right: 10px;
   text-decoration: none;
+  cursor: pointer;
 }
+

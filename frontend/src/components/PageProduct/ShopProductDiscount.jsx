@@ -14,7 +14,14 @@ const ShopProductDiscount = () => {
   };
 
   const addToCart = (item) => {
-    // Thêm logic để thêm sản phẩm vào giỏ hàng
+    // Thêm sản phẩm vào giỏ hàng
+    const cartItem = { id: item.id, name: item.name, price: item.price, discount: item.discount };
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    cart.push(cartItem);
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+
+    // Hiển thị thông báo
+    messageApi.success(`${item.name} đã được thêm vào giỏ hàng.`);
   }
 
   useEffect(() => {

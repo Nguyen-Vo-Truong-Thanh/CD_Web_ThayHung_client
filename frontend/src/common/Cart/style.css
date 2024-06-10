@@ -1,7 +1,7 @@
 .cart-items {
   background: #f6f9fc;
   height: auto;
-  padding: 50px 0;
+  padding: 90px 0;
 }
 
 .cart-items .cart-details {
@@ -12,7 +12,7 @@
   width: 30%;
   margin-top: 30px;
   margin-left: 30px;
-  height: 130px;
+  height: auto;
 }
 .cart-list {
   background: white;
@@ -30,18 +30,14 @@
 .cart-items .cart-details h3 {
   font-size: 20px;
   font-weight: 500;
-  margin-top: 20px;
-}
-.cart-items .cart-details h4 {
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 50px;
-  color: grey;
+  margin-top: 35px;
+  margin-left: 20px;
 }
 .cart-items h4 span {
   color: #e94560;
   margin-left: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 18px;
 }
 .removeCart {
   background: none;
@@ -58,6 +54,10 @@
   margin: 10px;
   border-radius: 5px;
   font-size: 20px;
+}
+.cartControl input {
+  width: 30px;
+  text-align: center;
 }
 .incCart {
   background: none;
@@ -89,3 +89,5 @@
   margin-top: 30px;
   height: 130px;
 }
+
+
