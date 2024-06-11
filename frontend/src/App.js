@@ -17,6 +17,8 @@ import SearchResults from "./pages/SearchResults";
 import Logout from "./pages/Logout";
 import ProductList from "./common/pagination/ProductList "; 
 import ProductCategory from "./components/allProduct/ProductCategory";
+import ShopProductNew from "./components/PageProduct/ShopProductNew";
+import ShopProductList from "./components/PageProduct/ShopProductList";
 
 function App() {
   const [CartItem, setCartItem] = useState([]);
@@ -110,7 +112,7 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
         <Route path="/cart" exact>
           <Cart 
             CartItem={CartItem} 
-            setCartItems={setCartItem}
+            setCartItem={setCartItem}
             addToCart={addToCart} 
             decreaseQty={decreaseQty} 
             removeFromCart={removeFromCart} 
@@ -132,12 +134,20 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
           <DetailProduct addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/search-results" exact>
-          <SearchResults addToCart={addToCart} />
+          <SearchResults addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product-category/:id" exact>
-          <ProductCategory />
+          <ProductCategory addToCart={addToCart} shopItems={shopItems}/>
         </Route>
-        <Route path="/shop/page/:page" component={ProductList} />
+        <Route path="/shop/page/:page" exact>
+          <ProductList addToCart={addToCart} shopItems={shopItems}/>
+        </Route>
+        <Route path="/product/new" exact>
+          <ShopProductNew addToCart={addToCart} />
+        </Route>
+        <Route path="/productList" exact>
+          <ShopProductList addToCart={addToCart} />
+        </Route>
       </Switch>
       {showHeaderFooter && <Footer />}
     </>

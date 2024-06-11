@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 // Sử dụng thư viện ngzoro antd
 import { Button, message, Card, Image, Badge  } from 'antd';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProductCategory = () => {  
 
@@ -16,9 +17,6 @@ const ProductCategory = () => {
   const openDetail = (item) => {
     history.push("/detail/" + item.id);
   };
-
-  const addToCart = (item) => { 
-  }
 
   const { id } = useParams();
   useEffect(() => {
@@ -92,7 +90,7 @@ const ProductCategory = () => {
 
                       <div className="w-100 d-flex justify-content-between">
                         <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
-                        <Button onClick={() => addToCart(item)}>Mua</Button>
+                        <Button><Link to="/checkout">Mua</Link></Button>
                       </div>
                     </Card>
                   </Badge.Ribbon>

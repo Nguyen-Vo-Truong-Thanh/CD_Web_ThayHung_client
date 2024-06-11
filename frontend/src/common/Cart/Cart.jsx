@@ -53,6 +53,14 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
     sessionStorage.setItem("selectedItems", JSON.stringify(updatedItems));
   };
 
+  const handleRemoveFromCart = (item) => {
+    removeFromCart(item);
+    const updatedCartItems = CartItem.filter(cartItem => cartItem.id !== item.id);
+    const updatedSelectedItems = selectedItems.filter(selectedItem => selectedItem.id !== item.id);
+    setCartItems(updatedCartItems);  // Cập nhật lại CartItem sau khi xóa
+    handleUpdateCart(updatedSelectedItems);  // Cập nhật lại selectedItems sau khi xóa
+  };
+
   const handleCheckout = () => {
     history.push({
       pathname: "/checkout",
@@ -103,11 +111,7 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
                   </div>
                   <div className='cart-items-function'>
                     <div className='removeCart'>
-                      <button className='removeCart' onClick={() => {
-                        removeFromCart(item);
-                        const updatedItems = CartItem.filter(cartItem => cartItem.id !== item.id);
-                        handleUpdateCart(updatedItems);
-                      }}>
+                      <button className='removeCart' onClick={() => handleRemoveFromCart(item)}>
                         <i className='fa-solid fa-xmark'></i>
                       </button>
                     </div>

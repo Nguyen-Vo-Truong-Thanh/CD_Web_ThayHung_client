@@ -67,7 +67,7 @@ const Search = ({ CartItem, updateFullName }) => {
 
   const toggleAccountVisibility = () => {
     setIsAccountVisible(!isAccountVisible);
-    setIsShoppingVisible(false); // Ẩn giao diện tài khoản khi hiển thị giao diện shopping
+    setIsShoppingVisible(false); 
     if (!isAccountVisible) {
       history.push("/account");
     } else {
@@ -77,7 +77,7 @@ const Search = ({ CartItem, updateFullName }) => {
 
   const toggleShoppingVisibility = () => {
     setIsShoppingVisible(!isShoppingVisible);
-    setIsAccountVisible(false); // Ẩn giao diện shopping khi hiển thị giao diện tài khoản
+    setIsAccountVisible(false);
     if (!isShoppingVisible) {
       history.push("/cart");
     } else {
@@ -85,13 +85,6 @@ const Search = ({ CartItem, updateFullName }) => {
     }
   };
 
-  const handleCartClick = () => {
-    if (fullName) {
-      history.push("/cart");
-    } else {
-      history.push("/login");
-    }
-  };
 
   // Xóa fullName khi người dùng đăng xuất
   const handleLogout = () => {

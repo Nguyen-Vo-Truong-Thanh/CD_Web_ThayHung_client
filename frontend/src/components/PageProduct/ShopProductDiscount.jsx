@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 // Sử dụng thư viện ngzoro antd
 import { Button, message, Card, Image, Badge } from 'antd';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ShopProductDiscount = () => {  
   const [lstData, setData] = useState([]);
@@ -12,17 +13,6 @@ const ShopProductDiscount = () => {
   const openDetail = (item) => {
     history.push("/detail/" + item.id);
   };
-
-  const addToCart = (item) => {
-    // Thêm sản phẩm vào giỏ hàng
-    const cartItem = { id: item.id, name: item.name, price: item.price, discount: item.discount };
-    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    cart.push(cartItem);
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-
-    // Hiển thị thông báo
-    messageApi.success(`${item.name} đã được thêm vào giỏ hàng.`);
-  }
 
   useEffect(() => {
     let isMounted = true;
@@ -85,7 +75,7 @@ const ShopProductDiscount = () => {
                 </div>
                 <div className="w-100 d-flex justify-content-between">
                   <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
-                  <Button onClick={() => addToCart(item)}>Mua</Button>
+                  <Button><Link to="/checkout">Mua</Link></Button>
                 </div>
               </Card>
             </Badge.Ribbon>

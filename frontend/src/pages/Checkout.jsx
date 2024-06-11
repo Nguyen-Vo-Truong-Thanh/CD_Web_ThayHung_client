@@ -7,6 +7,7 @@ import './style/Checkout.css';
 
 const Checkout = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Xử lý validation của form
     (function() {
       'use strict';

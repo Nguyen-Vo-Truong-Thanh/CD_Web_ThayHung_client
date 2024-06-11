@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Button, Card, Image } from 'antd';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const SearchResults = ({ addToCart }) => {
+const SearchResults = () => {
   const location = useLocation();
   const history = useHistory();
   const [shopItems, setShopItems] = useState([]);
@@ -64,7 +65,7 @@ const SearchResults = ({ addToCart }) => {
                   </div>
                   <div className="w-100 d-flex justify-content-between">
                     <Button onClick={() => openDetail(item)} type="primary">Chi tiết</Button>
-                    <Button onClick={() => addToCart(item)}>Mua</Button>
+                    <Button><Link to="/checkout">Mua</Link></Button>
                   </div>
                 </Card>
               </div>
