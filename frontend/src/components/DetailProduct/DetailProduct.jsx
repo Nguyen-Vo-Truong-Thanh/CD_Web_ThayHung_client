@@ -42,6 +42,11 @@ const DetailProduct = ({ addToCart }) => {
     return price - (price * discount / 100);
   };
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    messageApi.success(`${product.name} đã được thêm vào giỏ hàng`);
+  };
+
   return (
     <>
       {contextHolder}
@@ -74,9 +79,7 @@ const DetailProduct = ({ addToCart }) => {
                 <div className="w-100 d-flex justify-content-between">
                   <Button
                     className="ant-btn css-dev-only-do-not-override-17seli4 ant-btn-default"
-                    onClick={() => addToCart(product)}
-                  >
-                    Mua
+                    onClick={() => handleAddToCart(product)}>Thêm vào giỏ hàng
                   </Button>
                 </div>
                 <div className="btn btn-danger mt-3">

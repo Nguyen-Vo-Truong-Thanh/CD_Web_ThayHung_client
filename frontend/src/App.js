@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, useLocation, Redirect  } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Header from "./common/header/Header";
 import Pages from "./pages/Pages";
@@ -14,12 +14,27 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
-import ProductList from "./common/pagination/ProductList "; 
 import Logout from "./pages/Logout";
+import ProductList from "./common/pagination/ProductList "; 
 import ProductCategory from "./components/allProduct/ProductCategory";
+import ShopProductNew from "./components/PageProduct/ShopProductNew";
+import ShopProductList from "./components/PageProduct/ShopProductList";
 
 function App() {
   const [CartItem, setCartItem] = useState([]);
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(sessionStorage.getItem("CartItem"));
+    if (storedCartItems && storedCartItems.length > 0) {
+      setCartItem(storedCartItems);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (CartItem.length > 0) {
+      sessionStorage.setItem("CartItem", JSON.stringify(CartItem));
+    }
+  }, [CartItem]);
 
   const addToCart = (product) => {
     const productExit = CartItem.find((item) => item.id === product.id);
@@ -51,14 +66,24 @@ function App() {
     }
   };
 
+  const removeFromCart = (item) => {
+    setCartItem(CartItem.filter(cartItem => cartItem.id !== item.id));
+  };
+
   return (
     <Router>
-      <MainApp CartItem={CartItem}  addToCart={addToCart} decreaseQty={decreaseQty} />
+      <MainApp 
+        CartItem={CartItem} 
+        setCartItem={setCartItem}
+        addToCart={addToCart} 
+        decreaseQty={decreaseQty} 
+        removeFromCart={removeFromCart} 
+      />
     </Router>
   );
 }
 
-function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
+function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, removeFromCart }) {
   const location = useLocation();
 
   const noHeaderFooterPaths = ["/login", "/register", "/resetpassword"];
@@ -85,7 +110,13 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
           <Pages addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/cart" exact>
-          <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+          <Cart 
+            CartItem={CartItem} 
+            setCartItem={setCartItem}
+            addToCart={addToCart} 
+            decreaseQty={decreaseQty} 
+            removeFromCart={removeFromCart} 
+          />
         </Route>
         <Route path="/shop" exact>
           <Shop addToCart={addToCart} shopItems={shopItems} />
@@ -103,12 +134,20 @@ function MainApp({ CartItem, shopItems, addToCart, decreaseQty }) {
           <DetailProduct addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/search-results" exact>
-          <SearchResults addToCart={addToCart} />
+          <SearchResults addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product-category/:id" exact>
-          <ProductCategory />
+          <ProductCategory addToCart={addToCart} shopItems={shopItems}/>
         </Route>
-        <Route path="/shop/page/:page" component={ProductList} />
+        <Route path="/shop/page/:page" exact>
+          <ProductList addToCart={addToCart} shopItems={shopItems}/>
+        </Route>
+        <Route path="/product/new" exact>
+          <ShopProductNew addToCart={addToCart} />
+        </Route>
+        <Route path="/productList" exact>
+          <ShopProductList addToCart={addToCart} />
+        </Route>
       </Switch>
       {showHeaderFooter && <Footer />}
     </>

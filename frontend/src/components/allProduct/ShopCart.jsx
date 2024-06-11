@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams, Link } from "react-router-dom";
 import { Button, Card, Image, Badge } from "antd";
 
-const ShopCart = ({ addToCart }) => {
+const ShopCart = () => {
   const { page } = useParams();
   const currentPage = parseInt(page, 10) || 1;
   const [shopItems, setShopItems] = useState([]);
@@ -88,7 +88,7 @@ const ShopCart = ({ addToCart }) => {
                     <Button onClick={() => openDetail(item.id)} type="primary">
                       Chi tiết
                     </Button>
-                    <Button onClick={() => addToCart(item)}>Mua</Button>
+                    <Button><Link to="/checkout">Mua</Link></Button>
                   </div>
                 </Card>
               </Badge.Ribbon>

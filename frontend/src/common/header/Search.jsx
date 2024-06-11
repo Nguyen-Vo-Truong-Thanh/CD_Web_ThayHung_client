@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import logo from "../../components/assets/images/logo.webp";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import './Header.css';
 import axios from "axios";
 
@@ -10,6 +9,8 @@ const Search = ({ CartItem, updateFullName }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [shopItems, setShopItems] = useState([]);
   const [fullName, setFullName] = useState('');
+  const [isAccountVisible, setIsAccountVisible] = useState(false);
+  const [isShoppingVisible, setIsShoppingVisible] = useState(false); // Thêm state mới cho việc hiển thị giao diện account
   const history = useHistory();
 
   useEffect(() => {
@@ -64,6 +65,27 @@ const Search = ({ CartItem, updateFullName }) => {
     setSearchTerm("");
   };
 
+  const toggleAccountVisibility = () => {
+    setIsAccountVisible(!isAccountVisible);
+    setIsShoppingVisible(false); 
+    if (!isAccountVisible) {
+      history.push("/account");
+    } else {
+      history.push("/");
+    }
+  };
+
+  const toggleShoppingVisibility = () => {
+    setIsShoppingVisible(!isShoppingVisible);
+    setIsAccountVisible(false);
+    if (!isShoppingVisible) {
+      history.push("/cart");
+    } else {
+      history.push("/");
+    }
+  };
+
+
   // Xóa fullName khi người dùng đăng xuất
   const handleLogout = () => {
     sessionStorage.removeItem('fullName');
@@ -78,7 +100,7 @@ const Search = ({ CartItem, updateFullName }) => {
           <div className="row position-relative">
             <div className="col-md-2">
               <div className="logo width">
-                <img src={logo} className="nav-logo"/>
+                <img src={logo} className="nav-logo" alt="logo"/>
               </div>
             </div>
             <div className="col-md-8">
@@ -103,18 +125,12 @@ const Search = ({ CartItem, updateFullName }) => {
             <div className="col-md-2">
               <div className="code-icon-cart">
                 {fullName ? (
-                  <Link to ="/account">
-                    <span className="fullname">{fullName}</span>
-                  </Link>
+                  <span className="fullname" onClick={toggleAccountVisibility}>{fullName}</span>
                 ) : (
-                  <Link to="/account">
-                    <i className="fa fa-user icon-circle"></i>
-                  </Link>
+                  <i className="fa fa-user icon-circle" onClick={toggleAccountVisibility}></i>
                 )}
-                <Link to="/cart">
-                  <i className="fa fa-shopping-bag icon-circle"></i>
-                  <span style={{ position: 'absolute', top: '5px', right: '15px', color: 'red', fontWeight: 500 }}>{CartItem.length === 0 ? "" : CartItem.length}</span>
-                </Link>
+                <i className="fa fa-shopping-bag icon-circle" onClick={toggleShoppingVisibility}></i>
+                <span style={{ position: 'absolute', top: '5px', right: '15px', color: 'red', fontWeight: 500 }}>{CartItem.length === 0 ? "" : CartItem.length}</span>
               </div>
             </div>
           </div>

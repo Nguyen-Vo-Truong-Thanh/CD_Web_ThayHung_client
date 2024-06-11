@@ -72,6 +72,7 @@ button {
   margin-left: 20px;
   text-align: center;
   border-radius: 50%;
+  cursor: pointer;
  
 }
 .boxShadow {
