@@ -1,17 +1,14 @@
 package vn.edu.hcmuaf.nvtt.backend.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "order_entity")
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +18,7 @@ public class OrderEntity {
     private String phoneNumber;
     private String email;
     private String address;
-    private String nameProduct;
-    private BigDecimal price;
     private String paymentMethod;
+    private String nameProduct; // Lưu tên sản phẩm
+    private BigDecimal price; // Lưu giá sản phẩm
 }

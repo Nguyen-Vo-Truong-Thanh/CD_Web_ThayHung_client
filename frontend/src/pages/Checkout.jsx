@@ -30,6 +30,10 @@ const Checkout = () => {
   const handlePayment = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+
+    // Giả sử chỉ có một sản phẩm trong đơn hàng để đơn giản hóa
+    const selectedItem = selectedItems[0];
+
     const orderData = {
       firstName: formData.get('firstName'),
       lastName: formData.get('lastName'),
@@ -37,13 +41,11 @@ const Checkout = () => {
       phoneNumber: formData.get('phoneNumber'),
       address: formData.get('address'),
       paymentMethod: formData.get('paymentMethod'),
-      items: selectedItems.map(item => ({
-        id: item.id,
-        name: item.name,
-        price: item.discount ? calculateDiscountedPrice(item.price, item.discount) : item.price,
-        qty: item.qty,
-      })),
+      nameProduct: selectedItem.name,
+      price: selectedItem.discount ? calculateDiscountedPrice(selectedItem.price, selectedItem.discount) : selectedItem.price,
     };
+
+    console.log(JSON.stringify(orderData)); // Kiểm tra cấu trúc dữ liệu
 
     try {
       const response = await fetch('/api/orders', {
@@ -71,11 +73,6 @@ const Checkout = () => {
   const calculateDiscountedPrice = (price, discount) => {
     return price - (price * discount / 100);
   };
-
-  const totalAmount = selectedItems.reduce((total, item) => {
-    const productPrice = item.discount ? calculateDiscountedPrice(item.price, item.discount) : item.price;
-    return total + productPrice * item.qty;
-  }, 0);
 
   //sản phẩm
   return (
@@ -154,31 +151,31 @@ const Checkout = () => {
           </form>
         </div>
 
-        <div className='col-md-4 order-md-2'>
-          {selectedItems.length > 0 && (
-            <div className='cart-total product'>
-              <h2>Sản phẩm của bạn</h2>
-              {selectedItems.map((item) => (
-                <div key={item.id}>
-                  <span>{item.name}</span>
+        <div className="col-md-4 order-md-2">
+          <h4 className="mb-3">Đơn hàng của bạn</h4>
+          <ul className="list-group mb-3">
+            {selectedItems.map((item, index) => (
+              <li key={index} className="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <div >
+                    <h6 id="nameProduct" name="nameProduct" type="" className="custom-control-input" value="nameProduct" required>{item.name}</h6>
+                  </div>
                   <p>
                     <span style={{ color: '#e94560', fontSize: 17, fontWeight: 600, marginBottom: 10 }}>
-                      Tổng giá:
-                      {item.discount
-                        ? (calculateDiscountedPrice(item.price, item.discount) * item.qty).toLocaleString()
-                        : (item.price * item.qty).toLocaleString()} VNĐ
+                      Tổng giá: {item.discount ? (calculateDiscountedPrice(item.price, item.discount) * item.qty).toLocaleString() : (item.price * item.qty).toLocaleString()} VNĐ
                     </span>
                   </p>
                   <div className='img small-img' style={{ width: '100px', height: 'auto', objectFit: 'cover' }}>
                     <img src={item.imageUrl} alt={item.name} style={{ width: '200%', height: '200%', objectFit: 'cover' }} />
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   );
 };
+
 export default Checkout;
