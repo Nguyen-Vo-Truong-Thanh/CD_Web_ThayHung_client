@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.repository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -33,6 +34,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.id = :id")
     Product findProductById(@Param("id") Long id);
+    @Transactional
     void deleteByName(String name);
     Product findByName(String name);
 }

@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductRepository;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -57,6 +59,7 @@ public class ProductService {
             throw new RuntimeException("Product not found with id: " + productId);
         }
     }
+    @Transactional
     public void deleteProductByName(String name) {
         Product product = productRepository.findByName(name);
         if (product != null) {

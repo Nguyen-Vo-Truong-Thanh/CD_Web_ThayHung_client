@@ -152,10 +152,10 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
               <h2>Sản phẩm của bạn</h2>
               {selectedItems.map((item) => (
                 <div key={item.id}>
-                  <span>{item.name}</span> - 
+                  <span>{item.name}</span>
                   <span style={{ color: '#e94560', fontSize: 17, fontWeight: 600, marginBottom: 10 }}>
-                    {item.discount 
-                      ? (calculateDiscountedPrice(item.price, item.discount) * item.qty).toLocaleString() 
+                    {item.discount
+                      ? (calculateDiscountedPrice(item.price, item.discount) * item.qty).toLocaleString()
                       : (item.price * item.qty).toLocaleString()} VNĐ
                   </span>
                 </div>
@@ -164,7 +164,7 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
                 <h4>Total Price :</h4>
                 <h3>{totalPrice.toLocaleString()} VNĐ</h3>
               </div>
-              <div className="btn btn-danger mt-3" style={{display: 'flex', justifyContent: "center"}}>
+              <div className="btn btn-danger mt-3" style={{ display: 'flex', justifyContent: "center" }}>
                 <Button type="danger" onClick={handleCheckout}>
                   Thanh toán
                 </Button>
