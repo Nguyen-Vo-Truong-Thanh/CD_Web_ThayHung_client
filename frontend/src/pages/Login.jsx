@@ -7,6 +7,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
     const [fullName, setFullName] = useState(''); // State mới để lưu trữ fullName
     const history = useHistory();
 
@@ -27,13 +28,18 @@ function Login() {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
+                sessionStorage.setItem('userInfo', JSON.stringify({
+                    id: data.data.userId,
+                    email: data.data.email,
+                    fullName: data.data.fullName,
+                    phoneNumber: data.data.phoneNumber
+                }));
+
                 sessionStorage.setItem('email', data.data.email);
                 sessionStorage.setItem('fullName', data.data.fullName);
                 sessionStorage.setItem('phone_number', data.data.phoneNumber);
-
-                setFullName(data.data.fullName); // Thiết lập fullName trong state
-
-                // Gọi API để kiểm tra vai trò người dùng
+                sessionStorage.setItem('userId', data.data.userId);
+                setFullName(data.data.fullName);
                 const roleResponse = await fetch('/getRole', {
                     method: 'POST',
                     headers: {
@@ -67,6 +73,7 @@ function Login() {
             console.error('Error during login:', error);
         }
     };
+
 
     return (
         <div className="limiter">
