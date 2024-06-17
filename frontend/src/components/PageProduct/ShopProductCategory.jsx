@@ -18,12 +18,12 @@ const ShopProductCategory = () => {
   }, []);
 
   // Gọi api danh sách category 
-  const loadData = async () => { 
+  const loadData = async () => {
     try {
       setLoading(true);
-      let data = [];  
+      let data = [];
 
-      const response = await fetch(`http://localhost:8080/api/product-category/getAll`); 
+      const response = await fetch(`http://localhost:8080/api/product-category/getAll`);
       data = await response.json();
 
       setData((data && data.length > 0) ? data : []);

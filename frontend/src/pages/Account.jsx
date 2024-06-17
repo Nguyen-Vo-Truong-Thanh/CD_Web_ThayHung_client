@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const Account = () => {
     const [email, setEmail] = useState('');
     const [full_name, setFullName] = useState('');
-    const [phone_number, setPhoneNumber] = useState('');  
+    const [phone_number, setPhoneNumber] = useState('');
 
     useEffect(() => {
         const storedEmail = sessionStorage.getItem('email');
         const storedFullName = sessionStorage.getItem('fullName');
-        const storedPhoneNumber = sessionStorage.getItem('phone_number');  
+        const storedPhoneNumber = sessionStorage.getItem('phone_number');
         if (storedEmail) {
             setEmail(storedEmail);
         }
@@ -22,14 +22,14 @@ const Account = () => {
             setPhoneNumber(storedPhoneNumber);
         }
     }, []);
-    
+
     useEffect(() => {
         // Sau khi cập nhật state, lưu dữ liệu vào sessionStorage
         sessionStorage.setItem('email', email);
         sessionStorage.setItem('fullName', full_name);
-        sessionStorage.setItem('phone_number', phone_number);  
+        sessionStorage.setItem('phone_number', phone_number);
     }, [email, full_name, phone_number]);
-    
+
 
     return (
         <div id="content">
@@ -82,7 +82,7 @@ const Account = () => {
                                     <input
                                         name="full_name"
                                         type="text"
-                                        value={full_name}  
+                                        value={full_name}
                                         maxLength="150"
                                         id="acc_fname"
                                         onChange={(e) => setFullName(e.target.value)}
@@ -97,7 +97,7 @@ const Account = () => {
                                         name="phone_number"
                                         type="tel"
                                         id="acc_phoneNumber"
-                                        value={phone_number}  
+                                        value={phone_number}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                     />
                                     <small>error</small>

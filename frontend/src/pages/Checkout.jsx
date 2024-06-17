@@ -6,8 +6,11 @@ import './style/Checkout.css';
 const Checkout = () => {
   const location = useLocation();
   const history = useHistory();
-  const { selectedItems } = location.state || { selectedItems: [] };
+  const userInfo = JSON.parse(sessionStorage.getItem("User"));
 
+  const userId = userInfo?.id;
+
+  const { selectedItems } = location.state || { selectedItems: [] };
   useEffect(() => {
     window.scrollTo(0, 0);
     (function () {
@@ -27,6 +30,7 @@ const Checkout = () => {
     })();
   }, []);
 
+
   const handlePayment = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -41,11 +45,15 @@ const Checkout = () => {
       phoneNumber: formData.get('phoneNumber'),
       address: formData.get('address'),
       paymentMethod: formData.get('paymentMethod'),
-      nameProduct: selectedItem.name,
       price: selectedItem.discount ? calculateDiscountedPrice(selectedItem.price, selectedItem.discount) : selectedItem.price,
+      productId: selectedItem?.id,
+      userId: 1,
+
     };
 
-    console.log(JSON.stringify(orderData)); // Kiểm tra cấu trúc dữ liệu
+    console.log("userInfo", userInfo);
+    console.log("userId", userId);
+
 
     try {
       const response = await fetch('/api/orders', {

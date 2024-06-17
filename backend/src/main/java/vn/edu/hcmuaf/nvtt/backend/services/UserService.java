@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.nvtt.backend.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import vn.edu.hcmuaf.nvtt.backend.core.UserNotFoundException;
+import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.payload.*;
 
 public interface UserService extends UserDetailsService {
@@ -10,5 +11,7 @@ public interface UserService extends UserDetailsService {
     void forgotPassword(String email) throws Exception;
 
     void resetPassword(ResetPasswordRequest request);
+
+    UserEntity getUserByUserName(String email);
 
 }

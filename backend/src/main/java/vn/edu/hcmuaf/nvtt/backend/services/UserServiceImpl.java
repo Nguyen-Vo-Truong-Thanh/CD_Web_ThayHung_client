@@ -125,4 +125,10 @@ public class UserServiceImpl implements UserService {
     public boolean checkEmail(String email) {
         return userRepository.findEmail(email).isPresent();
     }
+
+    @Override
+    public UserEntity getUserByUserName(String email) {
+        return userRepository.findEmail(email)
+                .orElseThrow( () -> new RuntimeException("email not found"));
+    }
 }

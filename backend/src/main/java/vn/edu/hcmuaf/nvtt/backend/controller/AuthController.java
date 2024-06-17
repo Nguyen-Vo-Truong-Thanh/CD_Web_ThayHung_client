@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,15 +17,18 @@ import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+// @CrossOrigin(origins = "http://localhost:3000")
 public class AuthController extends CustomExceptionHandler{
 
     private final UserService userService;
     private final UserServiceImpl service;
 
     @PostMapping("/login")
-    public ResponseEntity<HttpResponse> login(@RequestBody LoginRequest loginRequest) throws Exception {
+    public ResponseEntity<HttpResponse> login(@RequestBody LoginRequest loginRequest, HttpSession session) throws Exception {
         LoginResponse loginResponse = userService.login(loginRequest);
+        session.setAttribute("User", userService.getUserByUserName(loginRequest.getUsername()));
+
+        System.out.println("Login: "+session.getAttribute("User"));
         return ResponseEntity.ok().body(HttpResponse.success(loginResponse, "Login successfully"));
     }
 

@@ -15,7 +15,7 @@ import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
 import Logout from "./pages/Logout";
-import ProductList from "./common/pagination/ProductList "; 
+import ProductList from "./common/pagination/ProductList ";
 import ProductCategory from "./components/allProduct/ProductCategory";
 import ShopProductNew from "./components/PageProduct/ShopProductNew";
 import ShopProductList from "./components/PageProduct/ShopProductList";
@@ -72,12 +72,12 @@ function App() {
 
   return (
     <Router>
-      <MainApp 
-        CartItem={CartItem} 
+      <MainApp
+        CartItem={CartItem}
         setCartItem={setCartItem}
-        addToCart={addToCart} 
-        decreaseQty={decreaseQty} 
-        removeFromCart={removeFromCart} 
+        addToCart={addToCart}
+        decreaseQty={decreaseQty}
+        removeFromCart={removeFromCart}
       />
     </Router>
   );
@@ -110,12 +110,12 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
           <Pages addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/cart" exact>
-          <Cart 
-            CartItem={CartItem} 
+          <Cart
+            CartItem={CartItem}
             setCartItem={setCartItem}
-            addToCart={addToCart} 
-            decreaseQty={decreaseQty} 
-            removeFromCart={removeFromCart} 
+            addToCart={addToCart}
+            decreaseQty={decreaseQty}
+            removeFromCart={removeFromCart}
           />
         </Route>
         <Route path="/shop" exact>
@@ -137,10 +137,10 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
           <SearchResults addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product-category/:id" exact>
-          <ProductCategory addToCart={addToCart} shopItems={shopItems}/>
+          <ProductCategory addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/shop/page/:page" exact>
-          <ProductList addToCart={addToCart} shopItems={shopItems}/>
+          <ProductList addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product/new" exact>
           <ShopProductNew addToCart={addToCart} />
