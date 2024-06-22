@@ -36,6 +36,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "quantity")
+    private int quantity;
+
     @ManyToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
     private ProductCategory category;
@@ -43,23 +46,19 @@ public class Product {
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-
     public Product() {
         // Default constructor
     }
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private OrderEntity order;
 
-    public Product(String name, String imageUrl, BigDecimal price, String status, int discount, String description, ProductCategory category, Timestamp createdAt) {
+    public Product(String name, String imageUrl, BigDecimal price, String status, int discount, String description, int quantity, ProductCategory category, Timestamp createdAt) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.price = price;
         this.status = status;
         this.discount = discount;
         this.description = description;
+        this.quantity = quantity;
         this.category = category;
         this.createdAt = createdAt;
     }
-
 }

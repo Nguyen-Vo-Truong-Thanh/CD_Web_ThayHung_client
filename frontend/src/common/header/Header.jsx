@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import "./Header.css";
 import Search from "./Search";
 import Navbar from "./Navbar";
+import NavbarAdmin from "../../admin/NavbarAdmin";
 
 const Header = ({ CartItem }) => {
+
+  const [roleData, setRoleData] = useState(null);
   useEffect(() => {
+    const roleData = sessionStorage.getItem('roleData');
+    if (roleData) {
+      setRoleData(JSON.parse(roleData));
+    }
     const handleScroll = () => {
       const header = document.querySelector(".header");
       if (header) {
@@ -22,7 +29,8 @@ const Header = ({ CartItem }) => {
   return (
     <>
       <Search CartItem={CartItem} />
-      <Navbar />
+      {roleData === 1 ? <Navbar /> : roleData === 2 ? <NavbarAdmin /> : <Navbar />}
+
     </>
   );
 };

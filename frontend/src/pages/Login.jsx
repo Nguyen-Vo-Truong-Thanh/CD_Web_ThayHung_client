@@ -51,12 +51,12 @@ function Login() {
                 if (roleResponse.ok) {
                     const roleData = await roleResponse.json();
                     console.log('Role data:', roleData);
-
+                    sessionStorage.setItem('roleData', JSON.stringify(roleData));
                     // Điều hướng dựa trên vai trò người dùng
                     if (roleData === 1) {
                         history.push('/');
                     } else if (roleData === 2) {
-                        history.push('/account');
+                        history.push('/productAdmin');
                     } else {
                         setError('Invalid user access');
                     }

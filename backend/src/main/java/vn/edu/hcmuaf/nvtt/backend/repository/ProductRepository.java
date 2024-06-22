@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import vn.edu.hcmuaf.nvtt.backend.dto.ProductDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,4 +38,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Transactional
     void deleteByName(String name);
     Product findByName(String name);
+    @Query("select new vn.edu.hcmuaf.nvtt.backend.dto.ProductDto(p.name, p.imageUrl, p.description, p.discount, p.price, p1.name) from Product p join p.category p1")
+    List<ProductDto> getAllBy();
 }

@@ -19,8 +19,6 @@ public class OrderRequest {
     private Long productId;
     private Long userId;
 
-
-
     public static OrderEntity toEntity(OrderRequest request) {
         return OrderEntity.builder()
                 .address(request.getAddress())
@@ -30,6 +28,7 @@ public class OrderRequest {
                 .price(request.getPrice())
                 .paymentMethod(request.getPaymentMethod())
                 .phoneNumber(request.getPhoneNumber())
+                .orderStatus(0)
                 .build();
     }
 }
