@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
+import vn.edu.hcmuaf.nvtt.backend.entity.ProductCategory;
 import vn.edu.hcmuaf.nvtt.backend.model.ProductCategoryDto;
 import vn.edu.hcmuaf.nvtt.backend.services.ProductCategoryService;
 import vn.edu.hcmuaf.nvtt.backend.services.ProductService;
@@ -22,7 +23,10 @@ public class ProductCategoryController {
     public ProductCategoryController(ProductCategoryService service) {
         this._service = service;
     }
-
+    @GetMapping
+    public List<ProductCategory> getAllCategories() {
+        return _service.findAll();
+    }
     @GetMapping("/getAll")
     public ResponseEntity<?> getAll() {
         List<ProductCategoryDto> data = _service.get();

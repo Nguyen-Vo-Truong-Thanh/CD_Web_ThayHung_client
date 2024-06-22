@@ -46,4 +46,12 @@ public class ProductCategoryService {
 
         return result;
     }
+
+    public List<ProductCategory> findAll() {
+        return (List<ProductCategory>) _repository.findAll();
+    }
+
+    public ProductCategory findById(Long id) {
+        return _repository.findById(id).orElseThrow(() -> new RuntimeException("Category not found"));
+    }
 }

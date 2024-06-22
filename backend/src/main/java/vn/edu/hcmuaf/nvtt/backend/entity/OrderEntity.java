@@ -5,9 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -26,8 +23,10 @@ public class OrderEntity {
     private String email;
     private String address;
     private String paymentMethod;
-    private String nameProduct; // Lưu tên sản phẩm
-    private BigDecimal price; // Lưu giá sản phẩm
+    private String nameProduct;
+    private BigDecimal price;
+    @Column(name = "order_status", nullable = false, columnDefinition = "int default 0")
+    private int orderStatus = 0;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -7,7 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.core.OrderNotFoundException;
+import vn.edu.hcmuaf.nvtt.backend.dto.OrderDto;
 import vn.edu.hcmuaf.nvtt.backend.dto.OrderRequest;
+import vn.edu.hcmuaf.nvtt.backend.dto.ProductDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.OrderEntity;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
@@ -57,5 +59,13 @@ public class OrderController {
     public ResponseEntity<List<OrderEntity>> getOrderByUserId(@PathVariable Long userId) {
         List<OrderEntity> orders = orderRepository.findByUserId(userId);
         return ResponseEntity.ok(orders);
+    }
+    @GetMapping("/listProduct")
+    public List<ProductDto>productDtos(){
+        return productRepository.getAllBy();
+    }
+    @GetMapping("/listOrder")
+    public  List<OrderDto>orderDtos(){
+        return orderRepository.getAllOrder();
     }
 }

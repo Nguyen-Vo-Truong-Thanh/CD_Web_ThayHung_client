@@ -4,12 +4,14 @@ package vn.edu.hcmuaf.nvtt.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.edu.hcmuaf.nvtt.backend.dto.CustomerDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.payload.LoginRequest;
 import vn.edu.hcmuaf.nvtt.backend.payload.LoginResponse;
 import vn.edu.hcmuaf.nvtt.backend.services.EmailService;
 import vn.edu.hcmuaf.nvtt.backend.services.UserServiceImpl;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -45,6 +47,10 @@ public class UserController {
         }else {
             return ResponseEntity.badRequest().body("Email not found");
         }
+    }
+    @GetMapping("/getAllUser")
+    public List<CustomerDto>getAllUser(){
+        return userService.list();
     }
     @PostMapping("/getRole")
     public Long getUserRole(@RequestBody LoginResponse request) {

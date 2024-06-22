@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import vn.edu.hcmuaf.nvtt.backend.dto.ProductDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductRepository;
 
@@ -87,5 +88,8 @@ public class ProductService {
 
     public Product getProductById(Long id) {
         return productRepository.findProductById(id);
+    }
+    public List<ProductDto>list(){
+        return productRepository.getAllBy();
     }
 }

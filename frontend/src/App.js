@@ -19,7 +19,9 @@ import ProductList from "./common/pagination/ProductList ";
 import ProductCategory from "./components/allProduct/ProductCategory";
 import ShopProductNew from "./components/PageProduct/ShopProductNew";
 import ShopProductList from "./components/PageProduct/ShopProductList";
-
+import ProductAdmin from "./admin/ProductAdmin"
+import CustomerAdmin from "./admin/CustomerAdmin";
+import OrderAdmin from "./admin/OrderAdmin";
 function App() {
   const [CartItem, setCartItem] = useState([]);
 
@@ -147,6 +149,15 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
         </Route>
         <Route path="/productList" exact>
           <ShopProductList addToCart={addToCart} />
+        </Route>
+        <Route path="/productAdmin">
+          <ProductAdmin />
+        </Route>
+        <Route path="/customerAdmin">
+          <CustomerAdmin />
+        </Route>
+        <Route path="/orderAdmin">
+          <OrderAdmin/>
         </Route>
       </Switch>
       {showHeaderFooter && <Footer />}

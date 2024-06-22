@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.nvtt.backend.core.UserNotFoundException;
+import vn.edu.hcmuaf.nvtt.backend.dto.CustomerDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserRole;
 import vn.edu.hcmuaf.nvtt.backend.mapper.AuthMapper;
@@ -17,6 +18,7 @@ import vn.edu.hcmuaf.nvtt.backend.payload.*;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRoleRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -130,5 +132,8 @@ public class UserServiceImpl implements UserService {
     public UserEntity getUserByUserName(String email) {
         return userRepository.findEmail(email)
                 .orElseThrow( () -> new RuntimeException("email not found"));
+    }
+    public List<CustomerDto>list(){
+        return userRepository.getAll();
     }
 }
