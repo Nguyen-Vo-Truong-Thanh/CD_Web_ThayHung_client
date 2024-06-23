@@ -66,7 +66,8 @@ const OrderHistory = () => {
               <td><img src={order.product.imageUrl} alt={order.product.name} style={{ width: '100px' }} /></td>
               <td>{order.address}</td>
               <td>{order.price}</td>
-              <td>{order.phone}</td>
+              <td>{order.phoneNumber}</td>
+
               <td>{new Date(order.timestamp).toLocaleString()}</td>
               <td>{order.product.description}</td>
               <td>
