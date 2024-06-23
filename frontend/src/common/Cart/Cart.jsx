@@ -57,8 +57,10 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
     removeFromCart(item);
     const updatedCartItems = CartItem.filter(cartItem => cartItem.id !== item.id);
     const updatedSelectedItems = selectedItems.filter(selectedItem => selectedItem.id !== item.id);
-    setCartItems(updatedCartItems);  // Cập nhật lại CartItem sau khi xóa
-    handleUpdateCart(updatedSelectedItems);  // Cập nhật lại selectedItems sau khi xóa
+    setCartItems(updatedCartItems);  // Update CartItem after removal
+    setSelectedItems(updatedSelectedItems);  // Update selectedItems after removal
+    sessionStorage.setItem("CartItem", JSON.stringify(updatedCartItems));
+    sessionStorage.setItem("selectedItems", JSON.stringify(updatedSelectedItems));
   };
 
   const handleCheckout = () => {
@@ -66,6 +68,8 @@ const Cart = ({ CartItem, setCartItems, addToCart, decreaseQty, updateQty, remov
       pathname: "/checkout",
       state: { selectedItems: selectedItems }
     });
+    sessionStorage.removeItem("CartItem");
+    sessionStorage.removeItem("selectedItems");
   };
 
   return (
