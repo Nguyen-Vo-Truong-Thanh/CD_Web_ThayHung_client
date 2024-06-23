@@ -67,10 +67,11 @@ const Checkout = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
       const result = await response.json();
       console.log('Order successful', result);
       alert('Thanh toán thành công');
+      // sessionStorage.removeItem('cartItems');
+
       history.push('/');
     } catch (error) {
       console.error('There was a problem with the payment request:', error);

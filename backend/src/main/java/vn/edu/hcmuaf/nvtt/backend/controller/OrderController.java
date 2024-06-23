@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
@@ -14,24 +14,20 @@ import vn.edu.hcmuaf.nvtt.backend.dto.ProductDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.OrderEntity;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.entity.UserEntity;
+import vn.edu.hcmuaf.nvtt.backend.mapper.ProductDtoMapper;
 import vn.edu.hcmuaf.nvtt.backend.repository.OrderRepository;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductRepository;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
-
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private UserRepository userRepository;
+    private final ProductDtoMapper productDtoMapper;
+    private final OrderRepository orderRepository;
+    private final ProductRepository productRepository;
+    private final UserRepository userRepository;
 
     @PostMapping
     public ResponseEntity<OrderEntity> createOrder(@RequestBody OrderRequest request,  HttpSession session) {
@@ -84,7 +80,7 @@ public class OrderController {
     }
     @GetMapping("/listProduct")
     public List<ProductDto>productDtos(){
-        return productRepository.getAllBy();
+        return productRepository.getAllBy().stream().map(productDtoMapper).toList();
     }
     @GetMapping("/listOrder")
     public  List<OrderDto>orderDtos(){

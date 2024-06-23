@@ -26,19 +26,46 @@ const ProductTable = () => {
         setNewProduct(products[index]);
     };
 
-    const handleDelete = (index) => {
+    const handleDelete = (index, productId) => {
+        fetch(`http://localhost:8080/api/products/id/${productId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => { setProducts(data); console.log(data) })
+            .catch(error => console.error('Error fetching products:', error));
         const updatedProducts = [...products];
         updatedProducts.splice(index, 1);
         setProducts(updatedProducts);
-        swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success");
+        swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success")
+            .then(() => {
+                // Redirect to a new page after the alert is closed
+                window.location.href = '/productAdmin'; // Change '/new-page' to your desired URL
+            });
+
     };
 
-    const handleSave = (index) => {
+    const handleSave = (index, productId) => {
+        fetch(`http://localhost:8080/api/products/update/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(response => response.json())
+            .then(data => { setProducts(data); console.log(data) })
+            .catch(error => console.error('Error fetching products:', error));
+
         const updatedProducts = [...products];
         updatedProducts[index] = newProduct;
+        // make a put api to back end 
         setProducts(updatedProducts);
-        setEditing(null);
-        swal("Thành Công!", "Bạn Đã Cập Nhật Thành Công", "success");
+        setEditing(index);
+        swal("Thành Công!", "Bạn Đã Cập Nhật Thành Công", "success")
+            .then(() => {
+                // Redirect to a new page after the alert is closed
+                window.location.href = '/productAdmin'; // Change '/new-page' to your desired URL
+            });
     };
 
     const handleAdd = () => {
@@ -101,57 +128,57 @@ const ProductTable = () => {
             </div>
             <table className="table table-bordered">
                 <thead>
-                <tr>
-                    <th>Tên sản phẩm</th>
-                    <th>Ảnh</th>
-                    <th>Mô tả</th>
-                    <th>Số lượng</th>
-                    <th>Giá</th>
-                    <th>Loại</th>
-                    <th>Tính Năng</th>
-                </tr>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Ảnh</th>
+                        <th>Mô tả</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Loại</th>
+                        <th>Tính Năng</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {filteredProducts.map((product, index) => (
-                    <tr key={index}>
-                        {editing === index ? (
-                            <>
-                                <td><input type="text" className="form-control" value={newProduct.name} onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })} /></td>
-                                <td><input type="text" className="form-control" value={newProduct.imageUrl} onChange={(e) => setNewProduct({ ...newProduct, imageUrl: e.target.value })} /></td>
-                                <td><input type="text" className="form-control" value={newProduct.description} onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })} /></td>
-                                <td><input type="number" className="form-control" value={newProduct.quantity} onChange={(e) => setNewProduct({ ...newProduct, quantity: e.target.value })} /></td>
-                                <td><input type="number" className="form-control" value={newProduct.price} onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })} /></td>
-                                <td>
-                                    <select className="form-select" value={newProduct.category} onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}>
-                                        {categories.map((category) => (
-                                            <option key={category.id} value={category.id}>{category.name}</option>
-                                        ))}
-                                    </select>
-                                </td>
-                                <td>
-                                    <button className="btn btn-success me-2" onClick={() => handleSave(index)}><i className="fas fa-save"></i></button>
-                                    <button className="btn btn-secondary me-2" onClick={() => setEditing(null)}><i className="fas fa-times"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
-                                </td>
-                            </>
-                        ) : (
-                            <>
-                                <td>{product.name}</td>
-                                <td>
-                                    <img src={product.imageUrl} alt={product.name} style={{ width: '100px', height: 'auto' }} />
-                                </td>
-                                <td>{product.description}</td>
-                                <td>{product.quantity}</td>
-                                <td>{product.price}</td>
-                                <td>{product.category.name}</td>
-                                <td>
-                                    <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-pencil-alt"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
-                                </td>
-                            </>
-                        )}
-                    </tr>
-                ))}
+                    {filteredProducts.map((product, index) => (
+                        <tr key={index}>
+                            {editing === index ? (
+                                <>
+                                    <td><input type="text" className="form-control" value={newProduct.name} onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })} /></td>
+                                    <td><input type="text" className="form-control" value={newProduct.imageUrl} onChange={(e) => setNewProduct({ ...newProduct, imageUrl: e.target.value })} /></td>
+                                    <td><input type="text" className="form-control" value={newProduct.description} onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })} /></td>
+                                    <td><input type="number" className="form-control" value={newProduct.quantity} onChange={(e) => setNewProduct({ ...newProduct, quantity: e.target.value })} /></td>
+                                    <td><input type="number" className="form-control" value={newProduct.price} onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })} /></td>
+                                    <td>
+                                        <select className="form-select" value={newProduct.category} onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}>
+                                            {categories.map((category) => (
+                                                <option key={category.id} value={category.id}>{category.name}</option>
+                                            ))}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-success me-2" onClick={() => handleSave(index, product.id)}><i className="fas fa-save"></i></button>
+                                        <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-times"></i></button>
+                                        <button className="btn btn-danger" onClick={() => handleDelete(index, product.id)}><i className="fas fa-trash"></i></button>
+                                    </td>
+                                </>
+                            ) : (
+                                <>
+                                    <td>{product.name}</td>
+                                    <td>
+                                        <img src={product.imageUrl} alt={product.name} style={{ width: '100px', height: 'auto' }} />
+                                    </td>
+                                    <td>{product.description}</td>
+                                    <td>{product.quantity}</td>
+                                    <td>{product.price}</td>
+                                    <td>{product.category.name}</td>
+                                    <td>
+                                        <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-pencil-alt"></i></button>
+                                        {/* <button className="btn btn-danger" onClick={() => handleDelete(index, product.id)}><i className="fas fa-trash"></i></button> */}
+                                    </td>
+                                </>
+                            )}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 

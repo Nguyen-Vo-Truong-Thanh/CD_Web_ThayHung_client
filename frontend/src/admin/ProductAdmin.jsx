@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarAdmin from './NavbarAdmin';
 import Clock from './Clock';
-import '../App.css'
+import '../App.css';
 import OrderTable from "./OrderTable";
 import ProductTable from "./ProductTable";
+import axios from 'axios';
 
 function ProductAdmin() {
+    const [error, setError] = useState(null);
+
+    const handleUpdateProduct = async (productId, updatedProductData) => {
+        try {
+            const response = await axios.put(`http://localhost:8080/api/products/update/${productId}`, updatedProductData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('Product updated successfully:', response.data);
+        } catch (error) {
+            setError(error.message || 'Cập nhật sản phẩm thất bại');
+            console.error('Error updating product:', error);
+        }
+    };
+
     return (
         <div className="App">
-
             <div className="container-fluid al">
-
                 <Clock />
-                <ProductTable />
+                <ProductTable onUpdateProduct={handleUpdateProduct} />
             </div>
             <hr className="hr1" />
             <div className="container-fluid end">

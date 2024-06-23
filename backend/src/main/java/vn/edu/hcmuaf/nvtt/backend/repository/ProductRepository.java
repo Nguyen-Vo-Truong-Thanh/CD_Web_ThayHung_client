@@ -38,6 +38,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Transactional
     void deleteByName(String name);
     Product findByName(String name);
-    @Query("select new vn.edu.hcmuaf.nvtt.backend.dto.ProductDto(p.name, p.imageUrl, p.description, p.discount, p.price, p1.name) from Product p join p.category p1")
-    List<ProductDto> getAllBy();
+    @Query("select p from Product p join p.category p1")
+    List<Product> getAllBy();
 }
