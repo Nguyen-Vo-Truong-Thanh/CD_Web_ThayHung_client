@@ -7,14 +7,35 @@ const OrderHistory = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch('/api/orders/user') // Gửi yêu cầu lấy danh sách đơn hàng của người dùng hiện tại
-      .then(response => response.json())
-      .then(data => setOrders(data))
-      .catch(error => console.error('Error fetching order history:', error));
+    // const token = sessionStorage.getItem('token');
+    const userId = sessionStorage.getItem('userId');
+    // if (!token || !userId) {
+    if (!userId) {
+      console.error('Không tìm thấy token hoặc userId trong sessionStorage.');
+      return;
+    }
+
+    fetch(`http://localhost:8080/api/orders/users/${userId}`, {
+      // headers: {
+      //   'Authorization': `Bearer ${token}`
+      // }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Lỗi khi lấy dữ liệu từ máy chủ');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setOrders(data);
+      })
+      .catch(error => {
+        console.error('Lỗi khi lấy lịch sử đơn hàng:', error);
+      });
   }, []);
 
   const handleViewOrder = (orderId) => {
-    history.push(`/orderDetail/${orderId}`); // Điều hướng tới trang chi tiết đơn hàng với id tương ứng
+    history.push(`/orderDetail/${orderId}`);
   };
 
   return (
@@ -26,12 +47,12 @@ const OrderHistory = () => {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Product Name</th>
+            <th>Img</th>
             <th>Address</th>
             <th>Price</th>
             <th>Phone Number</th>
-            <th>Status</th>
             <th>Timestamp</th>
-            <th>Notes</th>
+            <th>Description</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,15 +61,15 @@ const OrderHistory = () => {
             <tr key={order.id}>
               <td>{order.firstName}</td>
               <td>{order.lastName}</td>
-              <td>{order.nameProduct}</td>
+              <td>{order.productDto.name}</td>
+              <td><img src={order.productDto.imageUrl} alt={order.productDto.name} style={{ width: '100px' }} /></td>
               <td>{order.address}</td>
               <td>{order.price}</td>
-              <td>{order.phoneNumber}</td>
-              <td>{order.status}</td>
+              <td>{order.phone}</td>
               <td>{new Date(order.timestamp).toLocaleString()}</td>
-              <td>{order.notes}</td>
+              <td>{order.productDto.description}</td>
               <td>
-                <button onClick={() => handleViewOrder(order.id)}>Xem đơn hàng</button>
+                Xem đơn hàng
               </td>
             </tr>
           ))}

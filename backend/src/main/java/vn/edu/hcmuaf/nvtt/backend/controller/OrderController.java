@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.hcmuaf.nvtt.backend.core.OrderNotFoundException;
 import vn.edu.hcmuaf.nvtt.backend.dto.OrderDto;
 import vn.edu.hcmuaf.nvtt.backend.dto.OrderRequest;
+import vn.edu.hcmuaf.nvtt.backend.dto.OrderResponseDto;
 import vn.edu.hcmuaf.nvtt.backend.dto.ProductDto;
 import vn.edu.hcmuaf.nvtt.backend.entity.OrderEntity;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
@@ -19,6 +20,7 @@ import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -55,10 +57,30 @@ public class OrderController {
         return ResponseEntity.ok(order);
     }
 
-    @GetMapping("/users/{userId}")
-    public ResponseEntity<List<OrderEntity>> getOrderByUserId(@PathVariable Long userId) {
+    @GetMapping("/users/{userId}") //api order detail
+    public ResponseEntity<List<OrderResponseDto>> getOrderByUserId(@PathVariable Long userId) {
         List<OrderEntity> orders = orderRepository.findByUserId(userId);
-        return ResponseEntity.ok(orders);
+        List<OrderResponseDto> result = orders.stream().map(entity -> {
+            Product productEntity = entity.getProduct();
+            ProductDto productDto = ProductDto.builder()
+                    .name(productEntity.getName())
+                    .imageUrl(productEntity.getImageUrl())
+                    .description(productEntity.getDescription())
+                    .build();
+
+            return OrderResponseDto.builder()
+                    .id(entity.getId())
+                    .email(entity.getEmail())
+                    .firstName(entity.getFirstName())
+                    .lastName(entity.getLastName())
+                    .address(entity.getAddress())
+                    .phoneNumber(entity.getPhoneNumber())
+                    .paymentMethod(entity.getPaymentMethod())
+                    .price(entity.getPrice())
+                    .productDto(productDto)
+                    .build();
+        }).toList();
+        return ResponseEntity.ok(result);
     }
     @GetMapping("/listProduct")
     public List<ProductDto>productDtos(){
