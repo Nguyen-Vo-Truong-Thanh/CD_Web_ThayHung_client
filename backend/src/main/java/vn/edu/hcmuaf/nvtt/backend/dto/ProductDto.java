@@ -1,7 +1,9 @@
 package vn.edu.hcmuaf.nvtt.backend.dto;
 
-import java.math.BigDecimal;
+import lombok.Builder;
 
+import java.math.BigDecimal;
+@Builder
 public class ProductDto {
     private String name;
     private String imageUrl;

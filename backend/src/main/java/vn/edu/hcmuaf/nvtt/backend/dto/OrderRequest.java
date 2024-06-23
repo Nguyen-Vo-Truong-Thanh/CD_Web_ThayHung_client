@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.nvtt.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Builder;
 import lombok.Data;
 import vn.edu.hcmuaf.nvtt.backend.entity.OrderEntity;

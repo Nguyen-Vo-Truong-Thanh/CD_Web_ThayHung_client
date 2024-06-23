@@ -29,7 +29,7 @@ function Login() {
                 const data = await response.json();
                 console.log('Login successful:', data);
                 sessionStorage.setItem('userInfo', JSON.stringify({
-                    id: data.data.userId,
+                    id: data.data.id,
                     email: data.data.email,
                     fullName: data.data.fullName,
                     phoneNumber: data.data.phoneNumber
@@ -38,7 +38,7 @@ function Login() {
                 sessionStorage.setItem('email', data.data.email);
                 sessionStorage.setItem('fullName', data.data.fullName);
                 sessionStorage.setItem('phone_number', data.data.phoneNumber);
-                sessionStorage.setItem('userId', data.data.userId);
+                sessionStorage.setItem('userId', data.data.id);
                 setFullName(data.data.fullName);
                 const roleResponse = await fetch('/getRole', {
                     method: 'POST',
