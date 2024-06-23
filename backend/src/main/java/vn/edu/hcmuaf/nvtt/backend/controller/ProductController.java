@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.edu.hcmuaf.nvtt.backend.dto.ProductUpdateRequest;
 import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.services.ProductService;
 
@@ -69,7 +70,7 @@ public class ProductController {
         productService.deleteProductByName(name);
     }
     @PutMapping("/update/{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product newProductData) {
+    public Product updateProduct(@PathVariable Long id, @RequestBody ProductUpdateRequest newProductData) {
         return productService.updateProduct(id, newProductData);
     }
 

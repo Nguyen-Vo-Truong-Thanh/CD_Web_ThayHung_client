@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.Instant;
+
 @Entity
 @Getter
 @Setter
@@ -43,7 +45,7 @@ public class Product {
     private ProductCategory category;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private Timestamp createdAt = Timestamp.from(Instant.now());
 
     public Product() {
         // Default constructor
@@ -58,6 +60,6 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.category = category;
-        this.createdAt = createdAt;
+        this.createdAt = Timestamp.from(Instant.now());
     }
 }
