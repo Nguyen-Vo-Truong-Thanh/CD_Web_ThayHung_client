@@ -13,7 +13,6 @@ public class OrderResponseDto {
     private String lastName;
     private String address;
     private String paymentMethod;
-
     private String phoneNumber;
     private String email;
     private BigDecimal price;
