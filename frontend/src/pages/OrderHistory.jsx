@@ -67,6 +67,7 @@ const OrderHistory = () => {
               <td>{order.address}</td>
               <td>{order.price}</td>
               <td>{order.phoneNumber}</td>
+
               <td>{new Date(order.timestamp).toLocaleString()}</td>
               <td>{order.product.description}</td>
               <td>
