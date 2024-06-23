@@ -14,6 +14,7 @@ const OrderHistory = () => {
       console.error('Không tìm thấy token hoặc userId trong sessionStorage.');
       return;
     }
+    console.log(userId);
 
     fetch(`http://localhost:8080/api/orders/users/${userId}`, {
       // headers: {
@@ -61,15 +62,16 @@ const OrderHistory = () => {
             <tr key={order.id}>
               <td>{order.firstName}</td>
               <td>{order.lastName}</td>
-              <td>{order.productDto.name}</td>
-              <td><img src={order.productDto.imageUrl} alt={order.productDto.name} style={{ width: '100px' }} /></td>
+              <td>{order.product.name}</td>
+              <td><img src={order.product.imageUrl} alt={order.product.name} style={{ width: '100px' }} /></td>
               <td>{order.address}</td>
               <td>{order.price}</td>
               <td>{order.phone}</td>
               <td>{new Date(order.timestamp).toLocaleString()}</td>
-              <td>{order.productDto.description}</td>
+              <td>{order.product.description}</td>
               <td>
-                Xem đơn hàng
+                {/* <button onClick={() => handleViewOrder(order.id)}>Hủy đơn hàng</button> */}
+                Xem đơn hàn
               </td>
             </tr>
           ))}
