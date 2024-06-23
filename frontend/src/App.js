@@ -11,16 +11,18 @@ import CheckOut from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
-import OrderHistory from "./pages/OrderHistory";
 import Register from "./pages/Register";
+import OrderHistory from "./pages/OrderHistory";
 import ResetPassword from "./pages/ResetPassword";
 import SearchResults from "./pages/SearchResults";
 import Logout from "./pages/Logout";
-import ProductList from "./common/pagination/ProductList "; 
+import ProductList from "./common/pagination/ProductList ";
 import ProductCategory from "./components/allProduct/ProductCategory";
 import ShopProductNew from "./components/PageProduct/ShopProductNew";
 import ShopProductList from "./components/PageProduct/ShopProductList";
-
+import ProductAdmin from "./admin/ProductAdmin"
+import CustomerAdmin from "./admin/CustomerAdmin";
+import OrderAdmin from "./admin/OrderAdmin";
 function App() {
   const [CartItem, setCartItem] = useState([]);
 
@@ -73,12 +75,12 @@ function App() {
 
   return (
     <Router>
-      <MainApp 
-        CartItem={CartItem} 
+      <MainApp
+        CartItem={CartItem}
         setCartItem={setCartItem}
-        addToCart={addToCart} 
-        decreaseQty={decreaseQty} 
-        removeFromCart={removeFromCart} 
+        addToCart={addToCart}
+        decreaseQty={decreaseQty}
+        removeFromCart={removeFromCart}
       />
     </Router>
   );
@@ -111,12 +113,12 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
           <Pages addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/cart" exact>
-          <Cart 
-            CartItem={CartItem} 
+          <Cart
+            CartItem={CartItem}
             setCartItem={setCartItem}
-            addToCart={addToCart} 
-            decreaseQty={decreaseQty} 
-            removeFromCart={removeFromCart} 
+            addToCart={addToCart}
+            decreaseQty={decreaseQty}
+            removeFromCart={removeFromCart}
           />
         </Route>
         <Route path="/shop" exact>
@@ -138,10 +140,10 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
           <SearchResults addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product-category/:id" exact>
-          <ProductCategory addToCart={addToCart} shopItems={shopItems}/>
+          <ProductCategory addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/shop/page/:page" exact>
-          <ProductList addToCart={addToCart} shopItems={shopItems}/>
+          <ProductList addToCart={addToCart} shopItems={shopItems} />
         </Route>
         <Route path="/product/new" exact>
           <ShopProductNew addToCart={addToCart} />
@@ -151,6 +153,15 @@ function MainApp({ CartItem, setCartItem, shopItems, addToCart, decreaseQty, rem
         </Route>
         <Route path="/order-history" exact>
           <OrderHistory />
+        </Route>
+        <Route path="/productAdmin">
+          <ProductAdmin />
+        </Route>
+        <Route path="/customerAdmin">
+          <CustomerAdmin />
+        </Route>
+        <Route path="/orderAdmin">
+          <OrderAdmin/>
         </Route>
       </Switch>
       {showHeaderFooter && <Footer />}
