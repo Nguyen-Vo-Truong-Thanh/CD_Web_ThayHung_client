@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
 @Entity
 @Getter
 @Setter
@@ -37,7 +36,7 @@ public class Product {
     private String description;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Integer quantity; // Thay đổi từ int sang Integer
 
     @ManyToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
@@ -50,7 +49,7 @@ public class Product {
         // Default constructor
     }
 
-    public Product(String name, String imageUrl, BigDecimal price, String status, int discount, String description, int quantity, ProductCategory category, Timestamp createdAt) {
+    public Product(String name, String imageUrl, BigDecimal price, String status, int discount, String description, Integer quantity, ProductCategory category, Timestamp createdAt) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.price = price;
