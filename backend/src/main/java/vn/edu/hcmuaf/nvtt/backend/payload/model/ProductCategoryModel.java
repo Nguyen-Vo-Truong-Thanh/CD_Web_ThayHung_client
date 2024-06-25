@@ -1,11 +1,10 @@
-package vn.edu.hcmuaf.nvtt.backend.model;
+package vn.edu.hcmuaf.nvtt.backend.payload.model;
 
-public class ChildsModel {
+public class ProductCategoryModel {
     private Long id;
     private String name;
 
-    public ChildsModel() {
-
+    public ProductCategoryModel() {
     }
 
     public Long getId() {
@@ -23,5 +22,4 @@ public class ChildsModel {
     public void setName(String name) {
         this.name = name;
     }
-
 }

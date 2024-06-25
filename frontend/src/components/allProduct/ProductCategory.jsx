@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
 // Sử dụng thư viện ngzoro antd
-import { Button, message, Card, Image, Badge  } from 'antd';
+import { Button, message, Card, Image, Badge } from 'antd';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const ProductCategory = () => {  
+const ProductCategory = () => {
 
   const [categoryItem, setCategoryItem] = useState([]);
   const [lstData, setData] = useState([]);
@@ -20,7 +20,7 @@ const ProductCategory = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    if(id) { 
+    if (id) {
       loadCategoryItem()
       loadProduct();
     }
@@ -32,9 +32,15 @@ const ProductCategory = () => {
       let data = null;
 
       const categoryId = parseInt(id);
-      const response = await fetch(`http://localhost:8080/api/product-category/getItem?id=${categoryId}`);
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await fetch(`http://localhost:8080/api/product-category/getItem?id=${categoryId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+      });
       data = await response.json();
-    
+
       setCategoryItem(data);
       setLoading(false);
 
@@ -49,9 +55,17 @@ const ProductCategory = () => {
       let data = null;
 
       const categoryId = parseInt(id);
-      const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${categoryId}`);
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${categoryId}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+        }
+      );
       data = await response.json();
-    
+
       setData((data && data.length > 0) ? data : []);
       setLoading(false);
 
@@ -75,9 +89,9 @@ const ProductCategory = () => {
                 <div className="col-md-3 mb-4" key={item.id}>
                   <Badge.Ribbon text={item.status} className="code-box-card">
                     <Card className="w-100 h-100">
-                      
+
                       <div className="w-100 h-img-cart d-flex justify-content-center">
-                        <Image className="w-100 h-100" src={item.imageUrl}/>
+                        <Image className="w-100 h-100" src={item.imageUrl} />
                       </div>
 
                       <div className="w-100 mt-4">

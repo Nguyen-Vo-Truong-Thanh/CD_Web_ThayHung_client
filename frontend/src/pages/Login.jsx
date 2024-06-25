@@ -10,17 +10,38 @@ function Login() {
 
     const [fullName, setFullName] = useState(''); // State mới để lưu trữ fullName
     const history = useHistory();
-
+    const loginRequest = { username, password };
     const handleLogin = async (event) => {
-        event.preventDefault();
 
-        const loginRequest = { username, password };
-        console.log(loginRequest);
+        event.preventDefault();
         try {
-            const response = await fetch('http://localhost:8080/auth/login', {
+            const response = await fetch('http://localhost:8080/api/v1/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginRequest)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Login successful:', data);
+                sessionStorage.setItem('accessToken', data.data.token);
+
+            }
+        } catch (error) {
+            setError('An error occurred. Please try again.');
+            console.error('Error during login:', error);
+        }
+
+        console.log(loginRequest);
+        try {
+            const accessToken = sessionStorage.getItem('accessToken');
+            const response = await fetch('http://localhost:8080/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
                 },
                 body: JSON.stringify(loginRequest)
             });
@@ -43,7 +64,8 @@ function Login() {
                 const roleResponse = await fetch('/getRole', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`
                     },
                     body: JSON.stringify({ email: data.data.email })
                 });

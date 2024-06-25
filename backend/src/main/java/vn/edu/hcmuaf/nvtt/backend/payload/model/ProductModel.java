@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.nvtt.backend.model;
+package vn.edu.hcmuaf.nvtt.backend.payload.model;
 
 
 import vn.edu.hcmuaf.nvtt.backend.entity.ProductCategory;

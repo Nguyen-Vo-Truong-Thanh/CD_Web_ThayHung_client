@@ -1,11 +1,16 @@
 package vn.edu.hcmuaf.nvtt.backend.services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,16 +27,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private final AuthMapper authMapper;
     private final UserRoleRepository userRoleRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-
-    @Autowired
     private final UserRepository userRepository;
 
 
@@ -51,8 +54,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) throws UserNotFoundException {
-        UserEntity userEntity = userRepository.findByEmailAndPassword(loginRequest.getUsername(), loginRequest.getPassword())
-                .orElseThrow(() -> new UserNotFoundException("Invalid username or password"));
+            UserEntity userEntity = userRepository.findByEmail(loginRequest.getUsername());
         return authMapper.userToLoginResponse(userEntity);
     }
 
@@ -131,9 +133,67 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity getUserByUserName(String email) {
         return userRepository.findEmail(email)
-                .orElseThrow( () -> new RuntimeException("email not found"));
+                .orElseThrow(() -> new RuntimeException("email not found"));
     }
-    public List<CustomerDto>list(){
+    public List<CustomerDto> list() {
         return userRepository.getAll();
     }
+
+    //security
+
+    private final UserDetailsService userDetailsService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
+    @Override
+    public LoginResponseV2 loginV2(LoginRequest request) {
+        try {
+            var userDetails = userDetailsService.loadUserByUsername(request.getUsername()); // Check user exists
+            var authentication = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
+            authenticationManager.authenticate(authentication);// check enable user or user locked
+            String accessToken = jwtService.generateToken(userDetails);
+            // additional information v2
+            return new LoginResponseV2(accessToken);
+        } catch (UsernameNotFoundException e) {
+            log.error("User not found", e.getMessage());
+            throw new RuntimeException(e.getMessage());
+        } catch (DisabledException e) {
+            log.error("User is disabled", e);
+            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            log.error("Login failed", e);
+            throw new RuntimeException(e.getMessage());  // Generic user-friendly message
+        }
+    }
+
+    @Override
+    public RegisterResponse registerV2(RegisterRequest request) {
+
+        if (userRepository.findByEmailOptional(request.getEmail()).isPresent()) {
+            log.error("Email already exists: {}", request.getEmail());
+            throw new RuntimeException("Email taken!");
+        }
+        try {
+            UserEntity newUser = UserEntity.builder()
+                    .address(request.getAddress())
+                    .fullName(request.getFullName())
+                    .phoneNumber(request.getPhoneNumber())
+                    .email(request.getEmail())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .build();
+            userRepository.save(newUser);
+
+            return RegisterResponse.builder()
+                    .address(newUser.getAddress())
+                    .phoneNumber(newUser.getPhoneNumber())
+                    .fullName(newUser.getFullName())
+                    .username(newUser.getUsername())
+                    .email(newUser.getEmail())
+                    .build();
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
+    }
+
 }

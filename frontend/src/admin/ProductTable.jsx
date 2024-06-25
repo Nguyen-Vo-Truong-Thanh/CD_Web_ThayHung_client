@@ -9,13 +9,27 @@ const ProductTable = () => {
     const [newProduct, setNewProduct] = useState({ name: '', imageUrl: '', description: '', quantity: 0, price: 0, category: '' });
     const [search, setSearch] = useState('');
 
-    useEffect(() => {
-        fetch('http://localhost:8080/api/orders/listProduct')
+    const fetchProducts = () => {
+        const accessToken = sessionStorage.getItem('accessToken');
+        fetch('http://localhost:8080/api/orders/listProduct', {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            },
+        })
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));
+    };
 
-        fetch('http://localhost:8080/api/product-category')
+    useEffect(() => {
+        fetchProducts();
+        const accessToken = sessionStorage.getItem('accessToken');
+        fetch('http://localhost:8080/api/product-category', {
+            headers: {
+
+                'Authorization': `Bearer ${accessToken}`
+            },
+        })
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -26,78 +40,90 @@ const ProductTable = () => {
         setNewProduct(products[index]);
     };
 
-    const handleDelete = (index, productId) => {
-        fetch(`http://localhost:8080/api/products/id/${productId}`, {
-            method: 'DELETE'
-        })
-            .then(response => response.json())
-            .then(data => { setProducts(data); console.log(data) })
-            .catch(error => console.error('Error fetching products:', error));
-        const updatedProducts = [...products];
-        updatedProducts.splice(index, 1);
-        setProducts(updatedProducts);
-        swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success")
-            .then(() => {
-                // Redirect to a new page after the alert is closed
-                window.location.href = '/productAdmin'; // Change '/new-page' to your desired URL
+    const handleDelete = async (index, productId) => {
+        try {
+            const accessToken = sessionStorage.getItem('accessToken');
+
+            const response = await fetch(`http://localhost:8080/api/products/id/${productId}`, {
+                headers: {
+                    method: 'DELETE',
+                    'Authorization': `Bearer ${accessToken}`
+                },
             });
 
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const updatedProducts = [...products];
+            updatedProducts.splice(index, 1);
+            setProducts(updatedProducts);
+            swal("Thành Công!", "Bạn Đã Xóa Thành Công", "success");
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            swal("Lỗi!", "Không thể xóa sản phẩm", "error");
+        }
     };
 
-    const handleSave = (index, productId) => {
-        fetch(`http://localhost:8080/api/products/update/${productId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newProduct)
-        })
-            .then(response => response.json())
-            .then(data => { setProducts(data); console.log(data) })
-            .catch(error => console.error('Error fetching products:', error));
-
-        const updatedProducts = [...products];
-        updatedProducts[index] = newProduct;
-        // make a put api to back end 
-        setProducts(updatedProducts);
-        setEditing(index);
-        swal("Thành Công!", "Bạn Đã Cập Nhật Thành Công", "success")
-            .then(() => {
-                // Redirect to a new page after the alert is closed
-                window.location.href = '/productAdmin'; // Change '/new-page' to your desired URL
+    const handleSave = async (index, productId) => {
+        try {
+            const accessToken = sessionStorage.getItem('accessToken');
+            const response = await fetch(`http://localhost:8080/api/products/update/${productId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify(newProduct)
             });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            const updatedProducts = [...products];
+            updatedProducts[index] = data;
+            setProducts(updatedProducts);
+            setEditing(null);
+            swal("Thành Công!", "Bạn Đã Cập Nhật Thành Công", "success");
+        } catch (error) {
+            console.error('Error updating product:', error);
+            swal("Lỗi!", "Không thể cập nhật sản phẩm", "error");
+        }
     };
 
-    const handleAdd = () => {
-        fetch('http://localhost:8080/api/products/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: newProduct.name,
-                imageUrl: newProduct.imageUrl,
-                description: newProduct.description,
-                quantity: newProduct.quantity,
-                price: newProduct.price,
-                category: { id: newProduct.category }  // Ensure category is sent as an object with an id
-            }),
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setProducts([...products, data]);
-                setNewProduct({ name: '', imageUrl: '', description: '', quantity: 0, price: 0, category: '' });
-                swal("Thành Công!", "Bạn Đã Thêm Thành Công", "success");
-            })
-            .catch(error => {
-                console.error('Error adding product:', error);
-                swal("Lỗi!", "Không thể thêm sản phẩm", "error");
+    const handleAdd = async () => {
+        try {
+            const accessToken = sessionStorage.getItem('accessToken');
+            const response = await fetch('http://localhost:8080/api/products/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify({
+                    name: newProduct.name,
+                    imageUrl: newProduct.imageUrl,
+                    description: newProduct.description,
+                    quantity: newProduct.quantity,
+                    price: newProduct.price,
+                    category: { id: newProduct.category }  // Ensure category is sent as an object with an id
+                }),
             });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            setProducts([...products, data]);
+            setNewProduct({ name: '', imageUrl: '', description: '', quantity: 0, price: 0, category: '' });
+            swal("Thành Công!", "Bạn Đã Thêm Thành Công", "success");
+        } catch (error) {
+            console.error('Error adding product:', error);
+            swal("Lỗi!", "Không thể thêm sản phẩm", "error");
+        }
     };
 
     const filteredProducts = products.filter(product =>
@@ -173,7 +199,6 @@ const ProductTable = () => {
                                     <td>{product.category.name}</td>
                                     <td>
                                         <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-pencil-alt"></i></button>
-                                        {/* <button className="btn btn-danger" onClick={() => handleDelete(index, product.id)}><i className="fas fa-trash"></i></button> */}
                                     </td>
                                 </>
                             )}

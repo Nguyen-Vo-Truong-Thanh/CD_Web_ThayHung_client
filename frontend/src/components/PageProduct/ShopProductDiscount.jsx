@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, message, Card, Image, Badge } from 'antd';
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const ShopProductDiscount = () => {  
+const ShopProductDiscount = () => {
   const [lstData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
@@ -20,9 +20,15 @@ const ShopProductDiscount = () => {
     const loadData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8080/api/products/byDiscount?discount=1`);
+        const accessToken = sessionStorage.getItem('accessToken');
+        const response = await fetch(`http://localhost:8080/api/products/byDiscount?discount=1`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+        });
         const data = await response.json();
-        
+
         if (isMounted) {
           setData((data && data.length > 0) ? data : []);
           setLoading(false);
@@ -37,7 +43,7 @@ const ShopProductDiscount = () => {
     loadData();
 
     return () => {
-      isMounted = false; 
+      isMounted = false;
     };
   }, []);
 
@@ -54,7 +60,7 @@ const ShopProductDiscount = () => {
             <Badge.Ribbon text={`${item.discount}%`} className="code-box-card">
               <Card className="w-100 h-100">
                 <div className="w-100 h-img-cart d-flex justify-content-center">
-                  <Image className="w-100 h-100" src={item.imageUrl}/>
+                  <Image className="w-100 h-100" src={item.imageUrl} />
                 </div>
                 <div className="w-100 mt-4">
                   <p className="code-box-title">{item.name}</p>
@@ -62,7 +68,7 @@ const ShopProductDiscount = () => {
                 <div className="w-100">
                   {item.discount > 0 ? (
                     <div>
-                      <p className="code-box-price" style={{ textDecoration: 'line-through', color: 'gray',marginBottom:0 }}>
+                      <p className="code-box-price" style={{ textDecoration: 'line-through', color: 'gray', marginBottom: 0 }}>
                         {item.price.toLocaleString()} VNĐ
                       </p>
                       <p className="code-box-price">

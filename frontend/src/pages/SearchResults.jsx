@@ -29,7 +29,14 @@ const SearchResults = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/api/products/search?keyword=${keyword}`);
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await axios.get(`http://localhost:8080/api/products/search?keyword=${keyword}`, {
+        headers: {
+
+          'Authorization': `Bearer ${accessToken}`
+        }
+      },
+      );
       setShopItems(response.data);
       setLoading(false);
     } catch (err) {

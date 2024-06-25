@@ -15,10 +15,12 @@ function Resetpassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            const accessToken = sessionStorage.getItem('accessToken');
             const result = await fetch('http://localhost:8080/users/forgetPassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
                 },
                 body: JSON.stringify({ email }),
             });

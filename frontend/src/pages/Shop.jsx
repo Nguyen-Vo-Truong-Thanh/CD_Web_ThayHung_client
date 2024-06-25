@@ -15,7 +15,7 @@ const Shop = () => {
             <Categories />
           </div>
           <div className="col-md-9 col-sm-12">
-            <AllProduct className="col-md-8"/>
+            <AllProduct className="col-md-8" />
           </div>
         </div>
       </div>

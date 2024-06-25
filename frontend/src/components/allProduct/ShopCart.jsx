@@ -22,7 +22,12 @@ const ShopCart = () => {
   const fetchProducts = async (pageNumber) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/api/products/page?page=${pageNumber}&size=9`);
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await fetch(`http://localhost:8080/api/products/page?page=${pageNumber}&size=9`, {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
@@ -75,7 +80,7 @@ const ShopCart = () => {
                   <div className="w-100">
                     {item.discount > 0 ? (
                       <div>
-                        <p className="code-box-price" style={{ textDecoration: "line-through", color: "gray", marginBottom:0 }}>
+                        <p className="code-box-price" style={{ textDecoration: "line-through", color: "gray", marginBottom: 0 }}>
                           {item.price.toLocaleString()} VNĐ
                         </p>
                         <p className="code-box-price">{calculateDiscountedPrice(item.price, item.discount).toLocaleString()} VNĐ</p>

@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.nvtt.backend.controller;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
@@ -18,6 +19,7 @@ import vn.edu.hcmuaf.nvtt.backend.mapper.ProductDtoMapper;
 import vn.edu.hcmuaf.nvtt.backend.repository.OrderRepository;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductRepository;
 import vn.edu.hcmuaf.nvtt.backend.repository.UserRepository;
+import vn.edu.hcmuaf.nvtt.backend.services.OrderService;
 
 import java.util.List;
 @RequiredArgsConstructor
@@ -28,6 +30,10 @@ public class OrderController {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
+    @Autowired
+    private final OrderService orderService;
+
+
 
     @PostMapping
     public ResponseEntity<OrderEntity> createOrder(@RequestBody OrderRequest request,  HttpSession session) {
@@ -85,5 +91,14 @@ public class OrderController {
     @GetMapping("/listOrder")
     public  List<OrderDto>orderDtos(){
         return orderRepository.getAllOrder();
+    }
+    @PutMapping("/{id}/status")
+    public ResponseEntity<String> updateOrderStatus(@PathVariable Long id, @RequestParam int newStatus) {
+        boolean updated = orderService.updateOrderStatus(id, newStatus);
+        if (updated) {
+            return ResponseEntity.ok("Order status updated successfully.");
+        } else {
+            return ResponseEntity.status(404).body("Order not found.");
+        }
     }
 }

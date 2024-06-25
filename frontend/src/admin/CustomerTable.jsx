@@ -9,7 +9,15 @@ const Table = () => {
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:8080/getAllUser')
+        const accessToken = sessionStorage.getItem('accessToken');
+        fetch('http://localhost:8080/getAllUser',
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+            }
+        )
             .then(response => response.json())
             .then(data => {
                 setEmployees(data);
@@ -70,43 +78,43 @@ const Table = () => {
             </div>
             <table className="table table-bordered">
                 <thead>
-                <tr>
-                    <th>Tên Khách hàng</th>
-                    <th>Số Điện Thoại</th>
-                    <th>Email</th>
-                    <th>Địa Chỉ</th>
-                    <th>Tính Năng</th>
-                </tr>
+                    <tr>
+                        <th>Tên Khách hàng</th>
+                        <th>Số Điện Thoại</th>
+                        <th>Email</th>
+                        <th>Địa Chỉ</th>
+                        <th>Tính Năng</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {filteredEmployees.map((employee, index) => (
-                    <tr key={index}>
-                        {editing === index ? (
-                            <>
-                                <td><input type="text" className="form-control" value={newEmployee.tenKhachHang} onChange={(e) => setNewEmployee({ ...newEmployee, tenKhachHang: e.target.value })} /></td>
-                                <td><input type="text" className="form-control" value={newEmployee.soDienThoai} onChange={(e) => setNewEmployee({ ...newEmployee, soDienThoai: e.target.value })} /></td>
-                                <td><input type="text" className="form-control" value={newEmployee.email} onChange={(e) => setNewEmployee({ ...newEmployee, email: e.target.value })} /></td>
-                                <td><input type="text" className="form-control" value={newEmployee.diaChi} onChange={(e) => setNewEmployee({ ...newEmployee, diaChi: e.target.value })} /></td>
-                                <td>
-                                    <button className="btn btn-success me-2" onClick={() => handleSave(index)}><i className="fas fa-save"></i></button>
-                                    <button className="btn btn-secondary me-2" onClick={() => setEditing(null)}><i className="fas fa-times"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
-                                </td>
-                            </>
-                        ) : (
-                            <>
-                                <td>{employee.tenKhachHang}</td>
-                                <td>{employee.soDienThoai}</td>
-                                <td>{employee.email}</td>
-                                <td>{employee.diaChi}</td>
-                                <td>
-                                    <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-pencil-alt"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
-                                </td>
-                            </>
-                        )}
-                    </tr>
-                ))}
+                    {filteredEmployees.map((employee, index) => (
+                        <tr key={index}>
+                            {editing === index ? (
+                                <>
+                                    <td><input type="text" className="form-control" value={newEmployee.tenKhachHang} onChange={(e) => setNewEmployee({ ...newEmployee, tenKhachHang: e.target.value })} /></td>
+                                    <td><input type="text" className="form-control" value={newEmployee.soDienThoai} onChange={(e) => setNewEmployee({ ...newEmployee, soDienThoai: e.target.value })} /></td>
+                                    <td><input type="text" className="form-control" value={newEmployee.email} onChange={(e) => setNewEmployee({ ...newEmployee, email: e.target.value })} /></td>
+                                    <td><input type="text" className="form-control" value={newEmployee.diaChi} onChange={(e) => setNewEmployee({ ...newEmployee, diaChi: e.target.value })} /></td>
+                                    <td>
+                                        <button className="btn btn-success me-2" onClick={() => handleSave(index)}><i className="fas fa-save"></i></button>
+                                        <button className="btn btn-secondary me-2" onClick={() => setEditing(null)}><i className="fas fa-times"></i></button>
+                                        <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
+                                    </td>
+                                </>
+                            ) : (
+                                <>
+                                    <td>{employee.tenKhachHang}</td>
+                                    <td>{employee.soDienThoai}</td>
+                                    <td>{employee.email}</td>
+                                    <td>{employee.diaChi}</td>
+                                    <td>
+                                        <button className="btn btn-secondary me-2" onClick={() => handleEdit(index)}><i className="fas fa-pencil-alt"></i></button>
+                                        <button className="btn btn-danger" onClick={() => handleDelete(index)}><i className="fas fa-trash"></i></button>
+                                    </td>
+                                </>
+                            )}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <div id="pageNavPosition" className="text-right"></div>

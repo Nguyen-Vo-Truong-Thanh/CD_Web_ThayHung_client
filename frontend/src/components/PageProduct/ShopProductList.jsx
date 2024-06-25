@@ -22,10 +22,22 @@ const ShopProductList = ({ category }) => {
       setLoading(true);
       let data = null;
       if (category && category.id === 1000) {
-        const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`);
+        const accessToken = sessionStorage.getItem('accessToken');
+        const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+        });
         data = await response.json();
       } else {
-        const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${category.id}`);
+        const accessToken = sessionStorage.getItem('accessToken');
+        const response = await fetch(`http://localhost:8080/api/products/byCategory?id=${category.id}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        });
         data = await response.json();
       }
       setData((data && data.length > 0) ? data : []);
@@ -39,7 +51,7 @@ const ShopProductList = ({ category }) => {
   const calculateDiscountedPrice = (price, discount) => {
     return price - (price * discount / 100);
   };
-  
+
   return (
     <>
       {contextHolder}

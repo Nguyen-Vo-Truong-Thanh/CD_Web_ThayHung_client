@@ -8,18 +8,19 @@ const OrderHistory = () => {
 
   useEffect(() => {
     // const token = sessionStorage.getItem('token');
+
     const userId = sessionStorage.getItem('userId');
     // if (!token || !userId) {
     if (!userId) {
-      console.error('Không tìm thấy token hoặc userId trong sessionStorage.');
+      console.error('Không tìm thấy token hoặc userId');
       return;
     }
     console.log(userId);
-
+    const accessToken = sessionStorage.getItem('accessToken');
     fetch(`http://localhost:8080/api/orders/users/${userId}`, {
-      // headers: {
-      //   'Authorization': `Bearer ${token}`
-      // }
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
     })
       .then(response => {
         if (!response.ok) {

@@ -17,12 +17,19 @@ const Categories = () => {
     loadData();
   }, []);
 
-  const loadData = async () => { 
+  const loadData = async () => {
     try {
       setLoading(true);
-      let data = [];  
-
-      const response = await fetch(`http://localhost:8080/api/product-category/getAll`); 
+      let data = [];
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await fetch(`http://localhost:8080/api/product-category/getAll`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          },
+        }
+      );
       data = await response.json();
 
       setData((data && data.length > 0) ? data : []);

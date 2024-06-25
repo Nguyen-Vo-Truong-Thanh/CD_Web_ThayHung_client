@@ -2,12 +2,11 @@ package vn.edu.hcmuaf.nvtt.backend.services;
 
 import org.springframework.stereotype.Service;
 import vn.edu.hcmuaf.nvtt.backend.entity.ProductCategory;
-import vn.edu.hcmuaf.nvtt.backend.model.ProductCategoryDto;
+import vn.edu.hcmuaf.nvtt.backend.payload.model.ProductCategoryDto;
 import vn.edu.hcmuaf.nvtt.backend.repository.ProductCategoryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductCategoryService {
