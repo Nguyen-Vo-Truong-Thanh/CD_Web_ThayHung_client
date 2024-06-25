@@ -47,19 +47,18 @@ const Checkout = () => {
       paymentMethod: formData.get('paymentMethod'),
       price: selectedItem.discount ? calculateDiscountedPrice(selectedItem.price, selectedItem.discount) : selectedItem.price,
       productId: selectedItem?.id,
-      userId: 1,
+      userId: 37,
 
     };
 
     console.log("userInfo", userInfo);
     console.log("userId", userId);
-
-
     try {
+      const accessToken = sessionStorage.getItem('accessToken');
       const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Authorization': `Bearer ${accessToken}`
         },
         body: JSON.stringify(orderData)
       });

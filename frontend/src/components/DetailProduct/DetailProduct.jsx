@@ -17,7 +17,13 @@ const DetailProduct = ({ addToCart }) => {
   const loadProduct = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:8080/api/products/product/${id}`);
+      const accessToken = sessionStorage.getItem('accessToken');
+      const response = await fetch(`http://localhost:8080/api/products/product/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
+        },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch product data");
       }

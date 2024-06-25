@@ -13,5 +13,7 @@ public interface UserService extends UserDetailsService {
     void resetPassword(ResetPasswordRequest request);
 
     UserEntity getUserByUserName(String email);
+    LoginResponseV2 loginV2(LoginRequest request);
+    RegisterResponse registerV2(RegisterRequest registerRequest);
 
 }

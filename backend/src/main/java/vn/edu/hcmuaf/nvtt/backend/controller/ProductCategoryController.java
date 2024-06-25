@@ -1,14 +1,11 @@
 package vn.edu.hcmuaf.nvtt.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.hcmuaf.nvtt.backend.entity.Product;
 import vn.edu.hcmuaf.nvtt.backend.entity.ProductCategory;
-import vn.edu.hcmuaf.nvtt.backend.model.ProductCategoryDto;
+import vn.edu.hcmuaf.nvtt.backend.payload.model.ProductCategoryDto;
 import vn.edu.hcmuaf.nvtt.backend.services.ProductCategoryService;
-import vn.edu.hcmuaf.nvtt.backend.services.ProductService;
 
 import java.util.List;
 

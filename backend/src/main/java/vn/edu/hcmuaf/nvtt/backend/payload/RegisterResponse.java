@@ -1,16 +1,19 @@
 package vn.edu.hcmuaf.nvtt.backend.payload;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 @Data
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisterResponse {
     private String fullName;
     private String email;
     private String phoneNumber;
+    @JsonIgnore
     private String password;
     private String username;
     private String address;

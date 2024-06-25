@@ -13,10 +13,10 @@ const NavbarAdmin = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="/customerAdmin" data-bs-toggle="tooltip" data-bs-placement="bottom" title="NHÂN VIÊN">NHÂN VIÊN</a>
+                            <a className="nav-link" href="/customerAdmin" data-bs-toggle="tooltip" data-bs-placement="bottom" title="KHÁCH HÀNG">KHÁCH HÀNG</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/productAdmin" data-bs-placement="bottom" title="Sản phẩm">Sản phẩm</a>
+                            <a className="nav-link" href="/productAdmin" data-bs-placement="bottom" title="Sản phẩm">SẢN PHẨM</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/orderAdmin" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Đơn Hàng">ĐƠN HÀNG</a>

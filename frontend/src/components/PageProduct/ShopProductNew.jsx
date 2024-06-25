@@ -4,7 +4,7 @@ import { Button, message, Card, Image, Badge } from 'antd';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const ShopProductNew = ({ }) => {  
+const ShopProductNew = ({ }) => {
   const [lstData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
@@ -15,14 +15,20 @@ const ShopProductNew = ({ }) => {
   };
 
   useEffect(() => {
-    let isMounted = true; 
+    let isMounted = true;
 
     const loadData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`);
+        const accessToken = sessionStorage.getItem('accessToken');
+        const response = await fetch(`http://localhost:8080/api/products/byStatus?status=new`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        });
         const data = await response.json();
-      
+
         if (isMounted) {
           setData((data && data.length > 0) ? data : []);
           setLoading(false);
@@ -40,7 +46,7 @@ const ShopProductNew = ({ }) => {
       isMounted = false;
     };
   }, []);
-  
+
   return (
     <>
       {contextHolder}

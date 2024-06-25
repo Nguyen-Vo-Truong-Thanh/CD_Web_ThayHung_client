@@ -11,9 +11,11 @@ function ProductAdmin() {
 
     const handleUpdateProduct = async (productId, updatedProductData) => {
         try {
+            const accessToken = sessionStorage.getItem('accessToken');
             const response = await axios.put(`http://localhost:8080/api/products/update/${productId}`, updatedProductData, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
                 }
             });
             console.log('Product updated successfully:', response.data);
